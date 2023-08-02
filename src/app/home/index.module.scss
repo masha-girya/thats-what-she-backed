@@ -1,0 +1,53 @@
+@use 'src/styles/variables.scss' as var;
+
+.container {
+  max-width: 1200px;
+  padding: 0 70px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 70px;
+
+  &__title {
+    font-size: 32px;
+    font-weight: 500;
+    max-width: 500px;
+    text-align: center;
+    line-height: 45px;
+    color: var.$main-color-tomato;
+  }
+
+  &__subtitle {
+    margin-top: 20px;
+    max-width: 800px;
+    text-align: center;
+  }
+}
+
+.button {
+//   border-radius: 16px;
+  margin-top: 50px;
+  text-transform: uppercase;
+  font-weight: 500;
+//   background-color: var.$color-pink;
+  border-bottom: 2px solid var.$color-pink;
+  color: var.$main-color-tomato;
+  padding: 15px 30px;
+  transition: all .4s ease;
+
+  &:hover {
+    background-color: var.$color-pink;
+    color: #FFFFFF;
+  }
+
+  &:active {
+    transform: scale(0.9);
+    background-color: #f03603;
+  }
+}

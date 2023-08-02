@@ -1,0 +1,6 @@
+{
+  "extends": ["next/core-web-vitals", "@mate-academy/eslint-config-react-typescript"],
+  "rules": {
+    "react/no-unescaped-entities": "off"
+  }
+}
