@@ -1,1 +1,1 @@
-export const endpoint = 'https://next-fcc-familyguy.vercel.app/api/'
+export const endpoint = 'https://thats-what-she-baked.vercel.app/api'
