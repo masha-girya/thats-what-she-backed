@@ -1,53 +1,166 @@
 @use 'src/styles/variables.scss' as var;
 
 .container {
-  max-width: 1200px;
-  padding: 0 70px;
+//   max-width: 1200px;
+//   padding: 0 70px;
+  overflow-x: hidden;
+  display: flex;
   width: 100%;
+  height: calc(100vh - 100px);
   margin: 0 auto;
 }
 
+.recipe {
+  position: relative;
+  width: 40%;
+  overflow: hidden;
+
+  display: flex;
+
+//   transform: translateX(50px);
+  transition: all .3s ease;
+  box-shadow: 0 0 10px 0 rgba(33, 33, 33, 0.1);
+
+  &:hover {
+    // transform: translateX(0);
+  }
+
+  &__link {
+    position: absolute;
+    bottom: 0;
+    z-index: 2;
+    left: 0;
+
+    padding: 15px 30px 50px;
+    width: 100%;
+    background-color: #FFFFFF;
+    transition: all .3s ease;
+
+    cursor: pointer;
+
+    p {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: 20px;
+      color: #00000090;
+
+      transition: all .3s ease;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 800;
+      font-size: 20px;
+      color: var.$main-color-tomato;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      background-color: #FFFFFF;
+      transition: all .3s ease;
+    }
+
+    &:hover h1 {
+      text-decoration: underline;
+    }
+  }
+
+  img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: calc(100vh - 50px);
+  
+    object-fit: cover;
+    object-position: center;
+    transition: all .3s ease;
+
+    filter: blur(5px);
+  }
+
+  &:hover img {
+    filter: blur(0);
+  }
+
+  &:hover .recipe__link {
+    background-color: #FFFFFF;
+  }
+}
+
 .home {
+  width: 60%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  padding-top: 70px;
+  align-items: flex-start;
+  padding-left: 100px;
 
   &__title {
     font-size: 32px;
     font-weight: 500;
     max-width: 500px;
-    text-align: center;
     line-height: 45px;
     color: var.$main-color-tomato;
   }
 
   &__subtitle {
-    margin-top: 20px;
-    max-width: 800px;
-    text-align: center;
+    margin-top: 40px;
+    max-width: 500px;
   }
 }
 
 .button {
-//   border-radius: 16px;
-  margin-top: 50px;
-  text-transform: uppercase;
-  font-weight: 500;
-//   background-color: var.$color-pink;
-  border-bottom: 2px solid var.$color-pink;
-  color: var.$main-color-tomato;
-  padding: 15px 30px;
-  transition: all .4s ease;
+  position: relative;
+  overflow: hidden;
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all .3s ease;
+
+  h1 {
+    position: relative;
+    z-index: 2;
+    padding: 5px 10px;
+    text-transform: uppercase;
+    font-weight: 400;
+    border-bottom: 1px solid var.$color-pink;
+    color: var.$color-pink;
+    font-style: italic;
+    transition: all .3s ease;
+    background-color: inherit;
+  }
+
+  svg {
+    margin-right: 5px;
+    margin-left: 5px;
+    position: absolute;
+    left: 0;
+    z-index: 0;
+    transform: translateX(-25px);
+    transition: all .3s ease;
+
+    path {
+      fill: var.$color-pink;
+      transition: all .3s ease;
+    }
+  }
 
   &:hover {
-    background-color: var.$color-pink;
-    color: #FFFFFF;
+    border-bottom-color: var.$main-color-tomato;
+  }
+
+  &:hover h1 {
+    color: var.$main-color-tomato;
+    padding-left: 30px;
+  }
+
+  &:hover svg {
+    transform: translateX(0);
+    path {
+      fill: var.$main-color-tomato
+    }
   }
 
   &:active {
     transform: scale(0.9);
-    background-color: #f03603;
   }
 }
