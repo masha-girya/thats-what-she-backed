@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 
 export async function GET(req: any, { params }: any) {
   try {
-    const recipe = recipes.data.find((item) => item.id === params.id);
+    const recipe = recipes.data.find((item) => item.slug === params.slug);
 
     if (!recipe) {
       return new NextResponse("not found", { status: 404 });

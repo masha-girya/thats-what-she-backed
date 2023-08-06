@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import Image from "next/image";
 import styles from "./index.module.scss";
 import { useRouter } from "next/navigation";
 import { IRecipe } from "@/types/recipe.type";
@@ -49,8 +50,16 @@ const Home = () => {
         </button>
       </div>
       <div className={styles.recipe}>
-        <img src={recipe?.mainImage}/>
-        <Link href={`/recipes/${recipe?.id}`} className={styles.recipe__link}>
+        <Image
+            src={recipe?.mainImage || ''}
+            alt={recipe?.title || ''}
+            width={600}
+            height={1000}
+            layout="responsive"
+            loading="lazy"
+        />
+        {/* <img src={recipe?.mainImage}/> */}
+        <Link href={`/recipes/${recipe?.slug}`} className={styles.recipe__link}>
             <h1>Нещодавній рецепт</h1>
            <p>{recipe?.title}</p>
         </Link>

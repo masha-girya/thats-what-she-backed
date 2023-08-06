@@ -17,12 +17,12 @@
 
   display: flex;
 
-//   transform: translateX(50px);
+  transform: translateX(25px);
   transition: all .3s ease;
   box-shadow: 0 0 10px 0 rgba(33, 33, 33, 0.1);
 
   &:hover {
-    // transform: translateX(0);
+    transform: translateX(0);
   }
 
   &__link {
@@ -73,7 +73,7 @@
     object-position: center;
     transition: all .3s ease;
 
-    filter: blur(5px);
+    // filter: blur(5px);
   }
 
   &:hover img {

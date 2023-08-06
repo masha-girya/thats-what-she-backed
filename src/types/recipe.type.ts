@@ -2,7 +2,7 @@ import { Category } from "./category.type";
 import { IIngredients } from "./ingredients.type";
 
 export interface IRecipe {
-  id: number;
+  slug: string;
   mainImage: string;
   title: string;
   description: string[];
@@ -21,5 +21,5 @@ export interface ITips {
   }
 
 export interface ISteps {
-  [key: keyof IIngredients]: string[];
+  [key: keyof IIngredients]: any[];
 }
