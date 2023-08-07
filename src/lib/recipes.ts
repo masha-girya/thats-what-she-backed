@@ -11,7 +11,6 @@ export async function getAllRecipes() {
 }
 
 export async function getRecipeBySlug(slug: string) {
-    console.log('in method', slug)
   const data = await fetch(`${endpoint}/recipes/${slug}`);
 
   if (!data.ok) {

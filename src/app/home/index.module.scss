@@ -39,6 +39,7 @@
     cursor: pointer;
 
     p {
+      margin-top: 10px;
       font-family: 'Cormorant Garamond', serif;
       font-weight: 500;
       font-size: 20px;
@@ -48,18 +49,21 @@
     }
 
     h1 {
+      width: max-content;
       font-family: 'Cormorant Garamond', serif;
-      font-weight: 800;
+      font-weight: 700;
       font-size: 20px;
+      line-height: 25px;
       color: var.$main-color-tomato;
       text-transform: uppercase;
       letter-spacing: 1px;
       background-color: #FFFFFF;
+      border-bottom: 2px solid transparent;
       transition: all .3s ease;
     }
 
     &:hover h1 {
-      text-decoration: underline;
+      border-bottom-color: var.$main-color-tomato;
     }
   }
 
