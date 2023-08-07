@@ -15,6 +15,7 @@ const Header = () => {
     return {
       home: ["Головна", "home"],
       recipes: ["Рецепти", "recipes"],
+      tips: ["Тіпси", "tips"],
       blog: ["Блог", "blog"],
       "about-me": ["Про мене", "about-me"],
     };
