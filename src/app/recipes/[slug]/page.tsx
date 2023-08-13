@@ -13,24 +13,24 @@ async function getRecipe(slug: string) {
 }
 
 const RecipePage = async ({ params }: any) => {
-  const { res } = await getRecipe(params.slug);
-  const {
-    title,
-    description,
-    mainImage,
-    ingredients,
-    steps,
-    bakingTime,
-    formSize,
-    amount,
-  } = res.recipe.recipe;
+//   const { res } = await getRecipe(params.slug);
+//   const {
+//     title,
+//     description,
+//     mainImage,
+//     ingredients,
+//     steps,
+//     bakingTime,
+//     formSize,
+//     amount,
+//   } = res.recipe.recipe;
 
   return (
     <div className={styles.recipe}>
       <div className={styles.recipe__header}>
-        <h1 className={styles.recipe__header__title}>{title}</h1>
-        <p className={styles.recipe__header__descFirst}>{description[0]}</p>
-        <Image
+        {/* <h1 className={styles.recipe__header__title}>{title}</h1> */}
+        {/* <p className={styles.recipe__header__descFirst}>{description[0]}</p> */}
+        {/* <Image
           src={mainImage || ""}
           alt={title || ""}
           width={600}
@@ -42,24 +42,24 @@ const RecipePage = async ({ params }: any) => {
           {description.slice(1).map((item: any) => (
             <p key={item.slice(0, 10)}>{item}</p>
           ))}
-        </div>
+        </div> */}
       </div>
       <div className={styles.recipe__prep}>
         <h3>
           <span className={styles.recipe__prep__title}>Час приготування: </span>
-          {bakingTime}
+          {/* {bakingTime} */}
         </h3>
         <h3>
           <span className={styles.recipe__prep__title}>Кількість порцій: </span>
-          {amount}
+          {/* {amount} */}
         </h3>
         <h3>
           <span className={styles.recipe__prep__title}>Розмір форми: </span>
-          {formSize}
+          {/* {formSize} */}
         </h3>
       </div>
       <div className={styles.recipe__steps}>
-        {Object.keys(steps).map((step) => (
+        {/* {Object.keys(steps).map((step) => (
           <div key={step}>
             <h2 className={styles.recipe__steps__title}>{step}</h2>
             <ul className={styles.recipe__steps__ingredients}>
@@ -98,7 +98,7 @@ const RecipePage = async ({ params }: any) => {
               }})}
             </div>
           </div>
-        ))}
+        ))} */}
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ import { ArrowIcon } from "@/components/icons/ArrowIcon";
 async function getRecipe() {
   try {
     const recipe = await getLastRecipe();
-    return { res: { recipe } };
+    return { recipe };
   } catch (error) {
     console.log("Error in fetching data");
     return { res: { error } };
@@ -15,8 +15,8 @@ async function getRecipe() {
 }
 
 const Home = async() => {
-  const { res } = await getRecipe();
-  const { title, mainImage, slug } = res.recipe.recipe;
+//   const { recipe } = await getRecipe();
+//   const { title, mainImage, slug } = recipe.recipe;
 
   return (
     <main className={styles.container}>
@@ -36,7 +36,7 @@ const Home = async() => {
           <h1>До рецептів</h1>
         </Link>
       </div>
-      <div className={styles.recipe}>
+      {/* <div className={styles.recipe}>
         <Image
           src={mainImage || ""}
           alt={title || ""}
@@ -49,7 +49,7 @@ const Home = async() => {
           <h1>Нещодавній рецепт</h1>
           <p>{title}</p>
         </Link>
-      </div>
+      </div> */}
     </main>
   );
 };
