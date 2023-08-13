@@ -105,15 +105,3 @@ const RecipePage = async ({ params }: any) => {
 };
 
 export default RecipePage;
-
-export async function getServerSideProps(context: any) {
-  const { slug } = context.params;
-
-  const data = await getRecipeBySlug(slug);
-
-  return {
-    props: {
-      data,
-    },
-  };
-}
