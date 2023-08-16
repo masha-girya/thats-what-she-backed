@@ -7,16 +7,16 @@ import { ArrowIcon } from "@/components/icons/ArrowIcon";
 async function getRecipe() {
   try {
     const recipe = await getLastRecipe();
-    return { res: { recipe } };
+    return { res: recipe.recipe };
   } catch (error) {
     console.log("Error in fetching data");
-    return { res: { error } };
+    return { res: error };
   }
 }
 
 const Home = async() => {
   const { res } = await getRecipe();
-  const { title, mainImage, slug } = res.recipe.recipe;
+  const { title, mainImage, slug } = res;
 
   return (
     <main className={styles.container}>
