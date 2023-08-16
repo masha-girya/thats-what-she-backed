@@ -24,12 +24,35 @@ const RecipePage = async ({ params }: any) => {
     bakingTime,
     formSize,
     amount,
+    tips,
   } = res;
+
+  const tipsNames = Object.keys(tips)
 
   return (
     <div className={styles.recipe}>
-      <div className={styles.recipe__header}>
-        <h1 className={styles.recipe__header__title}>{title}</h1>
+      <article className={styles.recipe__header}>
+        <h1 className={styles.recipe__header__title}>
+          {title}
+        </h1>
+        <div className={styles.recipe__tipBox}>
+          <div className={styles.recipe__tipList}>
+            <h5>Нотатки до рецепту:</h5>
+            {tipsNames.map(tip => (
+              <a href={`#${tip}`} key={tip} className={styles.recipe__tipList__tip}>
+                {tip}
+              </a>
+            ))}
+          </div>
+          <div className={styles.recipe__tipList}>
+            <h5>Основні процеси:</h5>
+            {Object.keys(steps).map(tip => (
+              <a href={`#${tip}`} key={tip} className={styles.recipe__tipList__tip}>
+                {tip}
+              </a>
+            ))}
+          </div>
+        </div>
         <p className={styles.recipe__header__descFirst}>{description[0]}</p>
         <Image
           src={mainImage || ""}
@@ -44,7 +67,7 @@ const RecipePage = async ({ params }: any) => {
             <p key={item.slice(0, 10)}>{item}</p>
           ))}
         </div>
-      </div>
+      </article>
       <div className={styles.recipe__prep}>
         <h3>
           <span className={styles.recipe__prep__title}>Час приготування: </span>
@@ -60,6 +83,12 @@ const RecipePage = async ({ params }: any) => {
         </h3>
       </div>
       <RecipeStep ingredients={ingredients} steps={steps}/>
+      {tipsNames.map(tip => (
+        <div key={tip} className={styles.tipText}>
+          <h1 id={tip}>{tip}</h1>
+          <p>{tips[tip]}</p>
+        </div>
+      ))}
     </div>
   );
 };

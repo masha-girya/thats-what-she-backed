@@ -1,15 +1,21 @@
 @use "src/styles/variables.scss" as var;
 
-$main-margin-left: 200px;
+@mixin boxShadow {
+  transition: all 0.3s linear;
+
+  &:hover {
+    // box-shadow: 0px 0px 43px 6px rgba(139,138,138,0.14);
+    box-shadow: 0px 0px 10px 2px rgba(139,138,138,0.14);
+  }
+}
 
 .recipe {
-  margin-bottom: 100px;
+  padding: 0 100px 0;
 
   &__header {
     margin-top: 50px;
-    padding-left: $main-margin-left;
     width: 100%;
-    max-width: 1000px;
+    max-width: 800px;
 
     &__title {
       font-family: "Cormorant Garamond", serif;
@@ -35,16 +41,78 @@ $main-margin-left: 200px;
     }
   }
 
-  &__prep {
-    margin-left: $main-margin-left;
-    margin-top: 50px;
-    padding: 15px 50px;
-    box-sizing: border-box;
-    background-color: var.$color-apricot;
+  &__tipBox {
+    display: flex;
+    column-gap: 50px;
+  }
+
+  &__tipList {
+    margin-top: 20px;
     width: max-content;
+    padding: 32px;
+    background-color: rgba(242, 234, 232, 0.2039215686);
+    border-radius: 10px;
+
+    h5 {
+      margin-bottom: 5px;
+      font-size: 18px;
+      font-weight: 500;
+      color: #00000080;
+    }
+
+    &__tip {
+      color: var.$main-color-tomato;
+      font-style: italic;
+      padding-bottom: 2px;
+      border-bottom: 1px solid transparent;
+      margin-right: 20px;
+      transition: all 0.3s ease;
+    
+      &:hover {
+        border-bottom-color: var.$main-color-tomato;
+      }
+    }
+  }
+
+  &__prep {
+    margin-top: 50px;
+    padding: 15px 30px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    background-color: rgba(242, 234, 232, 0.2039215686);
+    width: max-content;
+    @include boxShadow();
 
     &__title {
-      font-weight: 700;
+      font-weight: 500;
+      font-style: italic;
+      color: var.$main-color-tomato;
+      margin-right: 10px;
     }
+  }
+}
+
+.tipText {
+  max-width: 500px;
+  padding: 32px;
+  margin-top: 50px;
+  background-color: rgba(242, 234, 232, 0.2039215686);
+  border-radius: 10px;
+  @include boxShadow();
+
+  h1 {
+    margin-bottom: 10px;
+    font-size: 25px;
+    font-weight: 600;
+    color: var.$main-color-tomato;
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  &:hover {
   }
 }

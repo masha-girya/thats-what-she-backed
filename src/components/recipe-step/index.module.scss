@@ -1,9 +1,6 @@
 @use "src/styles/variables.scss" as var;
 
-$main-margin-left: 200px;
-
 .steps {
-  margin-left: $main-margin-left;
   max-width: 800px;
   margin-top: 50px;
 
