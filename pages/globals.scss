@@ -1,0 +1,56 @@
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-weight: normal;
+  font-size: 16px;
+  src: url(../src/styles/fonts/CormorantGaramond-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'Manrope';
+  font-weight: normal;
+  font-size: 16px;
+  src: url(../src/styles/fonts/Manrope-Regular.ttf);
+}
+
+:root, html, body {
+  font-family: 'Manrope', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+  
+body {
+  margin: 0;
+//   background-color: #FCC10020;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+h1, h2, h3, h4, h5, p, ul, li {
+  margin: 0;
+  font-family: 'Manrope', sans-serif;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+input {
+  border: none;
+  outline: none;
+}

@@ -6,10 +6,10 @@ import LogoImg from "./assets/1.png";
 import Link from "next/link";
 import { useMemo } from "react";
 import classNames from "classnames";
-import { usePathname } from "next/navigation";
+import { useRouter } from "next/router";
 
 const Header = () => {
-  const pathname = usePathname();
+  const router = useRouter();
 
   const nav = useMemo(() => {
     return {
@@ -29,14 +29,16 @@ const Header = () => {
           <nav className={styles.header__nav}>
             <ul>
               {Object.values(nav).map((item) => (
-                <li
-                  key={item[1]}
-                  className={classNames(styles.header__navLink, {
-                    [styles.header__navLink_active]:
-                      item[1] === pathname?.slice(1),
-                  })}
-                >
-                  <Link href={`/${item[1]}`}>{item[0]}</Link>
+                <li key={item[1]}>
+                  <a
+                    href={`/${item[1]}`}
+                    className={classNames(styles.header__link, {
+                      [styles.header__link_active]:
+                        item[1] === router.pathname.slice(1),
+                    })}
+                  >
+                    {item[0]}
+                  </a>
                 </li>
               ))}
             </ul>

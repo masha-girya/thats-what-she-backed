@@ -6,6 +6,7 @@
 
   &__title {
     margin-top: 50px;
+    margin-bottom: 10px;
     font-size: 40px;
     font-weight: 600;
     color: var.$main-color-tomato;
@@ -14,6 +15,7 @@
 
   &__ingredients {
     list-style: disc inside;
+    color: rgba(0, 0, 0, 0.5019607843);
 
     li::marker {
       color: var.$main-color-tomato;
@@ -31,6 +33,7 @@
     max-width: 1000px;
     margin-top: 20px;
     display: flex;
+    flex-wrap: wrap;
     width: max-content;
     gap: 35px;
 
@@ -42,8 +45,8 @@
   &__image {
     object-fit: cover;
     object-position: center;
-    height: 500px;
-    width: 500px;
+    height: 400px;
+    width: 400px;
 
     &_last {
       object-fit: contain;

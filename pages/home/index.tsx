@@ -3,20 +3,13 @@ import Link from "next/link";
 import styles from "./index.module.scss";
 import { getLastRecipe } from "@/lib/recipes";
 import { ArrowIcon } from "@/components/icons/ArrowIcon";
+import { useCallback, useEffect, useState } from "react";
+import { IRecipe } from "@/types/recipe.type";
+import type { InferGetStaticPropsType, GetStaticProps } from 'next'
 
-async function getRecipe() {
-  try {
-    const recipe = await getLastRecipe();
-    return { res: recipe.recipe };
-  } catch (error) {
-    console.log("Error in fetching data");
-    return { res: error };
-  }
-}
-
-const Home = async() => {
-  const { res } = await getRecipe();
-  const { title, mainImage, slug } = res;
+const Home = ({
+    recipe,
+  }: InferGetStaticPropsType<typeof getStaticProps>) => {
 
   return (
     <main className={styles.container}>
@@ -31,27 +24,39 @@ const Home = async() => {
           <br />Я тут, щоб надихнути вас.
         </h2>
         {/* <h2 className={styles.home__subtitle}>Кожен рецепт написаний детально, розкриваючи кожне питання, яке може стати у вас на шляху його приготування</h2> */}
-        <Link href="/recipes" className={styles.button}>
+        <a href="/recipes" className={styles.button}>
           <ArrowIcon />
           <h1>До рецептів</h1>
-        </Link>
+        </a>
       </div>
       <div className={styles.recipe}>
-        <Image
-          src={mainImage || ""}
-          alt={title || ""}
-          width={600}
-          height={1000}
-          layout="responsive"
-          loading="lazy"
-        />
-        <Link href={`/recipes/${slug}`} className={styles.recipe__link}>
+        <img src={recipe?.mainImage} alt={recipe?.title || ""} />
+        <a href={`/recipes/${recipe?.slug}`} className={styles.recipe__link}>
           <h1>Нещодавній рецепт</h1>
-          <p>{title}</p>
-        </Link>
+          <p>{recipe?.title}</p>
+        </a>
       </div>
     </main>
   );
 };
 
 export default Home;
+
+
+// export const getServerSideProps: GetServerSideProps<{
+//   recipe: IRecipe
+// }> = async () => {
+//   const recipe = await getLastRecipe();
+
+//   return { props: { recipe } };
+// }
+
+export const getStaticProps: GetStaticProps<{
+  recipe: IRecipe
+}> = async () => {
+  const recipe = await getLastRecipe();
+
+  return {
+    props: { recipe },
+  };
+};

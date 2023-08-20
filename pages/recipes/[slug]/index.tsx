@@ -2,19 +2,10 @@ import Image from "next/image";
 import styles from "./index.module.scss";
 import { getRecipeBySlug } from "@/lib/recipes";
 import RecipeStep from "@/components/recipe-step";
+import { GetServerSideProps, GetServerSidePropsContext } from "next";
+import { IRecipe } from "@/types/recipe.type";
 
-async function getRecipe(slug: string) {
-  try {
-    const recipe = await getRecipeBySlug(slug);
-    return { res: recipe.recipe };
-  } catch (error) {
-    console.log("Error in fetching data");
-    return { res: error };
-  }
-}
-
-const RecipePage = async ({ params }: any) => {
-  const { res } = await getRecipe(params.slug);
+const RecipePage = ({ recipe }: any) => {
   const {
     title,
     description,
@@ -25,9 +16,9 @@ const RecipePage = async ({ params }: any) => {
     formSize,
     amount,
     tips,
-  } = res;
+  } = recipe;
 
-  const tipsNames = Object.keys(tips)
+  const tipsNames = Object.keys(tips);
 
   return (
     <div className={styles.recipe}>
@@ -38,22 +29,32 @@ const RecipePage = async ({ params }: any) => {
         <div className={styles.recipe__tipBox}>
           <div className={styles.recipe__tipList}>
             <h5>Нотатки до рецепту:</h5>
-            {tipsNames.map(tip => (
-              <a href={`#${tip}`} key={tip} className={styles.recipe__tipList__tip}>
+            {tipsNames.map((tip) => (
+              <a
+                href={`#${tip}`}
+                key={tip}
+                className={styles.recipe__tipList__tip}
+              >
                 {tip}
               </a>
             ))}
           </div>
           <div className={styles.recipe__tipList}>
             <h5>Основні процеси:</h5>
-            {Object.keys(steps).map(tip => (
-              <a href={`#${tip}`} key={tip} className={styles.recipe__tipList__tip}>
+            {Object.keys(steps).map((tip) => (
+              <a
+                href={`#${tip}`}
+                key={tip}
+                className={styles.recipe__tipList__tip}
+              >
                 {tip}
               </a>
             ))}
           </div>
         </div>
-        <p className={styles.recipe__header__descFirst}>{description[0]}</p>
+        <p className={styles.recipe__header__descFirst}>
+          {description[0]}
+        </p>
         <Image
           src={mainImage || ""}
           alt={title || ""}
@@ -70,20 +71,20 @@ const RecipePage = async ({ params }: any) => {
       </article>
       <div className={styles.recipe__prep}>
         <h3>
-          <span className={styles.recipe__prep__title}>Час приготування: </span>
+          <span className={styles.recipe__prep__title}>⏳ час приготування: </span>
           {bakingTime}
         </h3>
         <h3>
-          <span className={styles.recipe__prep__title}>Кількість порцій: </span>
+          <span className={styles.recipe__prep__title}>🍽️ кількість порцій: </span>
           {amount}
         </h3>
         <h3>
-          <span className={styles.recipe__prep__title}>Розмір форми: </span>
+          <span className={styles.recipe__prep__title}>🥧 розмір форми: </span>
           {formSize}
         </h3>
       </div>
-      <RecipeStep ingredients={ingredients} steps={steps}/>
-      {tipsNames.map(tip => (
+      <RecipeStep ingredients={ingredients} steps={steps} />
+      {tipsNames.map((tip) => (
         <div key={tip} className={styles.tipText}>
           <h1 id={tip}>{tip}</h1>
           <p>{tips[tip]}</p>
@@ -94,3 +95,14 @@ const RecipePage = async ({ params }: any) => {
 };
 
 export default RecipePage;
+
+export const getServerSideProps: GetServerSideProps<{
+  recipe: IRecipe;
+}> = async (context: GetServerSidePropsContext) => {
+  const { params } = context;
+  const recipe = await getRecipeBySlug(params?.slug as string);
+
+  return {
+    props: { recipe },
+  };
+};

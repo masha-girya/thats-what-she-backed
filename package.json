@@ -6,28 +6,28 @@
     "dev": "next dev -p 7492",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "build:analyze": "ANALYZE=true yarn build"
   },
   "dependencies": {
-    "@mate-academy/eslint-config-react-typescript": "^1.0.11",
-    "@types/node": "20.4.2",
-    "@types/react": "18.2.15",
-    "@types/react-dom": "18.2.7",
-    "autoprefixer": "10.4.14",
+    "@next/bundle-analyzer": "^10.0.5",
+    "@types/react-transition-group": "^4.4.6",
     "classnames": "^2.3.2",
     "cors": "^2.8.5",
-    "eslint": "8.45.0",
-    "eslint-config-next": "13.4.10",
-    "next": "13.4.10",
-    "next-connect": "^1.0.0",
-    "postcss": "8.4.26",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "sass": "^1.63.6",
-    "tailwindcss": "3.3.3",
-    "typescript": "5.1.6"
+    "next": "^12.1.6",
+    "next-compose-plugins": "^2.2.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-transition-group": "^4.4.5",
+    "sass": "^1.32.5"
   },
   "devDependencies": {
-    "@types/cors": "^2.8.13"
+    "@mate-academy/eslint-config-react-typescript": "^1.0.11",
+    "@types/cors": "^2.8.13",
+    "@types/node": "^14.14.13",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "eslint": "8.45.0",
+    "eslint-config-next": "13.4.10",
+    "typescript": "^4.1.3"
   }
 }

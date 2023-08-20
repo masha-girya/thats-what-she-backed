@@ -24,7 +24,7 @@
     }
 
     &__descFirst {
-      margin-top: 20px;
+      margin: 20px 0;
     }
 
     img {
@@ -83,9 +83,13 @@
     width: max-content;
     @include boxShadow();
 
+    h3 {
+      font-weight: 500;
+      color: rgba(0, 0, 0, 0.5019607843);
+    }
+
     &__title {
       font-weight: 500;
-      font-style: italic;
       color: var.$main-color-tomato;
       margin-right: 10px;
     }
