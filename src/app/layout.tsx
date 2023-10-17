@@ -2,6 +2,7 @@ import './globals.scss'
 import type { Metadata } from 'next'
 import { Cormorant } from 'next/font/google'
 import Header from '@/components/header'
+import Footer from '@/components/footer'
 
 const inter = Cormorant({ subsets: ['cyrillic', 'latin'] })
 
@@ -20,6 +21,7 @@ export default function RootLayout({
       <body>
         <Header/>
         {children}
+        <Footer />
     </body>
     </html>
   )

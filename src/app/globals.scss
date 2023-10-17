@@ -26,6 +26,12 @@
   }
 }
 
+html, body {
+  font-family: 'Montserrat', sans-serif;
+  height: 100%;
+  width: 100%;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -33,12 +39,6 @@ html {
 body {
   margin: 0;
 //   background-color: #FCC10020;
-}
-
-html, body {
-  font-family: 'Montserrat', sans-serif;
-  height: 100%;
-  width: 100%;
 }
 
 h1, h2, h3, h4, h5, p, ul, li {

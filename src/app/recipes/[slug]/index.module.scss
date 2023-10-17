@@ -1,9 +1,14 @@
 @use "src/styles/variables.scss" as var;
 
 $main-margin-left: 200px;
+$max-width: 728px;
 
 .recipe {
-  margin-bottom: 100px;
+  position: relative;
+  z-index: 1;
+  background-color: #FFFFFF;
+  padding-top: 100px;
+  padding-bottom: 100px;
 
   &__header {
     margin-top: 50px;
@@ -19,16 +24,19 @@ $main-margin-left: 200px;
 
     &__descFirst {
       margin-top: 20px;
+      max-width: $max-width;
     }
 
     img {
       margin-top: 30px;
-      max-width: 728px;
+      max-width: $max-width;
       object-fit: cover;
       object-position: center;
     }
 
     &__rightCol {
+      max-width: $max-width;
+
       p {
         margin-top: 20px;
       }

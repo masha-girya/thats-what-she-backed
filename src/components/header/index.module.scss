@@ -2,6 +2,9 @@
 @use 'src/styles/variables.scss' as var;
 
 .header {
+  position: fixed;
+  z-index: 3;
+  top: 0;
   height: 100px;
   box-sizing: border-box;
   padding: 0 70px;
@@ -23,6 +26,7 @@
   &__nav {
     justify-self: center;
     width: max-content;
+
     ul {
       display: flex;
       column-gap: 50px;

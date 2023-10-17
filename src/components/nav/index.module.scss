@@ -1,0 +1,38 @@
+@use 'src/styles/mixins.scss';
+@use 'src/styles/variables.scss' as var;
+
+.nav {
+  justify-self: center;
+  width: max-content;
+
+  &__list {
+    display: flex;
+    column-gap: 50px;
+  }
+
+  &__link {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 500;
+    border-bottom: 1px solid transparent;
+    padding: 0 5px;
+    transition: color .3s ease;
+    transition: border-bottom-color .2s ease-in;
+    cursor: pointer;
+  
+    &_active, &:hover {
+      border-bottom-color: var.$main-color-tomato;
+      color: var.$main-color-tomato;
+    }
+
+    &_footer {
+      color: #FFFFFF;
+
+      &:hover {
+        color: #FFFFFF;
+        border-bottom-color: #FFFFFF;
+      }
+    }
+  }
+}
+

@@ -36,7 +36,7 @@ const Home = async() => {
           <h1>До рецептів</h1>
         </Link>
       </div>
-      <div className={styles.recipe}>
+      <Link href={`/recipes/${slug}`} className={styles.recipe}>
         <Image
           src={mainImage || ""}
           alt={title || ""}
@@ -45,11 +45,11 @@ const Home = async() => {
           layout="responsive"
           loading="lazy"
         />
-        <Link href={`/recipes/${slug}`} className={styles.recipe__link}>
+        <div className={styles.recipe__link}>
           <h1>Нещодавній рецепт</h1>
           <p>{title}</p>
-        </Link>
-      </div>
+        </div>
+      </Link>
     </main>
   );
 };

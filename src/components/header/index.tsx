@@ -1,46 +1,23 @@
 "use client";
 
-import { SearchIcon } from "../icons/SearchIcon";
-import styles from "./index.module.scss";
-import LogoImg from "./assets/1.png";
-import Link from "next/link";
-import { useMemo } from "react";
-import classNames from "classnames";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
+import { SearchIcon } from "../icons/SearchIcon";
+import { Nav } from "../nav";
+import LogoImg from "./assets/1.png";
+import styles from "./index.module.scss";
 
 const Header = () => {
   const pathname = usePathname();
 
-  const nav = useMemo(() => {
-    return {
-      home: ["Головна", "home"],
-      recipes: ["Рецепти", "recipes"],
-      tips: ["Тіпси", "tips"],
-      blog: ["Блог", "blog"],
-      "about-me": ["Про мене", "about-me"],
-    };
-  }, []);
-
   return (
-    <div className={styles.header}>
+    <header className={styles.header}>
       <div className={styles.container}>
         <div className={styles.header__grid}>
-          <img alt="logo" src={LogoImg.src} className={styles.header__logo} />
-          <nav className={styles.header__nav}>
-            <ul>
-              {Object.values(nav).map((item) => (
-                <li
-                  key={item[1]}
-                  className={classNames(styles.header__navLink, {
-                    [styles.header__navLink_active]:
-                      item[1] === pathname?.slice(1),
-                  })}
-                >
-                  <Link href={`/${item[1]}`}>{item[0]}</Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+          <Link href="/">
+            <img alt="logo" src={LogoImg.src} className={styles.header__logo} />
+          </Link>
+          <Nav />
           <div className={styles.search}>
             <div className={styles.search__icon}>
               <SearchIcon />
@@ -53,7 +30,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 
