@@ -57,18 +57,19 @@
   width: max-content;
 
   &__input {
-    background-color: #F2EAE834;
+    background-color: #F2EAE880;
     color: #686868;
     letter-spacing: 1px;
     height: 100%;
     padding: 0 48px 0 20px;
     border-radius: 36px;
+    outline: none;
     max-width: 250px;
-    outline: 1px solid transparent;
+    border: 1px solid transparent;
     transition: all .3s ease;
   
     &:focus {
-      outline: 1px solid #FF879784;
+      border: 1px solid #FF879784;
     }
   }
 

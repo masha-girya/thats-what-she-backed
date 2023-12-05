@@ -9,7 +9,7 @@ const Footer = () => {
         <Nav isFooter />
         <ul className={styles.socials}>
           {SOCIALS.map(item => (
-            <li>
+            <li key={item.name}>
               <a href={item.link} title={item.name} target="_blanc">
                 {<item.icon/>}
               </a>

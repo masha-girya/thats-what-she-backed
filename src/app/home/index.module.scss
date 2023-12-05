@@ -1,18 +1,32 @@
 @use 'src/styles/variables.scss' as var;
 
-.container {
-//   max-width: 1200px;
-//   padding: 0 70px;
-  position: relative;
-  z-index: 1;
-  background-color: #FFFFFF;
-  overflow-x: hidden;
-  display: flex;
-  width: 100%;
-  height: calc(100vh);
-  margin: 0 auto;
-  padding-top: 100px;
+.main {
+  &__container {
+    position: relative;
+    z-index: 1;
+    background-color: #FFFFFF;
+    overflow-x: hidden;
+    display: flex;
+    width: 100%;
+    height: calc(100vh);
+    margin: 0 auto;
+    padding-top: 100px;
+  }
 }
+
+// .container {
+// //   max-width: 1200px;
+// //   padding: 0 70px;
+//   position: relative;
+//   z-index: 1;
+//   background-color: #FFFFFF;
+//   overflow-x: hidden;
+//   display: flex;
+//   width: 100%;
+//   height: calc(100vh);
+//   margin: 0 auto;
+//   padding-top: 100px;
+// }
 
 .recipe {
   position: relative;

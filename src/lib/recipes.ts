@@ -1,3 +1,4 @@
+import { IRecipe } from "@/types/recipe.type";
 import { endpoint } from "@/utils/endpoint";
 
 export async function getAllRecipes() {
@@ -7,7 +8,15 @@ export async function getAllRecipes() {
     throw new Error("Failed to fetch data");
   }
 
-  return data.json();
+  const parsedData: IRecipe[] = await data.json();
+
+  return parsedData.map(item => (
+    {
+      image: item.mainImage,
+      title: item.title,
+      slug: item.slug,
+    }
+  ));
 }
 
 export async function getRecipeBySlug(slug: string) {

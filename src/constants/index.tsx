@@ -1,7 +1,7 @@
 import { InstagramIcon } from "@/components/icons/InstagramIcon";
 import { LinkedInIcon } from "@/components/icons/LinkedInIcon";
 import { PinterestIcon } from "@/components/icons/PinterestIcon";
-import { TikTokIcon } from "@/components/icons/TiktokIcon";
+import { TikTokIcon } from "@/components/icons/TikTokIcon";
 
 export const NAV = {
   home: ["Головна", "home"],
