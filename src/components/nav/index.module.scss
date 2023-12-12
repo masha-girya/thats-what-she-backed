@@ -1,5 +1,5 @@
-@use 'src/styles/mixins.scss';
-@use 'src/styles/variables.scss' as var;
+@use "src/styles/mixins.scss";
+@use "src/styles/variables.scss" as var;
 
 .nav {
   justify-self: center;
@@ -11,28 +11,57 @@
   }
 
   &__link {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 18px;
+    position: relative;
+
+    font-style: italic;
+    font-size: 16px;
     font-weight: 500;
-    border-bottom: 1px solid transparent;
     padding: 0 5px;
-    transition: color .3s ease;
-    transition: border-bottom-color .2s ease-in;
+
+    transition: color 0.3s ease;
+
     cursor: pointer;
-  
-    &_active, &:hover {
-      border-bottom-color: var.$main-color-tomato;
+
+    &::after {
+      content: "";
+
+      position: absolute;
+      left: 0;
+      bottom: 0;
+
+      width: 0;
+      height: 1px;
+      background-color: var.$main-color-tomato;
+
+      transition: width 0.3s ease;
+    }
+
+    &:hover {
       color: var.$main-color-tomato;
+      &::after {
+        width: 100%;
+      }
+    }
+
+    &_active {
+      color: var.$main-color-tomato;
+
+      &::after {
+        width: 100%;
+      }
     }
 
     &_footer {
-      color: #FFFFFF;
+      color: #ffffff;
 
       &:hover {
-        color: #FFFFFF;
-        border-bottom-color: #FFFFFF;
+        color: #ffffff;
+
+        &::after {
+          background-color: #ffffff;
+          width: 100%;
+        }
       }
     }
   }
 }
-

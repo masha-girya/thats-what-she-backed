@@ -8,11 +8,11 @@ export async function getAllRecipes() {
     throw new Error("Failed to fetch data");
   }
 
-  const parsedData: IRecipe[] = await data.json();
+  const parsedData: { recipes: IRecipe[] } = await data.json();
 
-  return parsedData.map(item => (
+  return parsedData.recipes.map(item => (
     {
-      image: item.mainImage,
+      mainImage: item.mainImage,
       title: item.title,
       slug: item.slug,
     }

@@ -6,6 +6,7 @@
   z-index: 3;
   top: 0;
   height: 100px;
+  width: 100%;
   box-sizing: border-box;
   padding: 0 70px;
   box-shadow: 0 0 10px 0 rgba(33, 33, 33, .1);
@@ -46,48 +47,6 @@
     &_active, &:hover {
       border-bottom-color: var.$main-color-tomato;
       color: var.$main-color-tomato;
-    }
-  }
-}
-
-.search {
-  justify-self: flex-end;
-  position: relative;
-  height: 40px;
-  width: max-content;
-
-  &__input {
-    background-color: #F2EAE880;
-    color: #686868;
-    letter-spacing: 1px;
-    height: 100%;
-    padding: 0 48px 0 20px;
-    border-radius: 36px;
-    outline: none;
-    max-width: 250px;
-    border: 1px solid transparent;
-    transition: all .3s ease;
-  
-    &:focus {
-      border: 1px solid #FF879784;
-    }
-  }
-
-  &__icon {
-    position: absolute;
-    right: 0;
-
-    display: grid;
-    place-items: center;
-    margin-right: 5px;
-    margin-top: 5px;
-
-    @include mixins.square(30px);
-    border-radius: 50%;
-    background-color: var.$main-color-tomato;
-
-    svg {
-      width: 17px;
     }
   }
 }

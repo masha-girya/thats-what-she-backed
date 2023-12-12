@@ -46,18 +46,19 @@ const RecipePage = async ({ params }: any) => {
         </div>
       </div>
       <div className={styles.recipe__prep}>
-        <h3>
+        <div className={styles.recipe__prep__clip}>📌</div>
+        <p className={styles.recipe__prep__text}>
           <span className={styles.recipe__prep__title}>Час приготування: </span>
           {bakingTime}
-        </h3>
-        <h3>
+        </p>
+        <p className={styles.recipe__prep__text}>
           <span className={styles.recipe__prep__title}>Кількість порцій: </span>
           {amount}
-        </h3>
-        <h3>
+        </p>
+        <p className={styles.recipe__prep__text}>
           <span className={styles.recipe__prep__title}>Розмір форми: </span>
           {formSize}
-        </h3>
+        </p>
       </div>
       <RecipeStep ingredients={ingredients} steps={steps}/>
     </div>

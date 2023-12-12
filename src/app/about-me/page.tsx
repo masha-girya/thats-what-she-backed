@@ -1,6 +1,8 @@
+import styles from "./index.module.scss";
+
 const AboutMe = () => {
     return (
-      <>AboutMe</>
+      <main className={styles.about}>AboutMe</main>
     )
   }
   

@@ -1,0 +1,47 @@
+@use 'src/styles/mixins.scss';
+@use 'src/styles/variables.scss' as var;
+
+.search {
+  justify-self: flex-end;
+  position: relative;
+  height: 40px;
+  width: 300px;
+
+  &__input {
+    background-color: #F2EAE880;
+    color: #686868;
+    letter-spacing: 1px;
+
+    height: 100%;
+    width: 100%;
+    padding: 0 48px 0 20px;
+
+    border-radius: 36px;
+    outline: none;
+
+    border: 1px solid transparent;
+    transition: all .3s ease;
+  
+    &:focus {
+      border: 1px solid #FF879784;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    right: 0;
+
+    display: grid;
+    place-items: center;
+    margin-right: 5px;
+    margin-top: 5px;
+
+    @include mixins.square(30px);
+    border-radius: 50%;
+    background-color: var.$main-color-tomato;
+
+    svg {
+      width: 17px;
+    }
+  }
+}

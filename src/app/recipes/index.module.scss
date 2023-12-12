@@ -1,0 +1,12 @@
+@use 'src/styles/mixins.scss';
+@use 'src/styles/variables.scss' as var;
+
+.recipes {
+  @include mixins.mainBox();
+
+  min-height: 100vh;
+
+  &__list {
+    margin-top: 100px;
+  }
+}

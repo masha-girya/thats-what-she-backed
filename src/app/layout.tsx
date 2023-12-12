@@ -1,28 +1,28 @@
-import './globals.scss'
-import type { Metadata } from 'next'
-import { Cormorant } from 'next/font/google'
-import Header from '@/components/header'
-import Footer from '@/components/footer'
+import "./globals.scss";
+import type { Metadata } from "next";
+import { Cormorant } from "next/font/google";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
 
-const inter = Cormorant({ subsets: ['cyrillic', 'latin'] })
+const inter = Cormorant({ subsets: ["cyrillic", "latin"] });
 
 export const metadata: Metadata = {
-  title: 'Thats What She Baked',
-  description: 'Цей кекс точно буде смачним та красивим!',
-}
+  title: "Thats What She Baked",
+  description: "Цей кекс точно буде смачним та красивим!",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="ua">
       <body>
-        <Header/>
+        <Header />
         {children}
         <Footer />
-    </body>
+      </body>
     </html>
-  )
+  );
 }

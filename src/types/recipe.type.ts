@@ -16,6 +16,10 @@ export interface IRecipe {
   tips: ITips;
 }
 
+export interface IRecipeCard extends Pick<
+  IRecipe, "title" | "slug" | "mainImage"
+> {}
+
 export interface ITips {
     [key: string]: string;
   }

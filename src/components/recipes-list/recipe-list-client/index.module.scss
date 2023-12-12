@@ -1,0 +1,11 @@
+.recipeListClient {
+  &__search {
+    align-self: flex-end;
+  }
+
+  &__box {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+  }
+}

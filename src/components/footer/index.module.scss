@@ -31,4 +31,13 @@
 .socials {
   display: flex;
   gap: 30px;
+
+  svg {
+    transform: scale(1);
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
 }

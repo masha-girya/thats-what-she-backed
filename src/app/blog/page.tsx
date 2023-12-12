@@ -1,6 +1,8 @@
+import styles from "./index.module.scss";
+
 const Blog = () => {
     return (
-      <>Blog</>
+      <main className={styles.blog}>Blog</main>
     )
   }
   

@@ -35,7 +35,7 @@ const Home = async() => {
           {/* <h2 className={styles.home__subtitle}>Кожен рецепт написаний детально, розкриваючи кожне питання, яке може стати у вас на шляху його приготування</h2> */}
           <Link href="/recipes" className={styles.button}>
             <ArrowIcon />
-            <h1>До рецептів</h1>
+            <p className={styles.button__text}>До рецептів</p>
           </Link>
         </div>
         <Link href={`/recipes/${slug}`} className={styles.recipe}>

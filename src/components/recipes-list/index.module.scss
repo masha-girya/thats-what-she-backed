@@ -1,0 +1,10 @@
+.recipesList {
+  position: relative;
+  z-index: 2;
+
+  min-height: 500px;
+  padding: 60px;
+
+  display: flex;
+  flex-direction: column;
+}
