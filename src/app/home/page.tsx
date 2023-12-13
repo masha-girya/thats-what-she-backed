@@ -1,24 +1,10 @@
-import Image from "next/image";
 import Link from "next/link";
-import styles from "./index.module.scss";
-import { getLastRecipe } from "@/lib/recipes";
 import { ArrowIcon } from "@/components/icons/ArrowIcon";
 import { RecipesList } from "@/components/recipes-list";
+import { BannerRecipe } from "@/components/banner-recipe";
+import styles from "./index.module.scss";
 
-async function getRecipe() {
-  try {
-    const recipe = await getLastRecipe();
-    return { res: recipe.recipe };
-  } catch (error) {
-    console.log("Error in fetching data");
-    return { res: error };
-  }
-}
-
-const Home = async() => {
-  const { res } = await getRecipe();
-  const { title, mainImage, slug } = res;
-
+const Home = () => {
   return (
     <main className={styles.main}>
       <div className={styles.main__container}>
@@ -38,20 +24,7 @@ const Home = async() => {
             <p className={styles.button__text}>До рецептів</p>
           </Link>
         </div>
-        <Link href={`/recipes/${slug}`} className={styles.recipe}>
-          <Image
-            src={mainImage || ""}
-            alt={title || ""}
-            width={600}
-            height={1000}
-            layout="responsive"
-            loading="lazy"
-          />
-          <div className={styles.recipe__link}>
-            <h1>Нещодавній рецепт</h1>
-            <p>{title}</p>
-          </div>
-        </Link>
+        <BannerRecipe />
       </div>
       <RecipesList />
     </main>

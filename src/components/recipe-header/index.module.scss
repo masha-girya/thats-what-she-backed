@@ -1,3 +1,4 @@
+@use "src/styles/mixins.scss";
 @use "src/styles/variables.scss" as var;
 
 .recipeHeader {
@@ -16,13 +17,6 @@
 
       margin-bottom: 20px;
     }
-  }
-
-  &__title {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 40px;
-    font-weight: 800;
-    font-style: italic;
   }
 
   &__descFirst {

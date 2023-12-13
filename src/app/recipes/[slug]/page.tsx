@@ -12,7 +12,7 @@ async function getRecipe(slug: string) {
 
     return { res: recipe.recipe };
   } catch (error) {
-    console.log(error);
+    console.error(error);
     return { res: "Error in fetching data" };
   }
 }
@@ -26,6 +26,7 @@ const RecipePage = async ({ params }: any) => {
 
   const {
     title,
+    slug,
     description,
     mainImage,
     ingredients,
@@ -56,6 +57,7 @@ const RecipePage = async ({ params }: any) => {
     <div className={styles.recipe}>
       <div className={styles.recipe__recipeBox}>
         <RecipeHeader
+          slug={slug}
           title={title}
           mainImage={mainImage}
           description={description}

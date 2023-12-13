@@ -10,13 +10,11 @@ export async function getAllRecipes() {
 
   const parsedData: { recipes: IRecipe[] } = await data.json();
 
-  return parsedData.recipes.map(item => (
-    {
-      mainImage: item.mainImage,
-      title: item.title,
-      slug: item.slug,
-    }
-  ));
+  return parsedData.recipes.map((item) => ({
+    mainImage: item.mainImage,
+    title: item.title,
+    slug: item.slug,
+  }));
 }
 
 export async function getRecipeBySlug(slug: string) {
