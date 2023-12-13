@@ -13,8 +13,8 @@ export const RecipeTips = (props: IProps) => {
     <div className={styles.recipeTips}>
       <RecipeSticker>
         <h2 className={styles.recipeTips__title}>Важливі замітки</h2>
-        {Object.keys(tips).map((tip) => (
-          <div className={styles.recipeTips__info}>
+        {Object.keys(tips).map((tip, i) => (
+          <div key={i} className={styles.recipeTips__info}>
             <h3 className={styles.recipeTips__info__title}>{tip}</h3>
             <p className={styles.recipeTips__info__text}>{tips[tip]}</p>
           </div>

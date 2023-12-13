@@ -9,7 +9,7 @@ import styles from "./index.module.scss";
 async function getRecipe(slug: string) {
   try {
     const recipe: { recipe: IRecipe } = await getRecipeBySlug(slug);
-    console.log(recipe)
+
     return { res: recipe.recipe };
   } catch (error) {
     console.log(error);
@@ -60,7 +60,6 @@ const RecipePage = async ({ params }: any) => {
           mainImage={mainImage}
           description={description}
           allIngredients={allIngredients}
-          ingredients={ingredients}
         />
         <RecipeTips tips={tips} />
         <RecipeSticker>
