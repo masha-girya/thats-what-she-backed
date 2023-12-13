@@ -1,6 +1,7 @@
 import { RecipeStep } from "@/components/recipe-step";
 import { RecipeSticker } from "@/components/recipe-sticker";
 import { RecipeHeader } from "@/components/recipe-header";
+import { RecipeTips } from "@/components/recipe-tips";
 import { getRecipeBySlug } from "@/lib/recipes";
 import { IRecipe } from "@/types/recipe.type";
 import styles from "./index.module.scss";
@@ -8,6 +9,7 @@ import styles from "./index.module.scss";
 async function getRecipe(slug: string) {
   try {
     const recipe: { recipe: IRecipe } = await getRecipeBySlug(slug);
+    console.log(recipe)
     return { res: recipe.recipe };
   } catch (error) {
     console.log(error);
@@ -32,6 +34,7 @@ const RecipePage = async ({ params }: any) => {
     bakingTime,
     formSize,
     amount,
+    tips,
   } = res;
 
   const stickerInfo = [
@@ -59,9 +62,10 @@ const RecipePage = async ({ params }: any) => {
           allIngredients={allIngredients}
           ingredients={ingredients}
         />
+        <RecipeTips tips={tips} />
         <RecipeSticker>
           {stickerInfo.map((info) => (
-            <p className={styles.recipe__stickerInfo}>
+            <p key={info.title} className={styles.recipe__stickerInfo}>
               <span className={styles.recipe__stickerInfo__title}>
                 {info.title}
               </span>
