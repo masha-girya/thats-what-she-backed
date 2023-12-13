@@ -1,23 +1,24 @@
 import Image from "next/image";
 import { IngredientsList } from "@/components/ingredients-list";
 import { RecipeSticker } from "@/components/recipe-sticker";
+import { TitleBox } from "./title-box";
 import styles from "./index.module.scss";
-import { IIngredients } from "@/types/ingredients.type";
 
 interface IProps {
   title: string;
   description: string[];
   mainImage: string;
   allIngredients: string[];
+  slug: string;
 }
 
 export const RecipeHeader = (props: IProps) => {
-  const { title, description, mainImage, allIngredients } = props;
+  const { title, description, mainImage, allIngredients, slug } = props;
 
   return (
     <div className={styles.recipeHeader}>
       <div>
-        <h1 className={styles.recipeHeader__title}>{title}</h1>
+        <TitleBox title={title} slug={slug} mainImage={mainImage} />
         <p className={styles.recipeHeader__descFirst}>{description[0]}</p>
         <Image
           src={mainImage || ""}

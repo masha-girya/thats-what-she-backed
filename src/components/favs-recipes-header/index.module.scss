@@ -1,0 +1,53 @@
+@use "src/styles/mixins.scss";
+@use "src/styles/variables.scss" as var;
+
+.favsHeader {
+  position: relative;
+  @include mixins.square(35px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  justify-self: end;
+
+  cursor: pointer;
+
+  svg {
+    path {
+      stroke: var.$main-color-tomato;
+      fill: #ffffff;
+      transition: fill .3s ease;
+    }
+  }
+
+  &_active {
+    svg {
+      path {
+        fill: var.$main-color-tomato;
+      }
+    }
+  }
+
+  &__amount {
+    position: absolute;
+    top: 0px;
+    right: -3px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 18px;
+    height: 18px;
+
+    border-radius: 50%;
+    border: 1.5px solid var.$main-color-tomato;
+
+    background-color: #ffffff;
+
+    color: var.$main-color-tomato;
+    font-size: 10px;
+    font-weight: 600;
+  }
+}

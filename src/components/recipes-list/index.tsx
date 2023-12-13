@@ -1,15 +1,13 @@
-import { getAllRecipes } from "@/lib/recipes";
-import { RecipeCard } from "../recipe-card";
-import { Search } from "../search";
-import styles from "./index.module.scss";
 import { RecipesListClient } from "./recipe-list-client";
+import { getAllRecipes } from "@/lib/recipes";
+import styles from "./index.module.scss";
 
 async function getRecipes() {
   try {
     const recipes = await getAllRecipes();
     return { res: recipes };
   } catch (error) {
-    console.log(error);
+    console.error(error);
     return { res: "Error in fetching data" };
   }
 }
