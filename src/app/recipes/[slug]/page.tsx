@@ -57,6 +57,7 @@ const RecipePage = async ({ params }: any) => {
           mainImage={mainImage}
           description={description}
           allIngredients={allIngredients}
+          ingredients={ingredients}
         />
         <RecipeSticker>
           {stickerInfo.map((info) => (

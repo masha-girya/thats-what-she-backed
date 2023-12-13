@@ -29,14 +29,14 @@ export const IngredientsList = (props: IProps) => {
         <li key={li}>
           <label
             className={classNames(styles.ingredientsList__item, {
-              [styles.ingredientsList__item_checked]: checkedItems.includes(li)
+              [styles.ingredientsList__item_checked]: checkedItems.includes(li),
             })}
-            onClick={() => handleCheckItem(li)}
           >
             <input
               className={styles.ingredientsList__checkbox}
               type="checkbox"
               checked={checkedItems.includes(li)}
+              onChange={() => handleCheckItem(li)}
             />
             {li}
           </label>
