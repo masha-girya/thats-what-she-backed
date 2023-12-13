@@ -1,0 +1,20 @@
+.recipeSticker {
+  position: relative;
+  margin-top: 50px;
+  padding: 30px 40px;
+  box-sizing: border-box;
+  background-color: #FCEC5270;
+  max-width: max-content;
+
+  box-shadow: 0 0 10px 0 rgba(33, 33, 33, 0.1);
+
+  &__clip {
+    position: absolute;
+    top: -40px;
+    left: -30px;
+
+    font-size: 50px;
+
+    transform: rotate(270deg);
+  }
+}

@@ -1,9 +1,6 @@
 @use "src/styles/variables.scss" as var;
 
-$main-margin-left: 200px;
-
 .steps {
-  margin-left: $main-margin-left;
   max-width: 800px;
   margin-top: 50px;
 
@@ -13,17 +10,6 @@ $main-margin-left: 200px;
     font-weight: 600;
     color: var.$main-color-tomato;
     font-family: "Cormorant Garamond", serif;
-  }
-
-  &__ingredients {
-    list-style: disc inside;
-
-    li::marker {
-      color: var.$main-color-tomato;
-      font-size: 15px;
-      margin-bottom: 5px;
-      margin-right: 5px;
-    }
   }
 
   &__text {

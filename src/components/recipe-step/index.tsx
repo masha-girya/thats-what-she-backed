@@ -1,6 +1,5 @@
-"use client";
-
 import classNames from "classnames";
+import { IngredientsList } from "../ingredients-list";
 import { ISteps } from "@/types/recipe.type";
 import { IIngredients } from "@/types/ingredients.type";
 import styles from "./index.module.scss";
@@ -10,7 +9,7 @@ interface IRecipeStep {
   ingredients: IIngredients;
 }
 
-const RecipeStep = (props: IRecipeStep) => {
+export const RecipeStep = (props: IRecipeStep) => {
   const { steps, ingredients } = props;
 
   const stepsKeysArr = Object.keys(steps);
@@ -26,11 +25,7 @@ const RecipeStep = (props: IRecipeStep) => {
       {stepsKeysArr.map((step) => (
         <div key={step}>
           <h2 className={styles.steps__title}>{step}</h2>
-          <ul className={styles.steps__ingredients}>
-            {ingredients[step].map((li: any) => (
-              <li key={li}>{li}</li>
-            ))}
-          </ul>
+          <IngredientsList ingredients={ingredients[step]} />
           <div>
             {steps[step].map((item: any, i: number) => {
               if (item.text) {
@@ -73,5 +68,3 @@ const RecipeStep = (props: IRecipeStep) => {
     </div>
   );
 };
-
-export default RecipeStep;

@@ -12,6 +12,7 @@ export interface IRecipe {
   formSize: string;
   amount: string;
   ingredients: IIngredients;
+  allIngredients: string[];
   steps: ISteps;
   tips: ITips;
 }

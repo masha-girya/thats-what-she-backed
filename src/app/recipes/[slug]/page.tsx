@@ -1,66 +1,75 @@
-import Image from "next/image";
-import styles from "./index.module.scss";
+import { RecipeStep } from "@/components/recipe-step";
+import { RecipeSticker } from "@/components/recipe-sticker";
+import { RecipeHeader } from "@/components/recipe-header";
 import { getRecipeBySlug } from "@/lib/recipes";
-import RecipeStep from "@/components/recipe-step";
+import { IRecipe } from "@/types/recipe.type";
+import styles from "./index.module.scss";
 
 async function getRecipe(slug: string) {
   try {
-    const recipe = await getRecipeBySlug(slug);
+    const recipe: { recipe: IRecipe } = await getRecipeBySlug(slug);
     return { res: recipe.recipe };
   } catch (error) {
-    console.log("Error in fetching data");
-    return { res: error };
+    console.log(error);
+    return { res: "Error in fetching data" };
   }
 }
 
 const RecipePage = async ({ params }: any) => {
   const { res } = await getRecipe(params.slug);
+
+  if (typeof res === "string") {
+    return <p>Recipe not found</p>;
+  }
+
   const {
     title,
     description,
     mainImage,
     ingredients,
+    allIngredients,
     steps,
     bakingTime,
     formSize,
     amount,
   } = res;
 
+  const stickerInfo = [
+    {
+      title: "Час приготування: ",
+      info: bakingTime,
+    },
+    {
+      title: "Кількість порцій: ",
+      info: amount,
+    },
+    {
+      title: "Розмір форми: ",
+      info: formSize,
+    },
+  ];
+
   return (
     <div className={styles.recipe}>
-      <div className={styles.recipe__header}>
-        <h1 className={styles.recipe__header__title}>{title}</h1>
-        <p className={styles.recipe__header__descFirst}>{description[0]}</p>
-        <Image
-          src={mainImage || ""}
-          alt={title || ""}
-          width={600}
-          height={600}
-          layout="responsive"
-          loading="lazy"
+      <div className={styles.recipe__recipeBox}>
+        <RecipeHeader
+          title={title}
+          mainImage={mainImage}
+          description={description}
+          allIngredients={allIngredients}
         />
-        <div className={styles.recipe__header__rightCol}>
-          {description.slice(1).map((item: any) => (
-            <p key={item.slice(0, 10)}>{item}</p>
+        <RecipeSticker>
+          {stickerInfo.map((info) => (
+            <p className={styles.recipe__stickerInfo}>
+              <span className={styles.recipe__stickerInfo__title}>
+                {info.title}
+              </span>
+              {info.info}
+            </p>
           ))}
-        </div>
+        </RecipeSticker>
+        <RecipeStep ingredients={ingredients} steps={steps} />
       </div>
-      <div className={styles.recipe__prep}>
-        <div className={styles.recipe__prep__clip}>📌</div>
-        <p className={styles.recipe__prep__text}>
-          <span className={styles.recipe__prep__title}>Час приготування: </span>
-          {bakingTime}
-        </p>
-        <p className={styles.recipe__prep__text}>
-          <span className={styles.recipe__prep__title}>Кількість порцій: </span>
-          {amount}
-        </p>
-        <p className={styles.recipe__prep__text}>
-          <span className={styles.recipe__prep__title}>Розмір форми: </span>
-          {formSize}
-        </p>
-      </div>
-      <RecipeStep ingredients={ingredients} steps={steps}/>
     </div>
   );
 };

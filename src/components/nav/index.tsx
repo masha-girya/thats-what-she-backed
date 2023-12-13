@@ -5,7 +5,6 @@ import Link from "next/link";
 import classNames from "classnames";
 import { NAV } from "@/constants";
 import styles from "./index.module.scss";
-import { isTypeReferenceNode } from "typescript";
 
 interface INav {
   isFooter?: boolean;
