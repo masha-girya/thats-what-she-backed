@@ -4,6 +4,7 @@ export interface ITips {
   title: string;
   description: string[];
   tips: ITip[];
+  conclusion: string[];
 }
 
 export interface ITip {
