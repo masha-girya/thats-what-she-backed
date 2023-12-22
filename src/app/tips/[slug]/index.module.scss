@@ -1,8 +1,70 @@
 @use 'src/styles/mixins.scss';
 @use 'src/styles/variables.scss' as var;
 
-.tip {
+.tipPage {
   @include mixins.mainBox();
 
-  padding-top: 100px;
+  padding: 150px 150px 80px;
+
+  &__title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    font-weight: 400;
+    font-style: italic;
+
+    color: var.$main-color-tomato;
+
+    margin-bottom: 30px;
+  }
+
+  &__mainImage {
+    width: 500px;
+    height: 300px;
+
+    object-fit: cover;
+
+    margin-bottom: 30px;
+  }
+
+  &__conclusion {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    max-width: 900px;
+    margin-top: 50px;
+    font-size: 22px;
+  }
+}
+
+.tip {
+  max-width: 900px;
+
+  &__title {
+    font-size: 22px;
+    font-weight: 400;
+    color: var.$main-color-tomato;
+
+
+    margin-bottom: 10px;
+  }
+
+  &__textBox {
+    margin-bottom: 10px;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  &__text {
+    display: inline;
+  }
+
+  &__link {
+    display: inline;
+    color: var.$color-pink;
+    font-weight: 600;
+    text-decoration: underline;
+  }
 }
