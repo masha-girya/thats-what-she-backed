@@ -19,9 +19,8 @@ export const FavsRecipesHeader = () => {
   return (
     <Link
       href={`/${ROUTES.favRecipes}`}
-      className={classNames(styles.favsHeader, {
-        [styles.favsHeader_active]: favRecipes.length > 0,
-      })}
+      title="улюблені рецепти"
+      className={classNames(styles.favsHeader)}
     >
       {favRecipes.length > 0 && (
         <div className={styles.favsHeader__amount}>{favRecipes.length}</div>

@@ -2,6 +2,7 @@ import { RecipeStep } from "@/components/recipe-step";
 import { RecipeSticker } from "@/components/recipe-sticker";
 import { RecipeHeader } from "@/components/recipe-header";
 import { RecipeTips } from "@/components/recipe-tips";
+import { ServerErrorPlug } from "@/components/server-error-plug";
 import { getRecipeBySlug } from "@/lib/recipes";
 import { IRecipe } from "@/types/recipe.type";
 import styles from "./index.module.scss";
@@ -20,8 +21,8 @@ async function getRecipe(slug: string) {
 const RecipePage = async ({ params }: any) => {
   const { res } = await getRecipe(params.slug);
 
-  if (typeof res === "string") {
-    return <p>Recipe not found</p>;
+  if (typeof res === "string" || !res) {
+    return <ServerErrorPlug text="Упс! А такого рецепту немає..." />
   }
 
   const {

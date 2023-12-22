@@ -1,4 +1,5 @@
 import { RecipesListClient } from "./recipe-list-client";
+import { ServerErrorPlug } from "../server-error-plug";
 import { getAllRecipes } from "@/lib/recipes";
 import styles from "./index.module.scss";
 
@@ -14,6 +15,10 @@ async function getRecipes() {
 
 export const RecipesList = async () => {
   const { res } = await getRecipes();
+
+  if(typeof res === "string" || !res) {
+    return <ServerErrorPlug text="Упс! Кудись поділись всі рецепти... Вже шукаємо!" />
+  }
 
   return (
     <div className={styles.recipesList}>

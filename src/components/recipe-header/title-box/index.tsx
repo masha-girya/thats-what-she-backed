@@ -17,6 +17,7 @@ interface IProps {
 export const TitleBox = (props: IProps) => {
   const { title, slug, mainImage } = props;
   const [isInFavs, setIsInFavs] = useState(false);
+  // const [isOnHover, setIsOnHover] = useState(false);
 
   useEffect(() => {
     const favRecipes: IRecipeCard[] = JSON.parse(
@@ -56,8 +57,15 @@ export const TitleBox = (props: IProps) => {
           [styles.titleBox__favs_active]: isInFavs,
         })}
         onClick={setRecipeToFavs}
+        // onMouseEnter={() => setIsOnHover(true)}
+        // onMouseLeave={() => setIsOnHover(false)}
       >
         <HeartIcon />
+        {/* {isOnHover && (
+          <div className={styles.titleBox__favs_helperText}>
+            {isInFavs ? "прибрати з улюблених" : "додати в улюблені"}
+          </div>
+        )} */}
       </div>
     </div>
   );

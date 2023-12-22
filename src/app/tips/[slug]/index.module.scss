@@ -1,10 +1,8 @@
 @use 'src/styles/mixins.scss';
 @use 'src/styles/variables.scss' as var;
 
-.recipes {
+.tip {
   @include mixins.mainBox();
 
-  &__list {
-    margin-top: 100px;
-  }
+  padding-top: 100px;
 }
