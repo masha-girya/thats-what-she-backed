@@ -12,3 +12,6 @@ export interface ITip {
   conclusion: string[];
   image?: string[];
 }
+
+export interface ITipShort extends Pick<ITips, "slug" | "title" | "mainImage" >
+{}

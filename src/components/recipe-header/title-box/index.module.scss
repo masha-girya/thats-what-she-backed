@@ -15,24 +15,44 @@
   }
 
   &__favs {
+    position: relative;
     cursor: pointer;
 
     svg {
       @include mixins.square(30px);
+      transform: scale(1);
+
+      transition: transform .2s ease-in-out;
+
+      &:active {
+        transform: scale(0.9);
+      }
 
       path {
-        fill: #ffffff;
-        stroke: var.$main-color-tomato;
-        transition: fill .3s ease;
+        fill: var.$main-color-tomato;
+        opacity: 0.2;
+        transition: opacity .3s ease;
       }
     }
 
     &_active {
       svg {
         path {
-          fill: var.$main-color-tomato;
+          opacity: 1;
         }
       }
     }
+
+    // &_helperText {
+    //   position: absolute;
+    //   left: -150%;
+    //   bottom: -20px;
+
+    //   width: max-content;
+
+    //   font-size: 12px;
+    //   color: var.$main-color-tomato;
+    //   opacity: .7;
+    // }
   }
 }

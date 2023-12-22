@@ -15,17 +15,9 @@
 
   svg {
     path {
-      stroke: var.$main-color-tomato;
-      fill: #ffffff;
+      fill: var.$main-color-tomato;
+      // fill: #ffffff;
       transition: fill .3s ease;
-    }
-  }
-
-  &_active {
-    svg {
-      path {
-        fill: var.$main-color-tomato;
-      }
     }
   }
 
@@ -42,11 +34,10 @@
     height: 18px;
 
     border-radius: 50%;
-    border: 1.5px solid var.$main-color-tomato;
 
-    background-color: #ffffff;
+    background-color: var.$main-color-tomato;
 
-    color: var.$main-color-tomato;
+    color: #ffffff;
     font-size: 10px;
     font-weight: 600;
   }

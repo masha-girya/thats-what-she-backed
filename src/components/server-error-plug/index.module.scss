@@ -1,0 +1,33 @@
+@use 'src/styles/mixins.scss';
+@use 'src/styles/variables.scss' as var;
+
+.errorPlug {
+  @include mixins.mainBox();
+
+  &__box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    padding-top: 100px;
+  }
+
+  &__icon {
+    width: 400px;
+    height: 400px;
+
+    opacity: .7;
+  }
+
+  &__text {
+    margin-top: 40px;
+
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 1px;
+    font-weight: 800;
+    font-size: 30px;
+    font-style: italic;
+    color: var.$main-color-tomato;
+  }
+}
