@@ -23,9 +23,12 @@ export const linkCutter = (text: string, classNames: string[]) => {
       const linkTextIndexFirst = part.indexOf("[");
       const linkTextIndexLast = part.indexOf("]");
 
+      const href = part.slice(linkTextIndexLast + 2, part.length - 1);
+
       result.push(
         <a
-          href={part.slice(linkTextIndexLast + 2, part.length - 1)}
+          key={href}
+          href={href}
           target="_blank"
           className={classNames[0]}
         >
@@ -33,7 +36,7 @@ export const linkCutter = (text: string, classNames: string[]) => {
         </a>
       );
     } else {
-      result.push(<p className={classNames[1]}>{part}</p>);
+      result.push(<p key={part} className={classNames[1]}>{part}</p>);
     }
   });
 

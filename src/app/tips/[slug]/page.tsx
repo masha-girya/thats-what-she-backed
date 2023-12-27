@@ -11,7 +11,7 @@ async function getTip(slug: string) {
 
     return { res: tips.tip };
   } catch (error) {
-    console.error("error");
+    console.error(error);
     return { res: "Error in fetching data" };
   }
 }
@@ -23,7 +23,8 @@ const Tip = async ({ params }: any) => {
     return <ServerErrorPlug text="Упс! Хтось з'їв всі замітки!" />;
   }
 
-  const { title, mainImage, tips, conclusion } = res;
+  const { title, mainImage, tips, conclusion } = res as ITips;
+  console.log(res)
 
   return (
     <div className={styles.tipPage}>
@@ -31,12 +32,12 @@ const Tip = async ({ params }: any) => {
       <img className={styles.tipPage__mainImage} src={mainImage} alt={title} />
 
       {tips.map((tip, i) => (
-        <RecipeSticker>
-          <div key={i} className={styles.tip}>
+        <RecipeSticker key={i}>
+          <div key={tip.title} className={styles.tip}>
             <h3 className={styles.tip__title}>{tip.title}</h3>
 
-            {tip.text.map((tipText, i) => (
-              <div key={i} className={styles.tip__textBox}>
+            {tip.text.map((tipText) => (
+              <div key={tipText} className={styles.tip__textBox}>
                 {linkCutter(tipText, [styles.tip__link, styles.tip__text])}
               </div>
             ))}
@@ -45,6 +46,7 @@ const Tip = async ({ params }: any) => {
               <div className={styles.tip__imageBox}>
                 {tip.image.map((tipImage, i) => (
                   <img
+                    key={tipImage}
                     className={styles.tip__image}
                     src={tipImage}
                     alt={`${tip.title} #${i}`}
