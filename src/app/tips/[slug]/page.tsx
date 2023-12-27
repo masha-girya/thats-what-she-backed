@@ -24,7 +24,6 @@ const Tip = async ({ params }: any) => {
   }
 
   const { title, mainImage, tips, conclusion } = res as ITips;
-  console.log(res)
 
   return (
     <div className={styles.tipPage}>
@@ -36,11 +35,18 @@ const Tip = async ({ params }: any) => {
           <div key={tip.title} className={styles.tip}>
             <h3 className={styles.tip__title}>{tip.title}</h3>
 
-            {tip.text.map((tipText) => (
-              <div key={tipText} className={styles.tip__textBox}>
-                {linkCutter(tipText, [styles.tip__link, styles.tip__text])}
-              </div>
-            ))}
+            {Array.isArray(tip.text) ? (
+              tip.text.map((tipText) => (
+                <div key={tipText} className={styles.tip__textBox}>
+                  {linkCutter(tipText, [styles.tip__link, styles.tip__text])}
+                </div>
+              ))
+            ) : (
+              <p>
+                TYPE: {JSON.stringify(typeof tip.text)}, CONT:{" "}
+                {JSON.stringify(tip.text)}{" "}
+              </p>
+            )}
 
             {tip.image && (
               <div className={styles.tip__imageBox}>
