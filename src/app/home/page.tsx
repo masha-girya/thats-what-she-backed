@@ -3,6 +3,7 @@ import { ArrowIcon } from "@/components/icons/ArrowIcon";
 import { RecipesList } from "@/components/recipes-list";
 import { BannerRecipe } from "@/components/banner-recipe";
 import styles from "./index.module.scss";
+import { ANCHORS } from "@/constants";
 
 const Home = () => {
   return (
@@ -19,7 +20,7 @@ const Home = () => {
             <br />Я тут, щоб надихнути вас.
           </h2>
           {/* <h2 className={styles.home__subtitle}>Кожен рецепт написаний детально, розкриваючи кожне питання, яке може стати у вас на шляху його приготування</h2> */}
-          <Link href="/recipes" className={styles.button}>
+          <Link href={`#${ANCHORS.recipes}`} className={styles.button}>
             <ArrowIcon />
             <p className={styles.button__text}>До рецептів</p>
           </Link>

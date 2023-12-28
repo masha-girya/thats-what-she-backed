@@ -5,9 +5,18 @@
   justify-self: center;
   width: max-content;
 
+  &_mobMenu {
+    margin: 0 auto;
+    padding-top: 50px;
+  }
+
   &__list {
     display: flex;
-    column-gap: 50px;
+    gap: 50px;
+
+    &_mobMenu {
+      flex-direction: column;
+    }
   }
 
   &__link {
@@ -62,6 +71,11 @@
           width: 100%;
         }
       }
+    }
+
+    &_mobMenu {
+      text-align: center;
+      font-size: 20px;
     }
   }
 }

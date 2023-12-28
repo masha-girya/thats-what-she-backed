@@ -19,8 +19,12 @@ const FavRecipes = () => {
 
   return (
     <div className={styles.favRecipes}>
-      <h1 className={styles.favRecipes__title}>Улюблені рецепти</h1>
-      {favRecipes.length > 0 && <RecipesListClient recipes={favRecipes} />}
+      <h1 className={styles.favRecipes__title}>
+        Улюблені рецепти
+      </h1>
+      {favRecipes.length > 0 && (
+        <RecipesListClient recipes={favRecipes} isFavRecipes />
+      )}
     </div>
   );
 };

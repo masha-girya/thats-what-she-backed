@@ -14,6 +14,11 @@
     transform: scale(1.02);
   }
 
+  @include mixins.mediaMobile {
+    width: 100%;
+    max-width: 400px;
+  }
+
   &__image {
     width: inherit;
     height: 180px;

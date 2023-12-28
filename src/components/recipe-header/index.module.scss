@@ -4,7 +4,14 @@
 .recipeHeader {
   display: flex;
   justify-content: space-between;
+  gap: 50px;
+
   width: 100%;
+
+  @include mixins.mediaNoteBook {
+    flex-direction: column;
+    gap: 0;
+  }
 
   &__ingredientsBox {
     max-width: 400px;

@@ -2,6 +2,7 @@ import { RecipesListClient } from "./recipe-list-client";
 import { ServerErrorPlug } from "../server-error-plug";
 import { getAllRecipes } from "@/lib/recipes";
 import styles from "./index.module.scss";
+import { ANCHORS } from "@/constants";
 
 async function getRecipes() {
   try {
@@ -21,7 +22,7 @@ export const RecipesList = async () => {
   }
 
   return (
-    <div className={styles.recipesList}>
+    <div id={ANCHORS.recipes} className={styles.recipesList}>
       {Array.isArray(res) && <RecipesListClient recipes={res} />}
     </div>
   );

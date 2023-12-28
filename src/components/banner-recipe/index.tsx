@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getLastRecipe } from "@/lib/recipes";
+import { ROUTES } from "@/constants";
 import styles from "./index.module.scss";
 
 async function getRecipe() {
@@ -23,7 +24,7 @@ export const BannerRecipe = async () => {
   const { title, mainImage, slug } = res;
 
   return (
-    <Link href={`/recipes/${slug}`} className={styles.bannerRecipe}>
+    <Link href={`/${ROUTES.recipes}/${slug}`} className={styles.bannerRecipe}>
       <Image
         src={mainImage || ""}
         alt={title || ""}

@@ -10,14 +10,33 @@
   padding: 150px;
   padding-top: 100px;
 
+  @include mixins.mediaTablet {
+    padding: 100px 32px;
+  }
+
+  @include mixins.mediaMobile {
+    padding: 100px 16px;
+  }
+
   &__title {
     position: relative;
     top: 45px;
+
     font-family: 'Cormorant Garamond', serif;
     font-size: 30px;
     font-weight: 400;
     font-style: italic;
 
     color: var.$main-color-tomato;
+
+    @include mixins.mediaNoteBook {
+      position: static;
+
+      margin: 30px 0;
+    }
+
+    @include mixins.mediaTablet {
+      text-align: center;
+    }
   }
 }

@@ -1,10 +1,21 @@
+@use 'src/styles/mixins.scss';
+@use 'src/styles/variables.scss' as var;
+
 .recipesList {
   position: relative;
   z-index: 2;
 
-  min-height: calc(100vh - 100px);
+  min-height: 370px;
   padding: 60px;
 
   display: flex;
   flex-direction: column;
+
+  @include mixins.mediaTablet {
+    padding: 60px 32px;
+  }
+
+  @include mixins.mediaMobile {
+    padding: 60px 16px;
+  }
 }

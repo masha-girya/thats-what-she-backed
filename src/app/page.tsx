@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import styles from "./page.module.scss";
 
 export default function Home() {
   const router = useRouter();
@@ -10,5 +11,5 @@ export default function Home() {
     router.push("/home");
   }, []);
 
-  return <div></div>;
+  return <div className={styles.page}></div>;
 }

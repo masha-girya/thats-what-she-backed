@@ -3,9 +3,11 @@
 
 .bannerRecipe {
   position: relative;
-  width: 40%;
+  width: 45%;
   display: flex;
   box-shadow: 0 0 10px 0 rgba(33, 33, 33, 0.1);
+
+  overflow: hidden;
 
   transform: translateX(25px);
   transition: all .3s ease;
@@ -13,6 +15,15 @@
   cursor: pointer;
 
   &:hover {
+    transform: translateX(0);
+  }
+
+  @include mixins.mediaTablet {
+    min-height: 300px;
+    width: 100%;
+
+    flex: 1;
+
     transform: translateX(0);
   }
 
@@ -28,6 +39,11 @@
     transition: all .3s ease;
 
     cursor: pointer;
+
+    @include mixins.mediaTablet {
+      padding-bottom: 30px;
+    }
+  
 
     p {
       margin-top: 10px;
@@ -62,7 +78,7 @@
     position: relative;
     z-index: 1;
     width: 100%;
-    height: calc(100vh - 50px);
+    // height: calc(100vh - 50px);
   
     object-fit: cover;
     object-position: center;

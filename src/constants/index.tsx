@@ -36,6 +36,13 @@ export const SOCIALS = [
 
 export const ROUTES = {
   favRecipes: "fav-recipes",
+  tips: "tips",
+  recipes: "recipes",
+  lastRecipe: "last-recipe",
+}
+
+export const ANCHORS = {
+  recipes: "recipes",
 }
 
 export const LOCAL_STORAGE = {
