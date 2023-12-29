@@ -5,6 +5,10 @@
   display: flex;
   gap: 30px;
 
+  &_mobMenu {
+    margin-bottom: 50px;
+  }
+
   &__link {
     &_mobMenu {
       svg {

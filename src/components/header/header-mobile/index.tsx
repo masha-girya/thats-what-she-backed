@@ -31,9 +31,11 @@ export const HeaderMobile = () => {
     if (isMenuOnShow) {
       body.style.height = "100vh";
       body.style.overflowY = "hidden";
+      body.style.position = "fixed";
     } else {
       body.style.height = "100vh";
       body.style.overflowY = "visible";
+      body.style.position = "static";
     }
   }, [isMenuOnShow]);
 

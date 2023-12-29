@@ -10,7 +10,11 @@ export const Socials = (props: IProps) => {
   const { isMobMenu } = props;
 
   return (
-    <ul className={styles.socials}>
+    <ul
+      className={classNames(styles.socials, {
+        [styles.socials_mobMenu]: isMobMenu,
+      })}
+    >
       {SOCIALS.map((item) => (
         <li key={item.name}>
           <a
@@ -25,7 +29,8 @@ export const Socials = (props: IProps) => {
               <item.icon
                 className={classNames(styles.socials__icon, {
                   [styles.socials__icon_mobMenu]: isMobMenu,
-                  [styles.socials__icon_mobMenu_tiktok]: isMobMenu && item.name === "TikTok",
+                  [styles.socials__icon_mobMenu_tiktok]:
+                    isMobMenu && item.name === "TikTok",
                 })}
               />
             }

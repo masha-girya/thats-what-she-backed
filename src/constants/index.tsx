@@ -5,12 +5,30 @@ import {
   TikTokIcon,
 } from "@/components/icons";
 
+export const ANCHORS = {
+  recipes: "recipes",
+};
+
+export const LOCAL_STORAGE = {
+  favRecipes: "fav-recipes",
+};
+
+export const ROUTES = {
+  home: "/",
+  favRecipes: "fav-recipes",
+  tips: "tips",
+  recipes: "recipes",
+  lastRecipe: "last-recipe",
+  blog: "blog",
+  about: "about-me",
+};
+
 export const NAV = {
-  home: ["Головна", "home"],
-  recipes: ["Рецепти", "recipes"],
-  tips: ["Тіпси", "tips"],
-  blog: ["Блог", "blog"],
-  "about-me": ["Про мене", "about-me"],
+  home: ["Головна", ROUTES.home],
+  recipes: ["Рецепти", ROUTES.recipes],
+  tips: ["Тіпси", ROUTES.tips],
+  blog: ["Блог", ROUTES.blog],
+  about: ["Про мене", ROUTES.about],
 };
 
 export const SOCIALS = [
@@ -35,18 +53,3 @@ export const SOCIALS = [
     link: "https://www.pinterest.com/mashagiv/",
   },
 ];
-
-export const ROUTES = {
-  favRecipes: "fav-recipes",
-  tips: "tips",
-  recipes: "recipes",
-  lastRecipe: "last-recipe",
-};
-
-export const ANCHORS = {
-  recipes: "recipes",
-};
-
-export const LOCAL_STORAGE = {
-  favRecipes: "fav-recipes",
-};
