@@ -1,7 +1,7 @@
-import { Socials } from "src/components";
+import { Container, Socials } from "src/components";
 import styles from "./index.module.scss";
 
-const Footer = () => {
+export const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.footer__bottom}>
@@ -13,5 +13,3 @@ const Footer = () => {
     </footer>
   );
 };
-
-export default Footer;

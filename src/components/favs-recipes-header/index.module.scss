@@ -13,10 +13,13 @@
 
   cursor: pointer;
 
+  @include mixins.mediaTablet {
+    @include mixins.square(32px);
+  }
+
   svg {
     path {
       fill: var.$main-color-tomato;
-      // fill: #ffffff;
       transition: fill .3s ease;
     }
   }

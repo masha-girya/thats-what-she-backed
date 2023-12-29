@@ -6,16 +6,24 @@
   z-index: 2;
 
   min-height: 370px;
-  padding: 60px;
+  padding: calc(var.$header-hight + 50px) 60px 60px;
 
   display: flex;
   flex-direction: column;
 
   @include mixins.mediaTablet {
-    padding: 60px 32px;
+    padding: 120px 32px 100px;
   }
 
   @include mixins.mediaMobile {
-    padding: 60px 16px;
+    padding: 120px 16px 60px;
+  }
+
+  &_isBlock {
+    padding-top: 85px;
+
+    @include mixins.mediaTablet {
+      padding-top: 100px;
+    }
   }
 }

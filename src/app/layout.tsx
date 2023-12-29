@@ -1,8 +1,7 @@
 import "./globals.scss";
 import type { Metadata } from "next";
 import { Cormorant } from "next/font/google";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
+import { Header, Footer, Container } from "@/components";
 
 const inter = Cormorant({ subsets: ["cyrillic", "latin"] });
 
@@ -20,8 +19,10 @@ export default function RootLayout({
     <html lang="ua">
       <body>
         <Header />
-        {children}
-        <Footer />
+          <Container>
+            {children}
+          </Container>
+          <Footer />
       </body>
     </html>
   );

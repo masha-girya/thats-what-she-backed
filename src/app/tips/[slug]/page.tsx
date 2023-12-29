@@ -1,8 +1,6 @@
-import { ServerErrorPlug } from "@/components/server-error-plug";
-import { RecipeSticker } from "@/components/recipe-sticker";
+import { RecipeSticker, Tip, ServerErrorPlug, BackButton } from "@/components";
 import { getTipBySlug } from "@/lib/tips";
 import { ITips } from "@/types/tips.type";
-import { linkCutter } from "@/utils/helpers";
 import styles from "./index.module.scss";
 
 async function getTip(slug: string) {
@@ -16,7 +14,7 @@ async function getTip(slug: string) {
   }
 }
 
-const Tip = async ({ params }: any) => {
+const TipPage = async ({ params }: any) => {
   const { res } = await getTip(params.slug);
 
   if (typeof res === "string" || !res) {
@@ -27,52 +25,31 @@ const Tip = async ({ params }: any) => {
 
   return (
     <div className={styles.tipPage}>
-      <h1 className={styles.tipPage__title}>{res.title}</h1>
-      <img className={styles.tipPage__mainImage} src={mainImage} alt={title} />
+      <BackButton />
+      <div className={styles.tipPage__container}>
+        <h1 className={styles.tipPage__title}>{res.title}</h1>
+        <img
+          className={styles.tipPage__mainImage}
+          src={mainImage}
+          alt={title}
+        />
 
-      {tips.map((tip, i) => (
-        <RecipeSticker key={i}>
-          <div key={tip.title} className={styles.tip}>
-            <h3 className={styles.tip__title}>{tip.title}</h3>
-
-            {Array.isArray(tip.text) ? (
-              tip.text.map((tipText) => (
-                <div key={tipText} className={styles.tip__textBox}>
-                  {linkCutter(tipText, [styles.tip__link, styles.tip__text])}
-                </div>
-              ))
-            ) : (
-              <p>
-                TYPE: {JSON.stringify(typeof tip.text)}, CONT:{" "}
-                {JSON.stringify(tip.text)}{" "}
-              </p>
-            )}
-
-            {tip.image && (
-              <div className={styles.tip__imageBox}>
-                {tip.image.map((tipImage, i) => (
-                  <img
-                    key={tipImage}
-                    className={styles.tip__image}
-                    src={tipImage}
-                    alt={`${tip.title} #${i}`}
-                  />
-                ))}
-              </div>
-            )}
-          </div>
-        </RecipeSticker>
-      ))}
-
-      <div className={styles.tipPage__conclusion}>
-        {conclusion.map((text, i) => (
-          <p key={i} className={styles.tipPage__conclusion__text}>
-            {text}
-          </p>
+        {tips.map((tip, i) => (
+          <RecipeSticker key={i}>
+            <Tip tip={tip} />
+          </RecipeSticker>
         ))}
+
+        <div className={styles.tipPage__conclusion}>
+          {conclusion.map((text, i) => (
+            <p key={i} className={styles.tipPage__conclusion__text}>
+              {text}
+            </p>
+          ))}
+        </div>
       </div>
     </div>
   );
 };
 
-export default Tip;
+export default TipPage;

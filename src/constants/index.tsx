@@ -1,7 +1,9 @@
-import { InstagramIcon } from "@/components/icons/InstagramIcon";
-import { LinkedInIcon } from "@/components/icons/LinkedInIcon";
-import { PinterestIcon } from "@/components/icons/PinterestIcon";
-import { TikTokIcon } from "@/components/icons/TikTokIcon";
+import {
+  InstagramIcon,
+  LinkedInIcon,
+  PinterestIcon,
+  TikTokIcon,
+} from "@/components/icons";
 
 export const NAV = {
   home: ["Головна", "home"],
@@ -39,12 +41,12 @@ export const ROUTES = {
   tips: "tips",
   recipes: "recipes",
   lastRecipe: "last-recipe",
-}
+};
 
 export const ANCHORS = {
   recipes: "recipes",
-}
+};
 
 export const LOCAL_STORAGE = {
   favRecipes: "fav-recipes",
-}
+};

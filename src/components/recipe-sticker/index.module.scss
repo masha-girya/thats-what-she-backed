@@ -8,8 +8,6 @@
   padding: 30px 40px;
   max-width: max-content;
 
-  // box-sizing: border-box;
-
   background-color: #FCEC5270;
 
   box-shadow: 0 0 10px 0 rgba(33, 33, 33, 0.1);
@@ -17,6 +15,10 @@
   @include mixins.mediaTablet {
     margin-left: 10px;
     padding: 20px 30px;
+  }
+
+  @include mixins.mediaMobile {
+    margin-left: 0;
   }
 
   &__clip {
@@ -31,6 +33,10 @@
     @include mixins.mediaTablet {
       top: -44px;
       left: -14px;
+    }
+
+    @include mixins.mediaMobile {
+      top: -38px;
     }
   }
 }

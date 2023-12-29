@@ -3,5 +3,5 @@
 
 .recipes {
   @include mixins.mainBox();
-  padding-top: 100px;
+  overflow: hidden;
 }

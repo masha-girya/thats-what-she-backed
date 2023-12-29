@@ -2,7 +2,6 @@
 @use 'src/styles/variables.scss' as var;
 
 .headerDesktop {
-  padding: 0 30px;
   height: 100%;
 
   @include mixins.mediaTablet {

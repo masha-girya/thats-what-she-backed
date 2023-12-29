@@ -47,9 +47,15 @@
 
     &:hover {
       color: var.$main-color-tomato;
+
       &::after {
         width: 100%;
       }
+    }
+
+    a {
+      height: 100%;
+      display: block;
     }
 
     &_active {

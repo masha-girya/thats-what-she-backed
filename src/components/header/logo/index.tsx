@@ -4,7 +4,7 @@ import styles from "./index.module.scss";
 
 export const Logo = () => {
   return (
-    <Link href="/">
+    <Link href="/" className={styles.link}>
       <img
         alt="logo"
         src={LogoImg.src}

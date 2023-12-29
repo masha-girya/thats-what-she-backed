@@ -4,7 +4,13 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import classNames from "classnames";
 import { Logo } from "../logo";
-import { FavsRecipesHeader, Nav, Socials } from "@/components";
+import {
+  FavsRecipesHeader,
+  Nav,
+  Socials,
+  OvenIcon,
+  OvenBakedIcon,
+} from "@/components";
 import styles from "./index.module.scss";
 
 export const HeaderMobile = () => {
@@ -19,6 +25,18 @@ export const HeaderMobile = () => {
     setIsMenuOnShow(false);
   }, [pathname]);
 
+  useEffect(() => {
+    const body = document.body;
+
+    if (isMenuOnShow) {
+      body.style.height = "100vh";
+      body.style.overflowY = "hidden";
+    } else {
+      body.style.height = "100vh";
+      body.style.overflowY = "visible";
+    }
+  }, [isMenuOnShow]);
+
   return (
     <div className={styles.headerMobile}>
       <div className={styles.headerMobile__header}>
@@ -30,7 +48,11 @@ export const HeaderMobile = () => {
             className={styles.headerMobile__menuBtn}
             onClick={handleClickMenu}
           >
-            SHOW
+            {isMenuOnShow ? (
+              <OvenBakedIcon className={styles.headerMobile__menuBtn__icon} />
+            ) : (
+              <OvenIcon className={styles.headerMobile__menuBtn__icon} />
+            )}
           </button>
         </div>
       </div>

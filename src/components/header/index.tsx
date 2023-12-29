@@ -2,7 +2,7 @@ import { HeaderDesktop } from "./header-desktop";
 import { HeaderMobile } from "./header-mobile";
 import styles from "./index.module.scss";
 
-const Header = () => {
+export const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.header__container}>
@@ -12,5 +12,3 @@ const Header = () => {
     </header>
   );
 };
-
-export default Header;

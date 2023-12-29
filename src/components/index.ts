@@ -1,7 +1,9 @@
 export * from "./banner-recipe";
+export * from "./back-button";
 export * from "./favs-recipes-header";
 export * from "./footer";
 export * from "./header";
+export * from "./icons";
 export * from "./ingredients-list";
 export * from "./nav";
 export * from "./recipe-card";
@@ -14,3 +16,5 @@ export * from "./search";
 export * from "./server-error-plug";
 export * from "./socials";
 export * from "./tip-card";
+export * from "./tip";
+export * from "./container";

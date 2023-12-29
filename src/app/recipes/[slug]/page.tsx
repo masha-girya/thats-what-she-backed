@@ -6,6 +6,7 @@ import { ServerErrorPlug } from "@/components/server-error-plug";
 import { getRecipeBySlug } from "@/lib/recipes";
 import { IRecipe } from "@/types/recipe.type";
 import styles from "./index.module.scss";
+import { BackButton } from "@/components";
 
 async function getRecipe(slug: string) {
   try {
@@ -57,6 +58,7 @@ const RecipePage = async ({ params }: any) => {
   return (
     <div className={styles.recipe}>
       <div className={styles.recipe__recipeBox}>
+        <BackButton />
         <RecipeHeader
           slug={slug}
           title={title}
