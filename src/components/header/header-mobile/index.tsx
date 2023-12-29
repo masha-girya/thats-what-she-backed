@@ -42,7 +42,7 @@ export const HeaderMobile = () => {
   return (
     <div className={styles.headerMobile}>
       <div className={styles.headerMobile__header}>
-        <Logo />
+        <Logo setIsMenuOnShow={setIsMenuOnShow} />
         <div className={styles.headerMobile__buttons}>
           <FavsRecipesHeader />
           <button
@@ -63,7 +63,7 @@ export const HeaderMobile = () => {
           [styles.headerMobile__menu_onShow]: isMenuOnShow,
         })}
       >
-        <Nav isMobMenu />
+        <Nav isMobMenu setIsMenuOnShow={setIsMenuOnShow} />
         <Socials isMobMenu />
       </div>
     </div>

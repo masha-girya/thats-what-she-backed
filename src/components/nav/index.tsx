@@ -1,21 +1,30 @@
 "use client";
 
 import { usePathname, useRouter } from "next/navigation";
-import Link from "next/link";
+import { useCallback } from "react";
 import classNames from "classnames";
-import { NAV } from "@/constants";
+import { NAV, ROUTES } from "@/constants";
 import styles from "./index.module.scss";
 
 interface INav {
   isFooter?: boolean;
   isMobMenu?: boolean;
+  setIsMenuOnShow?: (isMenuOnShow: boolean) => void;
 }
 
 export const Nav = (props: INav) => {
   const pathname = usePathname();
   const router = useRouter();
 
-  const { isFooter, isMobMenu } = props;
+  const { isFooter, isMobMenu, setIsMenuOnShow } = props;
+
+  const handleRouteCHange = useCallback((route: string) => {
+    if (route === ROUTES.home && setIsMenuOnShow) {
+      setIsMenuOnShow(false);
+    }
+
+    router.push(route);
+  }, []);
 
   return (
     <nav
@@ -30,7 +39,7 @@ export const Nav = (props: INav) => {
       >
         {Object.values(NAV).map((item, i) => (
           <li
-            onClick={() => router.push(item[1])}
+            onClick={() => handleRouteCHange(item[1])}
             key={item[1]}
             className={classNames(styles.nav__link, {
               [styles.nav__link_footer]: isFooter,
