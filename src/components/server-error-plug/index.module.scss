@@ -3,6 +3,9 @@
 
 .errorPlug {
   @include mixins.mainBox();
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   &__box {
     display: flex;
@@ -10,12 +13,15 @@
     align-items: center;
     flex-direction: column;
 
-    padding-top: 100px;
+    height: 100%;
+    max-width: 800px;
+
+    padding: 0 16px;
   }
 
   &__icon {
-    width: 400px;
-    height: 400px;
+    width: 200px;
+    height: 200px;
 
     opacity: .7;
   }
@@ -28,6 +34,11 @@
     font-weight: 800;
     font-size: 30px;
     font-style: italic;
+    text-align: center;
     color: var.$main-color-tomato;
+
+    @include mixins.mediaMobile {
+      font-size: 25px;
+    }
   }
 }

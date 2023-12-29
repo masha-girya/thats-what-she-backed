@@ -13,6 +13,7 @@ export const HeartIcon = (props: any) => {
       xmlnsXlink="http://www.w3.org/1999/xlink"
       viewBox="0 0 481.19 481.19"
       xmlSpace="preserve"
+      {...props}
     >
       <path
         d="M417.556,334.859l-4.085-4.26c33.581-48.844,67.719-114.765,67.719-161.002c0-39.039-14.664-74.909-41.289-101

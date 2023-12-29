@@ -1,8 +1,12 @@
+import { ServerErrorPlug } from "@/components";
+import { ERROR_TEXT } from "@/constants";
 import styles from "./index.module.scss";
 
 const Blog = () => {
     return (
-      <main className={styles.blog}>Blog</main>
+      <main className={styles.blog}>
+        <ServerErrorPlug text={ERROR_TEXT.blog} />
+      </main>
     )
   }
   

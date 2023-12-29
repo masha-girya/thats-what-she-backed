@@ -1,6 +1,8 @@
 import tips from "@/data/tips.json";
-import { NextResponse } from "next/server";
+import { getData } from "@/utils/helpers";
 
 export async function GET() {
-  return NextResponse.json({ tips: tips.data });
+  const tipsData = tips.data;
+
+  return getData(tipsData, "tips");
 }

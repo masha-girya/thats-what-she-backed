@@ -19,7 +19,7 @@ export const Search = (props: IProps) => {
         className={styles.search__input}
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
-        //   placeholder="Search recipe"
+        placeholder="пошук рецепту"
       />
     </div>
   );

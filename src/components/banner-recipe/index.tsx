@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getLastRecipe } from "@/lib/recipes";
+import { ROUTES } from "@/constants";
 import styles from "./index.module.scss";
 
 async function getRecipe() {
@@ -9,21 +10,21 @@ async function getRecipe() {
     return { res: recipe.recipe };
   } catch (error) {
     console.error(error);
-    return { res: "Error in fetching data" };
+    return { res: null };
   }
 }
 
 export const BannerRecipe = async () => {
   const { res } = await getRecipe();
 
-  if (typeof res === "string") {
+  if (!res) {
     return <></>;
   }
 
   const { title, mainImage, slug } = res;
 
   return (
-    <Link href={`/recipes/${slug}`} className={styles.bannerRecipe}>
+    <Link href={`/${ROUTES.recipes}/${slug}`} className={styles.bannerRecipe}>
       <Image
         src={mainImage || ""}
         alt={title || ""}

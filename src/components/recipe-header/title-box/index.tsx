@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import classNames from "classnames";
-import { HeartIcon } from "@/components/icons/HeartIcon";
+import { HeartIcon } from "@/components";
 import { IRecipeCard } from "@/types/recipe.type";
 import { getFavRecipes } from "@/utils/helpers";
 import { LOCAL_STORAGE } from "@/constants";

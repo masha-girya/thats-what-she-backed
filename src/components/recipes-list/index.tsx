@@ -1,7 +1,13 @@
+import classNames from "classnames";
 import { RecipesListClient } from "./recipe-list-client";
 import { ServerErrorPlug } from "../server-error-plug";
 import { getAllRecipes } from "@/lib/recipes";
+import { ANCHORS, ERROR_TEXT } from "@/constants";
 import styles from "./index.module.scss";
+
+interface IProps {
+  isBlock?: boolean;
+}
 
 async function getRecipes() {
   try {
@@ -9,19 +15,24 @@ async function getRecipes() {
     return { res: recipes };
   } catch (error) {
     console.error(error);
-    return { res: "Error in fetching data" };
+    return { res: null };
   }
 }
 
-export const RecipesList = async () => {
+export const RecipesList = async ({ isBlock }: IProps) => {
   const { res } = await getRecipes();
 
-  if(typeof res === "string" || !res) {
-    return <ServerErrorPlug text="Упс! Кудись поділись всі рецепти... Вже шукаємо!" />
+  if (!res) {
+    return <ServerErrorPlug text={ERROR_TEXT.recipeInner} />;
   }
 
   return (
-    <div className={styles.recipesList}>
+    <div
+      id={ANCHORS.recipes}
+      className={classNames(styles.recipesList, {
+        [styles.recipesList_isBlock]: isBlock,
+      })}
+    >
       {Array.isArray(res) && <RecipesListClient recipes={res} />}
     </div>
   );

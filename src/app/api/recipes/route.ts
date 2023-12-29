@@ -1,6 +1,8 @@
 import recipes from "@/data/recipes.json";
-import { NextResponse } from "next/server";
+import { getData } from "@/utils/helpers";
 
 export async function GET() {
-  return NextResponse.json({ recipes: recipes.data });
+  const recipesData = recipes.data;
+
+  return getData(recipesData, "recipes");
 }

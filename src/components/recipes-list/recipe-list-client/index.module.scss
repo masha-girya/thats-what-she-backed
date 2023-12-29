@@ -1,11 +1,48 @@
+@use "src/styles/mixins.scss";
+
 .recipeListClient {
   &__search {
     align-self: flex-end;
+
+    @include mixins.mediaTablet {
+      align-self: center;
+    }
+
+    @include mixins.mediaMobile {
+      width: 100%;
+    }
+
+    &_favs {
+      @include mixins.mediaNoteBook {
+        align-self: flex-start;
+      }
+
+      @include mixins.mediaTablet {
+        align-self: center;
+      }
+    }
   }
 
   &__box {
     display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
     gap: 30px;
-    margin-top: 30px;
+
+    margin: 30px auto 0;
+    max-width: 1260px;
+
+    @include mixins.mediaNoteBook {
+      width: 100%;
+      max-width: 830px;
+    }
+
+    @include mixins.mediaTablet {
+      max-width: 400px;
+    }
+
+    @include mixins.mediaMobile {
+      max-width: 100%;
+    }
   }
 }

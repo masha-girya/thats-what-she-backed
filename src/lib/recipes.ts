@@ -1,9 +1,10 @@
+import { ROUTES } from "@/constants";
 import { IRecipe } from "@/types/recipe.type";
 import { endpoint } from "@/utils/endpoint";
 
 export async function getAllRecipes() {
   try {
-    const data = await fetch(`${endpoint}/recipes`);
+    const data = await fetch(`${endpoint}/${ROUTES.recipes}`);
     const parsedData: { recipes: IRecipe[] } = await data.json();
 
     return parsedData.recipes.map((item) => ({
@@ -24,7 +25,6 @@ export async function getRecipeBySlug(slug: string) {
     return data.json();
   } catch (error) {
     console.error(error);
-    return "Failed to fetch data";
   }
 }
 
@@ -41,7 +41,7 @@ export async function getRecipeMainInfo(slug: string) {
 
 export async function getLastRecipe() {
   try {
-    const data = await fetch(`${endpoint}/recipes/last-recipe`);
+    const data = await fetch(`${endpoint}/${ROUTES.recipes}/${ROUTES.lastRecipe}`);
 
     return data.json();
   } catch (error) {

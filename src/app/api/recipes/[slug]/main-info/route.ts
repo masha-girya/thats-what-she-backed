@@ -1,4 +1,5 @@
 import recipes from "@/data/recipes.json";
+import { getData } from "@/utils/helpers";
 import { NextResponse } from "next/server";
 
 export async function GET(req: any, { params }: any) {

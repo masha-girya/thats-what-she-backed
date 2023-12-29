@@ -1,0 +1,55 @@
+@use 'src/styles/mixins.scss';
+@use 'src/styles/variables.scss' as var;
+
+.backBtn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  margin-bottom: 20px;
+
+  // font-family: "Cormorant Garamond", serif;
+  font-size: 14px;
+  line-height: 14px;
+  font-style: italic;
+  text-transform: lowercase;
+
+  transition: transform .2s ease, color .3s ease;;
+
+  &__arrow {
+    transform: translateY(1px) rotate(180deg);
+    transition: transform .2s ease;
+
+    path {
+      transition: fill .3s ease;
+    }
+  }
+
+  &:hover {
+    transform: translateX(5px);
+    color: var.$color-apricot;
+
+    .backBtn__arrow {
+      transform: translateY(1px) rotate(180deg) translateX(10px);
+  
+      path {
+        fill: var.$color-apricot;
+      }
+    }
+  }
+
+  @include mixins.mediaTablet {
+    &:hover {
+      transform: translateX(0);
+      color: initial;
+  
+      .backBtn__arrow {
+        transform: translateY(1px) rotate(180deg) translateX(0);
+    
+        path {
+          fill: initial;
+        }
+      }
+    }
+  }
+}

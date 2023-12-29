@@ -17,7 +17,7 @@ export const RecipeHeader = (props: IProps) => {
 
   return (
     <div className={styles.recipeHeader}>
-      <div>
+      <div className={styles.recipeHeader__intro}>
         <TitleBox title={title} slug={slug} mainImage={mainImage} />
         <p className={styles.recipeHeader__descFirst}>{description[0]}</p>
         <Image

@@ -1,0 +1,8 @@
+@use 'src/styles/variables.scss' as var;
+
+.container {
+  position: relative;
+
+  max-width: var.$max-width-main;
+  margin: 0 auto;
+}

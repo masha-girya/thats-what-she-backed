@@ -1,4 +1,17 @@
 import { IRecipeCard } from "@/types/recipe.type";
+import { NextResponse } from "next/server";
+
+export async function getData(data: any, keyword: string, customReturnData?: any) {
+  try {
+    if(!data) {
+      return new NextResponse("not found", { status: 404 });
+    }
+
+    return NextResponse.json(customReturnData ?? { [keyword]: data });
+  } catch {
+    return new NextResponse("Internal Server Error", { status: 500 });
+  }
+}
 
 export const getFavRecipes = (favRecipes: IRecipeCard[], item: IRecipeCard) => {
   let itemToSet = "";

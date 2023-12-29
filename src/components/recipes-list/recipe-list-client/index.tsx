@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Search } from "@/components/search";
 import { RecipeCard } from "@/components/recipe-card";
 import styles from "./index.module.scss";
+import classNames from "classnames";
 
 interface IProps {
   recipes: {
@@ -11,10 +12,11 @@ interface IProps {
     title: string;
     slug: string;
   }[];
+  isFavRecipes?: boolean;
 }
 
 export const RecipesListClient = (props: IProps) => {
-  const { recipes } = props;
+  const { recipes, isFavRecipes } = props;
   const [searchQuery, setSearchQuery] = useState("");
   const [recipesOnShow, setRecipesOnShow] = useState(recipes);
 
@@ -27,7 +29,11 @@ export const RecipesListClient = (props: IProps) => {
 
   return (
     <>
-      <div className={styles.recipeListClient__search}>
+      <div
+        className={classNames(styles.recipeListClient__search, {
+          [styles.recipeListClient__search_favs]: isFavRecipes,
+        })}
+      >
         <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       </div>
       <div className={styles.recipeListClient__box}>
