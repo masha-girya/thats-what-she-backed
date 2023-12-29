@@ -1,12 +1,15 @@
-import { RecipeStep } from "@/components/recipe-step";
-import { RecipeSticker } from "@/components/recipe-sticker";
-import { RecipeHeader } from "@/components/recipe-header";
-import { RecipeTips } from "@/components/recipe-tips";
-import { ServerErrorPlug } from "@/components/server-error-plug";
+import {
+  RecipeStep,
+  RecipeSticker,
+  RecipeHeader,
+  RecipeTips,
+  ServerErrorPlug,
+  BackButton,
+} from "@/components";
 import { getRecipeBySlug } from "@/lib/recipes";
 import { IRecipe } from "@/types/recipe.type";
+import { ERROR_TEXT } from "@/constants";
 import styles from "./index.module.scss";
-import { BackButton } from "@/components";
 
 async function getRecipe(slug: string) {
   try {
@@ -15,15 +18,15 @@ async function getRecipe(slug: string) {
     return { res: recipe.recipe };
   } catch (error) {
     console.error(error);
-    return { res: "Error in fetching data" };
+    return { res: null };
   }
 }
 
 const RecipePage = async ({ params }: any) => {
   const { res } = await getRecipe(params.slug);
 
-  if (typeof res === "string" || !res) {
-    return <ServerErrorPlug text="Упс! А такого рецепту немає..." />
+  if (!res) {
+    return <ServerErrorPlug text={ERROR_TEXT.recipeInner} />;
   }
 
   const {

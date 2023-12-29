@@ -1,5 +1,4 @@
 @use 'src/styles/mixins.scss';
-@use 'src/styles/variables.scss' as var;
 
 .recipes {
   @include mixins.mainBox();

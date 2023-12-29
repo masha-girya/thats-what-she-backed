@@ -1,6 +1,6 @@
 "use client";
 
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import classNames from "classnames";
 import { NAV } from "@/constants";
@@ -13,6 +13,8 @@ interface INav {
 
 export const Nav = (props: INav) => {
   const pathname = usePathname();
+  const router = useRouter();
+
   const { isFooter, isMobMenu } = props;
 
   return (
@@ -26,17 +28,20 @@ export const Nav = (props: INav) => {
           [styles.nav__list_mobMenu]: isMobMenu,
         })}
       >
-        {Object.values(NAV).map((item) => (
+        {Object.values(NAV).map((item, i) => (
           <li
+            onClick={() => router.push(item[1])}
             key={item[1]}
             className={classNames(styles.nav__link, {
               [styles.nav__link_footer]: isFooter,
               [styles.nav__link_mobMenu]: isMobMenu,
               [styles.nav__link_active]:
-                item[1] === pathname?.slice(1) && !isFooter,
+                (item[1] === pathname?.slice(1) ||
+                  (pathname === "/" && item[1] === "/")) &&
+                !isFooter,
             })}
           >
-            <Link href={`/${item[1]}`}>{item[0]}</Link>
+            <span>{item[0]}</span>
           </li>
         ))}
       </ul>

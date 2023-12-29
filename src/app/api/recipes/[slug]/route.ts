@@ -1,16 +1,8 @@
 import recipes from "@/data/recipes.json";
-import { NextResponse } from "next/server";
+import { getData } from "@/utils/helpers";
 
 export async function GET(req: any, { params }: any) {
-  try {
-    const recipe = recipes.data.find((item) => item.slug === params.slug);
+  const recipe = recipes.data.find((item) => item.slug === params.slug);
 
-    if (!recipe) {
-      return new NextResponse("not found", { status: 404 });
-    }
-
-    return NextResponse.json({recipe});
-  } catch (error) {
-    return new NextResponse("Internal Server Error", { status: 500 });
-  }
+  return getData(recipe, "recipe");
 }

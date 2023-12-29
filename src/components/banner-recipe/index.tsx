@@ -10,14 +10,14 @@ async function getRecipe() {
     return { res: recipe.recipe };
   } catch (error) {
     console.error(error);
-    return { res: "Error in fetching data" };
+    return { res: null };
   }
 }
 
 export const BannerRecipe = async () => {
   const { res } = await getRecipe();
 
-  if (typeof res === "string") {
+  if (!res) {
     return <></>;
   }
 

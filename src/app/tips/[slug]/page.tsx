@@ -1,6 +1,7 @@
 import { RecipeSticker, Tip, ServerErrorPlug, BackButton } from "@/components";
 import { getTipBySlug } from "@/lib/tips";
 import { ITips } from "@/types/tips.type";
+import { ERROR_TEXT } from "@/constants";
 import styles from "./index.module.scss";
 
 async function getTip(slug: string) {
@@ -10,15 +11,15 @@ async function getTip(slug: string) {
     return { res: tips.tip };
   } catch (error) {
     console.error(error);
-    return { res: "Error in fetching data" };
+    return { res: null };
   }
 }
 
 const TipPage = async ({ params }: any) => {
   const { res } = await getTip(params.slug);
 
-  if (typeof res === "string" || !res) {
-    return <ServerErrorPlug text="Упс! Хтось з'їв всі замітки!" />;
+  if (!res) {
+    return <ServerErrorPlug text={ERROR_TEXT.tipInner} />;
   }
 
   const { title, mainImage, tips, conclusion } = res as ITips;

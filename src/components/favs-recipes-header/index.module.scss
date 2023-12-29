@@ -17,10 +17,12 @@
     @include mixins.square(32px);
   }
 
-  svg {
-    path {
+  &__icon {
+    fill: var.$color-pink;
+    transition: fill 0.3s ease;
+
+    &_full {
       fill: var.$main-color-tomato;
-      transition: fill .3s ease;
     }
   }
 

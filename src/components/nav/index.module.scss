@@ -7,7 +7,7 @@
 
   &_mobMenu {
     margin: 0 auto;
-    padding-top: 80px;
+    padding-top: 120px;
   }
 
   &__list {
@@ -51,11 +51,6 @@
       &::after {
         width: 100%;
       }
-    }
-
-    a {
-      height: 100%;
-      display: block;
     }
 
     &_active {

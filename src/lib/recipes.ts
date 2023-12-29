@@ -25,7 +25,6 @@ export async function getRecipeBySlug(slug: string) {
     return data.json();
   } catch (error) {
     console.error(error);
-    return "Failed to fetch data";
   }
 }
 
