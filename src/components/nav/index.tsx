@@ -18,8 +18,8 @@ export const Nav = (props: INav) => {
 
   const { isFooter, isMobMenu, setIsMenuOnShow } = props;
 
-  const handleRouteCHange = useCallback((route: string) => {
-    if (route === ROUTES.home && setIsMenuOnShow) {
+  const handleRouteChange = useCallback((route: string) => {
+    if (setIsMenuOnShow) {
       setIsMenuOnShow(false);
     }
 
@@ -37,9 +37,9 @@ export const Nav = (props: INav) => {
           [styles.nav__list_mobMenu]: isMobMenu,
         })}
       >
-        {Object.values(NAV).map((item, i) => (
+        {Object.values(NAV).map((item) => (
           <li
-            onClick={() => handleRouteCHange(item[1])}
+            onClick={() => handleRouteChange(item[1])}
             key={item[1]}
             className={classNames(styles.nav__link, {
               [styles.nav__link_footer]: isFooter,

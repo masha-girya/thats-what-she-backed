@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
 import classNames from "classnames";
 import { Logo } from "../logo";
 import {
@@ -14,16 +13,11 @@ import {
 import styles from "./index.module.scss";
 
 export const HeaderMobile = () => {
-  const pathname = usePathname();
   const [isMenuOnShow, setIsMenuOnShow] = useState(false);
 
   const handleClickMenu = () => {
     setIsMenuOnShow(!isMenuOnShow);
   };
-
-  useEffect(() => {
-    setIsMenuOnShow(false);
-  }, [pathname]);
 
   useEffect(() => {
     const body = document.body;
