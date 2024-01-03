@@ -3,7 +3,7 @@
 import { usePathname, useRouter } from "next/navigation";
 import { useCallback } from "react";
 import classNames from "classnames";
-import { NAV, ROUTES } from "@/constants";
+import { NAV } from "@/constants";
 import styles from "./index.module.scss";
 
 interface INav {
@@ -23,7 +23,7 @@ export const Nav = (props: INav) => {
       setIsMenuOnShow(false);
     }
 
-    router.push(route);
+    router.push(`/${route}`);
   }, []);
 
   return (
