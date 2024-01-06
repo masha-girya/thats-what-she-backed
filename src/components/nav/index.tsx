@@ -18,6 +18,16 @@ export const Nav = (props: INav) => {
 
   const { isFooter, isMobMenu, setIsMenuOnShow } = props;
 
+  const isActiveLink = useCallback(
+    (path: string) => {
+      const isHomepageActive = pathname === "/" && path === "/";
+      const isAnotherPageActive = path === pathname?.slice(1);
+
+      return isHomepageActive || isAnotherPageActive;
+    },
+    [pathname]
+  );
+
   const handleRouteChange = useCallback((route: string) => {
     if (setIsMenuOnShow) {
       setIsMenuOnShow(false);
@@ -44,10 +54,7 @@ export const Nav = (props: INav) => {
             className={classNames(styles.nav__link, {
               [styles.nav__link_footer]: isFooter,
               [styles.nav__link_mobMenu]: isMobMenu,
-              [styles.nav__link_active]:
-                (item[1] === pathname?.slice(1) ||
-                  (pathname === "/" && item[1] === "/")) &&
-                !isFooter,
+              [styles.nav__link_active]: isActiveLink(item[1]) && !isFooter,
             })}
           >
             <span>{item[0]}</span>

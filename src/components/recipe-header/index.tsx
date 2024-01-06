@@ -2,6 +2,7 @@ import Image from "next/image";
 import { IngredientsList } from "@/components/ingredients-list";
 import { RecipeSticker } from "@/components/recipe-sticker";
 import { TitleBox } from "./title-box";
+import { RECIPES_PAGE_TEXT } from "@/constants";
 import styles from "./index.module.scss";
 
 interface IProps {
@@ -37,13 +38,10 @@ export const RecipeHeader = (props: IProps) => {
       <div className={styles.recipeHeader__ingredientsBox}>
         <RecipeSticker>
           <h2 className={styles.recipeHeader__ingredientsBox__title}>
-            Всі інгредієнти
+            {RECIPES_PAGE_TEXT.allIngredientsBox}
           </h2>
           <div>
             <IngredientsList ingredients={allIngredients} />
-            {/* {Object.values(ingredients).map((item, i) => (
-              <IngredientsList key={i} ingredients={item} />
-            ))} */}
           </div>
         </RecipeSticker>
       </div>

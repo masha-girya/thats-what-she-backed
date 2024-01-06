@@ -14,13 +14,12 @@ export async function getAllRecipes() {
     }));
   } catch (error) {
     console.error(error);
-    return "Failed to fetch data";
   }
 }
 
 export async function getRecipeBySlug(slug: string) {
   try {
-    const data = await fetch(`${endpoint}/recipes/${slug}`);
+    const data = await fetch(`${endpoint}/${ROUTES.recipes}/${slug}`);
 
     return data.json();
   } catch (error) {
@@ -30,12 +29,11 @@ export async function getRecipeBySlug(slug: string) {
 
 export async function getRecipeMainInfo(slug: string) {
   try {
-    const data = await fetch(`${endpoint}/recipes/${slug}/main-info`);
+    const data = await fetch(`${endpoint}/${ROUTES.recipes}/${slug}/${ROUTES.mainInfo}`);
 
     return data.json();
   } catch (error) {
     console.error(error);
-    return "Failed to fetch data";
   }
 }
 
@@ -46,6 +44,5 @@ export async function getLastRecipe() {
     return data.json();
   } catch (error) {
     console.error(error);
-    return "Failed to fetch data";
   }
 }

@@ -17,9 +17,21 @@
     @include mixins.square(32px);
   }
 
+  &:hover {
+    svg {
+      transform: scale(1.1);
+    }
+  }
+
+  &:active {
+    svg {
+      transform: scale(.9);
+    }
+  }
+
   &__icon {
     fill: var.$color-pink;
-    transition: fill 0.3s ease;
+    transition: fill 0.3s ease, transform .2s ease-in-out;
 
     &_full {
       fill: var.$main-color-tomato;

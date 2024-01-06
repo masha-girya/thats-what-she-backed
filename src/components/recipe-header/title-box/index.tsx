@@ -4,7 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import classNames from "classnames";
 import { HeartIcon } from "@/components";
 import { IRecipeCard } from "@/types/recipe.type";
-import { getFavRecipes } from "@/utils/helpers";
+import { getFavRecipes } from "@/utils";
 import { LOCAL_STORAGE } from "@/constants";
 import styles from "./index.module.scss";
 
@@ -17,8 +17,6 @@ interface IProps {
 export const TitleBox = (props: IProps) => {
   const { title, slug, mainImage } = props;
   const [isInFavs, setIsInFavs] = useState(false);
-  // const [isOnHover, setIsOnHover] = useState(false);
-
   useEffect(() => {
     const favRecipes: IRecipeCard[] = JSON.parse(
       localStorage.getItem(LOCAL_STORAGE.favRecipes) || "[]"
@@ -57,15 +55,8 @@ export const TitleBox = (props: IProps) => {
           [styles.titleBox__favs_active]: isInFavs,
         })}
         onClick={setRecipeToFavs}
-        // onMouseEnter={() => setIsOnHover(true)}
-        // onMouseLeave={() => setIsOnHover(false)}
       >
         <HeartIcon />
-        {/* {isOnHover && (
-          <div className={styles.titleBox__favs_helperText}>
-            {isInFavs ? "прибрати з улюблених" : "додати в улюблені"}
-          </div>
-        )} */}
       </div>
     </div>
   );

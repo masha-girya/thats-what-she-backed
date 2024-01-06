@@ -1,8 +1,7 @@
-import { ServerErrorPlug } from "@/components/server-error-plug";
-import { TipCard } from "@/components/tip-card";
+import { TipCard, ServerErrorPlug } from "@/components";
 import { getAllTips } from "@/lib/tips";
-import { ERROR_TEXT } from "@/constants";
-import { ITipShort } from "@/types/tips.type";
+import { ERROR_TEXT, TIPS_PAGE_TEXT } from "@/constants";
+import { ITipShort } from "@/types";
 import styles from "./index.module.scss";
 
 async function getTips() {
@@ -25,7 +24,7 @@ const Tips = async () => {
 
   return (
     <main className={styles.tips}>
-      <h1 className={styles.tips__title}>Замітки про іжу</h1>
+      <h1 className={styles.tips__title}>{TIPS_PAGE_TEXT.title}</h1>
       <div className={styles.tips__list}>
         {res.map((tip) => (
           <TipCard key={tip.slug} tip={tip} />

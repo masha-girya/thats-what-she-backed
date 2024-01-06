@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import classNames from "classnames";
 import Link from "next/link";
 import { HeartIcon } from "../icons/HeartIcon";
-import { LOCAL_STORAGE, ROUTES } from "@/constants";
+import { LINKS_TITLE, LOCAL_STORAGE, ROUTES } from "@/constants";
 import styles from "./index.module.scss";
 
 export const FavsRecipesHeader = () => {
@@ -19,7 +19,7 @@ export const FavsRecipesHeader = () => {
   return (
     <Link
       href={`/${ROUTES.favRecipes}`}
-      title="улюблені рецепти"
+      title={LINKS_TITLE.favRecipes}
       className={classNames(styles.favsHeader)}
     >
       {favRecipes.length > 0 && (

@@ -1,6 +1,13 @@
-import { RecipeSticker, Tip, ServerErrorPlug, BackButton } from "@/components";
+import { Suspense } from "react";
+import {
+  RecipeSticker,
+  Tip,
+  ServerErrorPlug,
+  BackButton,
+  LoadingPage,
+} from "@/components";
 import { getTipBySlug } from "@/lib/tips";
-import { ITips } from "@/types/tips.type";
+import { ITips } from "@/types";
 import { ERROR_TEXT } from "@/constants";
 import styles from "./index.module.scss";
 
@@ -25,31 +32,33 @@ const TipPage = async ({ params }: any) => {
   const { title, mainImage, tips, conclusion } = res as ITips;
 
   return (
-    <div className={styles.tipPage}>
-      <BackButton />
-      <div className={styles.tipPage__container}>
-        <h1 className={styles.tipPage__title}>{res.title}</h1>
-        <img
-          className={styles.tipPage__mainImage}
-          src={mainImage}
-          alt={title}
-        />
+    <Suspense fallback={<LoadingPage />}>
+      <div className={styles.tipPage}>
+        <BackButton />
+        <div className={styles.tipPage__container}>
+          <h1 className={styles.tipPage__title}>{res.title}</h1>
+          <img
+            className={styles.tipPage__mainImage}
+            src={mainImage}
+            alt={title}
+          />
 
-        {tips.map((tip, i) => (
-          <RecipeSticker key={i}>
-            <Tip tip={tip} />
-          </RecipeSticker>
-        ))}
-
-        <div className={styles.tipPage__conclusion}>
-          {conclusion.map((text, i) => (
-            <p key={i} className={styles.tipPage__conclusion__text}>
-              {text}
-            </p>
+          {tips.map((tip, i) => (
+            <RecipeSticker key={i}>
+              <Tip tip={tip} />
+            </RecipeSticker>
           ))}
+
+          <div className={styles.tipPage__conclusion}>
+            {conclusion.map((text, i) => (
+              <p key={i} className={styles.tipPage__conclusion__text}>
+                {text}
+              </p>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </Suspense>
   );
 };
 

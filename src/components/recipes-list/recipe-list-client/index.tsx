@@ -2,8 +2,7 @@
 
 import { useEffect, useState } from "react";
 import classNames from "classnames";
-import { Search } from "@/components/search";
-import { RecipeCard } from "@/components/recipe-card";
+import { Search, RecipeCard } from "@/components";
 import styles from "./index.module.scss";
 
 interface IProps {
@@ -24,6 +23,7 @@ export const RecipesListClient = (props: IProps) => {
     const newRecipes = recipes.filter((recipe) =>
       recipe.title.toLocaleLowerCase().includes(searchQuery.toLocaleLowerCase())
     );
+
     setRecipesOnShow(newRecipes);
   }, [searchQuery]);
 

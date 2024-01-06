@@ -1,8 +1,9 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import styles from "./index.module.scss";
 import { ArrowIcon } from "../icons/ArrowIcon";
+import { BUTTONS_TEXT } from "@/constants";
+import styles from "./index.module.scss";
 
 export const BackButton = () => {
   const router = useRouter();
@@ -14,7 +15,7 @@ export const BackButton = () => {
       onClick={() => router.back()}
     >
       <ArrowIcon className={styles.backBtn__arrow} />
-      Повернутись назад
+      {BUTTONS_TEXT.goBack}
     </button>
   );
 };

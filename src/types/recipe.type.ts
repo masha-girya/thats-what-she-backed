@@ -14,14 +14,14 @@ export interface IRecipe {
   ingredients: IIngredients;
   allIngredients: string[];
   steps: ISteps;
-  tips: ITips;
+  tips: ITipsRecipe;
 }
 
 export interface IRecipeCard extends Pick<
   IRecipe, "title" | "slug" | "mainImage"
 > {}
 
-export interface ITips {
+export interface ITipsRecipe {
     [key: string]: string;
   }
 
