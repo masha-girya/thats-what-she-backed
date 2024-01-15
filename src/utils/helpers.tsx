@@ -1,15 +1,16 @@
-import { IRecipeCard } from "@/types/recipe.type";
+import { ERROR_TEXT } from "@/constants";
+import { IRecipeCard } from "@/types";
 import { NextResponse } from "next/server";
 
 export async function getData(data: any, keyword: string, customReturnData?: any) {
   try {
     if(!data) {
-      return new NextResponse("not found", { status: 404 });
+      return new NextResponse(ERROR_TEXT.notFound, { status: 404 });
     }
 
     return NextResponse.json(customReturnData ?? { [keyword]: data });
   } catch {
-    return new NextResponse("Internal Server Error", { status: 500 });
+    return new NextResponse(ERROR_TEXT.serverError, { status: 500 });
   }
 }
 
@@ -55,3 +56,9 @@ export const linkCutter = (text: string, classNames: string[]) => {
 
   return result;
 };
+
+export const getLastImages = (stepArr: any[]) =>
+stepArr
+  .map((ar) => Object.keys(ar))
+  .flat()
+  .lastIndexOf("image");

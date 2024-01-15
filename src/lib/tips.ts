@@ -15,7 +15,6 @@ export async function getAllTips() {
     }));
   } catch (error) {
     console.error(error);
-    return "Failed to fetch data";
   }
 }
 
@@ -26,6 +25,5 @@ export async function getTipBySlug(slug: string) {
     return data.json();
   } catch (error) {
     console.error(error);
-    return "Failed to fetch data";
   }
 }

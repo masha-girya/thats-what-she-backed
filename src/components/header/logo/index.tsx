@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useCallback } from "react";
+import { IMAGE_ALT_TEXT } from "@/constants";
 import LogoImg from "../assets/Logo.png";
 import styles from "./index.module.scss";
 
@@ -18,7 +19,11 @@ export const Logo = ({ setIsMenuOnShow }: IProps) => {
 
   return (
     <Link href="/" className={styles.link} onClick={handleCloseMenu}>
-      <img alt="logo" src={LogoImg.src} className={styles.logo} />
+      <img
+        alt={IMAGE_ALT_TEXT.logo}
+        src={LogoImg.src}
+        className={styles.logo}
+      />
     </Link>
   );
 };

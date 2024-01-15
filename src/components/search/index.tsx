@@ -1,4 +1,5 @@
 import { SearchIcon } from "../icons/SearchIcon";
+import { PLACEHOLDERS_TEXT } from "@/constants";
 import styles from "./index.module.scss";
 
 interface IProps {
@@ -19,7 +20,7 @@ export const Search = (props: IProps) => {
         className={styles.search__input}
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
-        placeholder="пошук рецепту"
+        placeholder={PLACEHOLDERS_TEXT.search}
       />
     </div>
   );

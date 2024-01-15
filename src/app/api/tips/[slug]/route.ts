@@ -1,8 +1,9 @@
+import { DATA_KEYS } from "@/constants";
+import { getData } from "@/utils";
 import tips from "@/data/tips.json";
-import { getData } from "@/utils/helpers";
 
 export async function GET(req: any, { params }: any) {
   const tip = tips.data.find((item) => item.slug === params.slug);
 
-  return getData(tip, "tip");
+  return getData(tip, DATA_KEYS.tip);
 }

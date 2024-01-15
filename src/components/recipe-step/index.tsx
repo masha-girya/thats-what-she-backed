@@ -1,7 +1,7 @@
-import classNames from "classnames";
 import { IngredientsList } from "../ingredients-list";
-import { ISteps } from "@/types/recipe.type";
-import { IIngredients } from "@/types/ingredients.type";
+import { ImageContent } from "./image-content";
+import { IIngredients, ISteps } from "@/types";
+import { getLastImages } from "@/utils";
 import styles from "./index.module.scss";
 
 interface IRecipeStep {
@@ -14,11 +14,29 @@ export const RecipeStep = (props: IRecipeStep) => {
 
   const stepsKeysArr = Object.keys(steps);
 
-  const getLastImages = (stepArr: any[]) =>
-    stepArr
-      .map((ar) => Object.keys(ar))
-      .flat()
-      .lastIndexOf("image");
+  const getContent = (item: any, index: number, step: any) => {
+    switch (true) {
+      case "text" in item:
+        return (
+          <p key={index} className={styles.steps__text}>
+            {item.text}
+          </p>
+        );
+      case "image" in item:
+        const isLastImage =
+          step === stepsKeysArr[stepsKeysArr.length - 1] &&
+          index === getLastImages(steps[step]);
+
+        return (
+          <ImageContent
+            key={index}
+            isLastImage={isLastImage}
+            imageContent={item.image}
+            stepName={step}
+          />
+        );
+    }
+  };
 
   return (
     <div className={styles.steps}>
@@ -27,41 +45,9 @@ export const RecipeStep = (props: IRecipeStep) => {
           <h2 className={styles.steps__title}>{step}</h2>
           <IngredientsList ingredients={ingredients[step]} />
           <div>
-            {steps[step].map((item: any, i: number) => {
-              if (item.text) {
-                return (
-                  <p key={i} className={styles.steps__text}>
-                    {item.text}
-                  </p>
-                );
-              }
-
-              if (item.image) {
-                return (
-                  <div
-                    key={i}
-                    className={classNames(styles.steps__imageBox, {
-                      [styles.steps__imageBox_last]:
-                        step === stepsKeysArr[stepsKeysArr.length - 1] &&
-                        i === getLastImages(steps[step]),
-                    })}
-                  >
-                    {item.image.map((img: any) => (
-                      <div key={img}>
-                        <img
-                          className={classNames(styles.steps__image, {
-                            [styles.steps__image_last]:
-                              step === stepsKeysArr[stepsKeysArr.length - 1] &&
-                              i === getLastImages(steps[step]),
-                          })}
-                          src={img}
-                        />
-                      </div>
-                    ))}
-                  </div>
-                );
-              }
-            })}
+            {steps[step].map((item: any, i: number) =>
+              getContent(item, i, step)
+            )}
           </div>
         </div>
       ))}

@@ -25,20 +25,21 @@ export const IngredientsList = (props: IProps) => {
 
   return (
     <ul className={styles.ingredientsList}>
-      {ingredients.map((li: string) => (
-        <li key={li}>
+      {ingredients.map((ingredient: string) => (
+        <li key={ingredient}>
           <label
             className={classNames(styles.ingredientsList__item, {
-              [styles.ingredientsList__item_checked]: checkedItems.includes(li),
+              [styles.ingredientsList__item_checked]:
+                checkedItems.includes(ingredient),
             })}
           >
             <input
               className={styles.ingredientsList__checkbox}
               type="checkbox"
-              checked={checkedItems.includes(li)}
-              onChange={() => handleCheckItem(li)}
+              checked={checkedItems.includes(ingredient)}
+              onChange={() => handleCheckItem(ingredient)}
             />
-            {li}
+            {ingredient}
           </label>
         </li>
       ))}

@@ -1,5 +1,5 @@
+import { ERROR_TEXT } from "@/constants";
 import recipes from "@/data/recipes.json";
-import { getData } from "@/utils/helpers";
 import { NextResponse } from "next/server";
 
 export async function GET(req: any, { params }: any) {
@@ -7,15 +7,15 @@ export async function GET(req: any, { params }: any) {
     const recipe = recipes.data.find((item) => item.slug === params.slug);
 
     if (!recipe) {
-      return new NextResponse("not found", { status: 404 });
+      return new NextResponse(ERROR_TEXT.notFound, { status: 404 });
     }
 
     return NextResponse.json({
-        title: recipe.title,
-        image: recipe.mainImage,
-        optionalDesc: "optionalDesc" in recipe ? recipe.optionalDesc : '',
+      title: recipe.title,
+      image: recipe.mainImage,
+      optionalDesc: "optionalDesc" in recipe ? recipe.optionalDesc : "",
     });
   } catch (error) {
-    return new NextResponse("Internal Server Error", { status: 500 });
+    return new NextResponse(ERROR_TEXT.serverError, { status: 500 });
   }
 }
