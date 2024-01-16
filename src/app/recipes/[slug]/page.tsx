@@ -8,7 +8,7 @@ import {
   BackButton,
   LoadingPage,
 } from "@/components";
-import { getRecipeBySlug } from "@/lib/recipes";
+import { getRecipeBySlug } from "@/lib";
 import { IRecipe } from "@/types";
 import { ERROR_TEXT } from "@/constants";
 import styles from "./index.module.scss";
