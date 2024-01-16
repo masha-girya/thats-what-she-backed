@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { RecipesListClient } from "./recipe-list-client";
 import { ServerErrorPlug } from "../server-error-plug";
-import { getAllRecipes } from "@/lib/recipes";
+import { getAllRecipes } from "@/lib";
 import { ANCHORS, ERROR_TEXT } from "@/constants";
 import styles from "./index.module.scss";
 

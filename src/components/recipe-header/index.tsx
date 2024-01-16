@@ -24,9 +24,9 @@ export const RecipeHeader = (props: IProps) => {
         <Image
           src={mainImage || ""}
           alt={title || ""}
-          width={600}
+          width={100}
           height={600}
-          layout="responsive"
+          className={styles.recipeHeader__mainImage}
           loading="lazy"
         />
         <div className={styles.recipeHeader__rightCol}>

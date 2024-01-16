@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { getLastRecipe } from "@/lib/recipes";
+import { getLastRecipe } from "@/lib";
 import { ROUTES } from "@/constants";
 import styles from "./index.module.scss";
 
@@ -30,7 +30,6 @@ export const BannerRecipe = async () => {
         alt={title || ""}
         width={600}
         height={1000}
-        layout="responsive"
         loading="lazy"
       />
       <div className={styles.bannerRecipe__link}>

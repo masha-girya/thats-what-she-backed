@@ -6,7 +6,7 @@ import {
   BackButton,
   LoadingPage,
 } from "@/components";
-import { getTipBySlug } from "@/lib/tips";
+import { getTipBySlug } from "@/lib";
 import { ITips } from "@/types";
 import { ERROR_TEXT } from "@/constants";
 import styles from "./index.module.scss";
