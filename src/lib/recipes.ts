@@ -1,6 +1,6 @@
 import { ROUTES } from "@/constants";
-import { IRecipe } from "@/types/recipe.type";
-import { endpoint } from "@/utils/endpoint";
+import { IRecipe } from "@/types";
+import { endpoint } from "@/utils";
 
 export async function getAllRecipes() {
   try {

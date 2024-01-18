@@ -1,4 +1,4 @@
-import { SearchIcon } from "../icons/SearchIcon";
+import { SearchIcon } from "../icons";
 import { PLACEHOLDERS_TEXT } from "@/constants";
 import styles from "./index.module.scss";
 
@@ -17,6 +17,7 @@ export const Search = (props: IProps) => {
       </div>
       <input
         type="text"
+        name={PLACEHOLDERS_TEXT.search}
         className={styles.search__input}
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}

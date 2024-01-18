@@ -1,4 +1,4 @@
-import { GlassIcon } from "../icons/GlassIcon";
+import { GlassIcon } from "../icons";
 import styles from "./index.module.scss";
 
 interface IProps {

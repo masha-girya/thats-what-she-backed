@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { IRecipeCard } from "@/types/recipe.type";
-import { ArrowIcon } from "../icons/ArrowIcon";
+import { IRecipeCard } from "@/types";
+import { ArrowIcon } from "../icons";
 import styles from "./index.module.scss";
 import { ROUTES } from "@/constants";
 
@@ -17,7 +17,7 @@ export const RecipeCard = ({ recipe }: IProps) => {
         <img
           className={styles.recipeCard__background__img}
           src={mainImage}
-          alt={title}
+            alt={`Фото ${title}`}
         />
       </div>
       <div className={styles.button}>

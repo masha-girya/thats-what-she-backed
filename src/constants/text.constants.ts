@@ -8,6 +8,7 @@ export const BANNER_TEXT = {
 export const BUTTONS_TEXT = {
   toRecipes: "До рецептів",
   goBack: "Повернутись назад",
+  mobileMenu: "Відкрити меню"
 } as const;
 
 export const LINKS_TITLE = {

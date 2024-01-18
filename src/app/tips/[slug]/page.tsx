@@ -40,7 +40,7 @@ const TipPage = async ({ params }: any) => {
           <img
             className={styles.tipPage__mainImage}
             src={mainImage}
-            alt={title}
+            alt={`Фото ${title}`}
           />
 
           {tips.map((tip, i) => (

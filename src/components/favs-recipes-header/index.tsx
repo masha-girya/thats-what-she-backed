@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import classNames from "classnames";
 import Link from "next/link";
-import { HeartIcon } from "../icons/HeartIcon";
+import { HeartIcon } from "../icons";
 import { LINKS_TITLE, LOCAL_STORAGE, ROUTES } from "@/constants";
 import styles from "./index.module.scss";
 

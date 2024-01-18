@@ -13,7 +13,7 @@ export const TipCard = ({ tip }: IProps) => {
   return (
     <Link href={`${ROUTES.tips}/${slug}`} className={styles.tipCard}>
       <div className={styles.tipCard__image}>
-        <img src={mainImage} alt={title}/>
+        <img src={mainImage} alt={`Фото ${title}`} />
       </div>
       <h3 className={styles.tipCard__title}>{title}</h3>
     </Link>

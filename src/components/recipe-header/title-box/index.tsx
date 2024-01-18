@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import classNames from "classnames";
 import { HeartIcon } from "@/components";
-import { IRecipeCard } from "@/types/recipe.type";
+import { IRecipeCard } from "@/types";
 import { getFavRecipes } from "@/utils";
 import { LOCAL_STORAGE } from "@/constants";
 import styles from "./index.module.scss";

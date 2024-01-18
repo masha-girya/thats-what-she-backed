@@ -1,7 +1,7 @@
 
 import { ROUTES } from "@/constants";
-import { ITips } from "@/types/tips.type";
-import { endpoint } from "@/utils/endpoint";
+import { ITips } from "@/types";
+import { endpoint } from "@/utils";
 
 export async function getAllTips() {
   try {

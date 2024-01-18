@@ -30,11 +30,11 @@
   }
 
   &:hover .button {
-    border-bottom-color: var.$color-pink;
+    border-bottom-color: var.$main-color-tomato;
 
     &__text {
-      color: var.$color-pink;
-      border-bottom-color: var.$color-pink;
+      color: var.$main-color-tomato;
+      border-bottom-color: var.$main-color-tomato;
       padding-left: 30px;
     }
 
@@ -42,7 +42,7 @@
       transform: translateX(5px);
   
       path {
-        fill: var.$color-pink;
+        fill: var.$main-color-tomato;
       }
     }
   }
@@ -62,11 +62,11 @@
     padding: 5px 0;
 
     font-weight: 400;
-    color: var.$color-apricot;
+    color: var.$color-pink;
     font-style: italic;
 
     background-color: inherit;
-    border-bottom: 1px solid var.$color-apricot;
+    border-bottom: 1px solid var.$color-pink;
 
     transition: all 0.3s ease;
   }
@@ -81,7 +81,7 @@
     transition: all 0.3s ease;
 
     path {
-      fill: var.$color-pink;
+      fill: var.$main-color-tomato;
       transition: all 0.3s ease;
     }
   }

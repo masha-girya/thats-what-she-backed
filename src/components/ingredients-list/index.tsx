@@ -34,6 +34,7 @@ export const IngredientsList = (props: IProps) => {
             })}
           >
             <input
+              name={ingredient}
               className={styles.ingredientsList__checkbox}
               type="checkbox"
               checked={checkedItems.includes(ingredient)}

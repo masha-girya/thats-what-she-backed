@@ -10,6 +10,7 @@ import {
   OvenIcon,
   OvenBakedIcon,
 } from "@/components";
+import { BUTTONS_TEXT } from "@/constants";
 import styles from "./index.module.scss";
 
 export const HeaderMobile = () => {
@@ -41,6 +42,7 @@ export const HeaderMobile = () => {
           <FavsRecipesHeader />
           <button
             type="button"
+            name={BUTTONS_TEXT.mobileMenu}
             className={styles.headerMobile__menuBtn}
             onClick={handleClickMenu}
           >
