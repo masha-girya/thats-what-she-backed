@@ -1,5 +1,5 @@
-import { RECIPES_PAGE_TEXT } from "@/constants";
-import styles from "./index.module.scss";
+import { RECIPES_PAGE_TEXT } from '@/constants';
+import styles from './index.module.scss';
 
 interface IProps {
   children: React.ReactNode;

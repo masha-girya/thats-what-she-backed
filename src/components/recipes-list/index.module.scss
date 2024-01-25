@@ -26,4 +26,11 @@
       padding-top: 100px;
     }
   }
+
+  &__text {
+    font-size: 22px;
+    font-weight: 600;
+    font-style: italic;
+    color: var.$main-color-tomato;
+  }
 }

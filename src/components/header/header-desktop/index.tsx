@@ -1,6 +1,6 @@
-import { FavsRecipesHeader, Nav } from "@/components";
-import { Logo } from "../logo";
-import styles from "./index.module.scss";
+import { FavsRecipesHeader, Nav } from '@/components';
+import { Logo } from '../logo';
+import styles from './index.module.scss';
 
 export const HeaderDesktop = () => {
   return (

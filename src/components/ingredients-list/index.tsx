@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { useCallback, useState } from "react";
-import styles from "./index.module.scss";
-import classNames from "classnames";
+import { useCallback, useState } from 'react';
+import styles from './index.module.scss';
+import classNames from 'classnames';
 
 interface IProps {
   ingredients: string[];
@@ -20,7 +20,7 @@ export const IngredientsList = (props: IProps) => {
         setCheckedItems((prev) => [...prev, item]);
       }
     },
-    [checkedItems]
+    [checkedItems],
   );
 
   return (

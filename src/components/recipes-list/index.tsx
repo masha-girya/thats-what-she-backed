@@ -1,12 +1,13 @@
-import classNames from "classnames";
-import { RecipesListClient } from "./recipe-list-client";
-import { ServerErrorPlug } from "../server-error-plug";
-import { getAllRecipes } from "@/lib";
-import { ANCHORS, ERROR_TEXT } from "@/constants";
-import styles from "./index.module.scss";
+import classNames from 'classnames';
+import { RecipesListClient } from './recipe-list-client';
+import { ServerErrorPlug } from '../server-error-plug';
+import { getAllRecipes } from '@/lib';
+import { ANCHORS, ERROR_TEXT } from '@/constants';
+import styles from './index.module.scss';
 
 interface IProps {
   isBlock?: boolean;
+  isSlider?: boolean;
 }
 
 async function getRecipes() {
@@ -19,7 +20,7 @@ async function getRecipes() {
   }
 }
 
-export const RecipesList = async ({ isBlock }: IProps) => {
+export const RecipesList = async ({ isBlock, isSlider }: IProps) => {
   const { res } = await getRecipes();
 
   if (!res) {
@@ -33,7 +34,10 @@ export const RecipesList = async ({ isBlock }: IProps) => {
         [styles.recipesList_isBlock]: isBlock,
       })}
     >
-      {Array.isArray(res) && <RecipesListClient recipes={res} />}
+      {isSlider && <p className={styles.recipesList__text}>Інші рецепти:</p>}
+      {Array.isArray(res) && (
+        <RecipesListClient isSlider={isSlider} recipes={res} />
+      )}
     </div>
   );
 };

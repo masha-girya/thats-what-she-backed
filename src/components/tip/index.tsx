@@ -1,6 +1,6 @@
-import { ITip } from "@/types";
-import { linkCutter } from "@/utils";
-import styles from "./index.module.scss";
+import { ITip } from '@/types';
+import { linkCutter } from '@/utils';
+import styles from './index.module.scss';
 
 interface IProps {
   tip: ITip;

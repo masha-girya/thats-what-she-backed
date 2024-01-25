@@ -1,17 +1,17 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import classNames from "classnames";
-import { Logo } from "../logo";
+import { useEffect, useState } from 'react';
+import classNames from 'classnames';
+import { Logo } from '../logo';
 import {
   FavsRecipesHeader,
   Nav,
   Socials,
   OvenIcon,
   OvenBakedIcon,
-} from "@/components";
-import { BUTTONS_TEXT } from "@/constants";
-import styles from "./index.module.scss";
+} from '@/components';
+import { BUTTONS_TEXT } from '@/constants';
+import styles from './index.module.scss';
 
 export const HeaderMobile = () => {
   const [isMenuOnShow, setIsMenuOnShow] = useState(false);
@@ -24,13 +24,13 @@ export const HeaderMobile = () => {
     const body = document.body;
 
     if (isMenuOnShow) {
-      body.style.height = "100vh";
-      body.style.overflowY = "hidden";
-      body.style.position = "fixed";
+      body.style.height = '100vh';
+      body.style.overflowY = 'hidden';
+      body.style.position = 'fixed';
     } else {
-      body.style.height = "100vh";
-      body.style.overflowY = "visible";
-      body.style.position = "static";
+      body.style.height = '100vh';
+      body.style.overflowY = 'visible';
+      body.style.position = 'static';
     }
   }, [isMenuOnShow]);
 

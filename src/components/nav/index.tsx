@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { usePathname, useRouter } from "next/navigation";
-import { useCallback } from "react";
-import classNames from "classnames";
-import { NAV } from "@/constants";
-import styles from "./index.module.scss";
+import { usePathname, useRouter } from 'next/navigation';
+import { useCallback } from 'react';
+import classNames from 'classnames';
+import { NAV } from '@/constants';
+import styles from './index.module.scss';
 
 interface INav {
   isFooter?: boolean;
@@ -20,12 +20,12 @@ export const Nav = (props: INav) => {
 
   const isActiveLink = useCallback(
     (path: string) => {
-      const isHomepageActive = pathname === "/" && path === "/";
+      const isHomepageActive = pathname === '/' && path === '/';
       const isAnotherPageActive = path === pathname?.slice(1);
 
       return isHomepageActive || isAnotherPageActive;
     },
-    [pathname]
+    [pathname],
   );
 
   const handleRouteChange = useCallback((route: string) => {

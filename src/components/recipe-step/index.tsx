@@ -1,8 +1,8 @@
-import { IngredientsList } from "../ingredients-list";
-import { ImageContent } from "./image-content";
-import { IIngredients, ISteps } from "@/types";
-import { getLastImages } from "@/utils";
-import styles from "./index.module.scss";
+import { IngredientsList } from '../ingredients-list';
+import { ImageContent } from './image-content';
+import { IIngredients, ISteps } from '@/types';
+import { getLastImages } from '@/utils';
+import styles from './index.module.scss';
 
 interface IRecipeStep {
   steps: ISteps;
@@ -16,13 +16,13 @@ export const RecipeStep = (props: IRecipeStep) => {
 
   const getContent = (item: any, index: number, step: any) => {
     switch (true) {
-      case "text" in item:
+      case 'text' in item:
         return (
           <p key={index} className={styles.steps__text}>
             {item.text}
           </p>
         );
-      case "image" in item:
+      case 'image' in item:
         const isLastImage =
           step === stepsKeysArr[stepsKeysArr.length - 1] &&
           index === getLastImages(steps[step]);
@@ -46,7 +46,7 @@ export const RecipeStep = (props: IRecipeStep) => {
           <IngredientsList ingredients={ingredients[step]} />
           <div>
             {steps[step].map((item: any, i: number) =>
-              getContent(item, i, step)
+              getContent(item, i, step),
             )}
           </div>
         </div>

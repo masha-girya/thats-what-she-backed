@@ -1,8 +1,10 @@
-@use "src/styles/mixins.scss";
+@use 'src/styles/mixins.scss';
+@use 'src/styles/variables.scss' as var;
 
 .recipeListClient {
   &__search {
     align-self: flex-end;
+    margin-right: 55px;
 
     @include mixins.mediaTablet {
       align-self: center;
@@ -35,10 +37,18 @@
     @include mixins.mediaNoteBook {
       width: 100%;
       max-width: 830px;
+
+      &_slider {
+        max-width: 100%;
+      }
     }
 
     @include mixins.mediaTablet {
       max-width: 400px;
+
+      &_slider {
+        max-width: 100%;
+      }
     }
 
     @include mixins.mediaMobile {
@@ -51,4 +61,63 @@
       width: 100%;
     }
   }
+
+  &__swiper {
+    width: 100%;
+
+    :global(.swiper-pagination-bullet) {
+      background-color: var.$color-pink;
+    }
+
+    :global(.swiper-button-prev) {
+      color: var.$color-pink;
+      left: -10px;
+      z-index: 2;
+    }
+
+    &__slide {
+      min-height: 380px;
+    }
+  }
+}
+
+$icon-diameter: 18px;
+
+@mixin swipeIcons() {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+
+  margin: auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+
+  cursor: pointer;
+
+  @include mixins.mediaTablet {
+    display: none;
+  }
+
+  svg {
+    display: flex;
+
+    path {
+      stroke: var.$color-pink;
+    }
+  }
+}
+
+.nextIcon {
+  @include swipeIcons();
+  right: 24px;
+}
+
+.prevIcon {
+  @include swipeIcons();
+  left: (44px - $icon-diameter);
 }

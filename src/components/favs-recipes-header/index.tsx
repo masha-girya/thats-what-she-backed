@@ -1,18 +1,18 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import classNames from "classnames";
-import Link from "next/link";
-import { HeartIcon } from "../icons";
-import { LINKS_TITLE, LOCAL_STORAGE, ROUTES } from "@/constants";
-import styles from "./index.module.scss";
+import { useEffect, useState } from 'react';
+import classNames from 'classnames';
+import Link from 'next/link';
+import { HeartIcon } from '../icons';
+import { LINKS_TITLE, LOCAL_STORAGE, ROUTES } from '@/constants';
+import styles from './index.module.scss';
 
 export const FavsRecipesHeader = () => {
   const [favRecipes, setFavRecipes] = useState<string[]>([]);
 
   useEffect(() => {
     setFavRecipes(
-      JSON.parse(localStorage.getItem(LOCAL_STORAGE.favRecipes) || "[]")
+      JSON.parse(localStorage.getItem(LOCAL_STORAGE.favRecipes) || '[]'),
     );
   }, []);
 

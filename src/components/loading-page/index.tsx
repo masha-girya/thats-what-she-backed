@@ -1,5 +1,5 @@
-import { LoadingDoughnutIcon } from "../icons";
-import styles from "./index.module.scss";
+import { LoadingDoughnutIcon } from '../icons';
+import styles from './index.module.scss';
 
 export const LoadingPage = () => {
   return (
@@ -8,5 +8,5 @@ export const LoadingPage = () => {
         <LoadingDoughnutIcon />
       </div>
     </div>
-  )
-}
+  );
+};

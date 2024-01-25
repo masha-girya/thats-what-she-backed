@@ -1,6 +1,7 @@
-import { ROUTES } from "@/constants";
-import { IRecipe } from "@/types";
-import { endpoint } from "@/utils";
+import { ROUTES } from '@/constants';
+import { IRecipe } from '@/types';
+import { endpoint } from '@/utils';
+import axios from 'axios';
 
 export async function getAllRecipes() {
   try {
@@ -27,9 +28,11 @@ export async function getRecipeBySlug(slug: string) {
   }
 }
 
-export async function getRecipeMainInfo(slug: string) {
+export async function getLastRecipe() {
   try {
-    const data = await fetch(`${endpoint}/${ROUTES.recipes}/${slug}/${ROUTES.mainInfo}`);
+    const data = await fetch(
+      `${endpoint}/${ROUTES.recipes}/${ROUTES.lastRecipe}`,
+    );
 
     return data.json();
   } catch (error) {
@@ -37,11 +40,13 @@ export async function getRecipeMainInfo(slug: string) {
   }
 }
 
-export async function getLastRecipe() {
-  try {
-    const data = await fetch(`${endpoint}/${ROUTES.recipes}/${ROUTES.lastRecipe}`);
+export async function addRecipeToFavs(slug: string, totalFavs: number) {
+  const link = `${endpoint}/${ROUTES.recipes}/${slug}`;
 
-    return data.json();
+  try {
+    const data = await axios.post(link, { totalFavs });
+
+    return data;
   } catch (error) {
     console.error(error);
   }

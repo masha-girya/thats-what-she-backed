@@ -30,6 +30,11 @@
     }
   }
 
+  &__favsInfo {
+    margin-top: 10px;
+    color: var.$color-pink;
+  }
+
   &__descFirst {
     margin-top: 20px;
     max-width: var.$max-width-recipe-image;

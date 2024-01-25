@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { useRouter } from "next/navigation";
-import { ArrowIcon } from "../icons";
-import { BUTTONS_TEXT } from "@/constants";
-import styles from "./index.module.scss";
+import { useRouter } from 'next/navigation';
+import { ArrowIcon } from '../icons';
+import { BUTTONS_TEXT } from '@/constants';
+import styles from './index.module.scss';
 
 export const BackButton = () => {
   const router = useRouter();

@@ -1,15 +1,15 @@
-import { Suspense } from "react";
+import { Suspense } from 'react';
 import {
   RecipeSticker,
   Tip,
   ServerErrorPlug,
   BackButton,
   LoadingPage,
-} from "@/components";
-import { getTipBySlug } from "@/lib";
-import { ITips } from "@/types";
-import { ERROR_TEXT } from "@/constants";
-import styles from "./index.module.scss";
+} from '@/components';
+import { getTipBySlug } from '@/lib';
+import { ITips } from '@/types';
+import { ERROR_TEXT } from '@/constants';
+import styles from './index.module.scss';
 
 async function getTip(slug: string) {
   try {

@@ -1,5 +1,5 @@
-import { GlassIcon } from "../icons";
-import styles from "./index.module.scss";
+import { GlassIcon } from '../icons';
+import styles from './index.module.scss';
 
 interface IProps {
   text: string;

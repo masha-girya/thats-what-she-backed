@@ -1,5 +1,5 @@
-import classNames from "classnames";
-import styles from "./index.module.scss";
+import classNames from 'classnames';
+import styles from './index.module.scss';
 
 interface IProps {
   stepName: string;
@@ -17,15 +17,14 @@ export const ImageContent = (props: IProps) => {
       })}
     >
       {imageContent.map((img: string, index: number) => (
-        <div key={index}>
-          <img
-            className={classNames(styles.imageBox__image, {
-              [styles.imageBox__image_last]: isLastImage,
-            })}
-            src={img}
-            alt={`${stepName} - ${index}`}
-          />
-        </div>
+        <img
+          key={index}
+          className={classNames(styles.imageBox__image, {
+            [styles.imageBox__image_last]: isLastImage,
+          })}
+          src={img}
+          alt={`${stepName} - ${index}`}
+        />
       ))}
     </div>
   );

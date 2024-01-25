@@ -1,8 +1,8 @@
-import Link from "next/link";
-import { IRecipeCard } from "@/types";
-import { ArrowIcon } from "../icons";
-import styles from "./index.module.scss";
-import { ROUTES } from "@/constants";
+import Link from 'next/link';
+import { IRecipeCard } from '@/types';
+import { ArrowIcon } from '../icons';
+import styles from './index.module.scss';
+import { ROUTES } from '@/constants';
 
 interface IProps {
   recipe: IRecipeCard;
@@ -17,7 +17,7 @@ export const RecipeCard = ({ recipe }: IProps) => {
         <img
           className={styles.recipeCard__background__img}
           src={mainImage}
-            alt={`Фото ${title}`}
+          alt={`Фото ${title}`}
         />
       </div>
       <div className={styles.button}>

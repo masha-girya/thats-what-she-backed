@@ -1,5 +1,5 @@
-import { RecipesList } from "@/components/recipes-list";
-import styles from "./index.module.scss";
+import { RecipesList } from '@/components/recipes-list';
+import styles from './index.module.scss';
 
 const Recipes = () => {
   return (

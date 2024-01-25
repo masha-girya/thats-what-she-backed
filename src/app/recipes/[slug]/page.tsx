@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import { Suspense } from 'react';
 import {
   RecipeStep,
   RecipeSticker,
@@ -7,11 +7,12 @@ import {
   ServerErrorPlug,
   BackButton,
   LoadingPage,
-} from "@/components";
-import { getRecipeBySlug } from "@/lib";
-import { IRecipe } from "@/types";
-import { ERROR_TEXT } from "@/constants";
-import styles from "./index.module.scss";
+  RecipesList,
+} from '@/components';
+import { getRecipeBySlug } from '@/lib';
+import { IRecipe } from '@/types';
+import { ERROR_TEXT } from '@/constants';
+import styles from './index.module.scss';
 
 async function getRecipe(slug: string) {
   try {
@@ -43,19 +44,20 @@ const RecipePage = async ({ params }: any) => {
     formSize,
     amount,
     tips,
+    totalFavs,
   } = res;
 
   const stickerInfo = [
     {
-      title: "Час приготування: ",
+      title: 'Час приготування: ',
       info: bakingTime,
     },
     {
-      title: "Кількість порцій: ",
+      title: 'Кількість порцій: ',
       info: amount,
     },
     {
-      title: "Розмір форми: ",
+      title: 'Розмір форми: ',
       info: formSize,
     },
   ];
@@ -65,14 +67,18 @@ const RecipePage = async ({ params }: any) => {
       <div className={styles.recipe}>
         <div className={styles.recipe__recipeBox}>
           <BackButton />
+
           <RecipeHeader
             slug={slug}
             title={title}
             mainImage={mainImage}
             description={description}
             allIngredients={allIngredients}
+            totalFavs={totalFavs}
           />
+
           <RecipeTips tips={tips} />
+
           <RecipeSticker>
             {stickerInfo.map((info) => (
               <p key={info.title} className={styles.recipe__stickerInfo}>
@@ -83,8 +89,11 @@ const RecipePage = async ({ params }: any) => {
               </p>
             ))}
           </RecipeSticker>
+
           <RecipeStep ingredients={ingredients} steps={steps} />
         </div>
+
+        <RecipesList isBlock isSlider />
       </div>
     </Suspense>
   );

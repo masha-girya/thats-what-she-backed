@@ -1,51 +1,55 @@
-"use client";
+'use client';
 
-import { useCallback, useEffect, useState } from "react";
-import classNames from "classnames";
-import { HeartIcon } from "@/components";
-import { IRecipeCard } from "@/types";
-import { getFavRecipes } from "@/utils";
-import { LOCAL_STORAGE } from "@/constants";
-import styles from "./index.module.scss";
+import { useCallback, useEffect, useState } from 'react';
+import classNames from 'classnames';
+import { HeartIcon } from '@/components';
+import { IRecipeCard } from '@/types';
+import { getFavRecipes } from '@/utils';
+import { LOCAL_STORAGE } from '@/constants';
+import styles from './index.module.scss';
+import { addRecipeToFavs } from '@/lib';
 
 interface IProps {
   title: string;
   slug: string;
-  mainImage: string;
+  totalFavs: number;
 }
 
 export const TitleBox = (props: IProps) => {
-  const { title, slug, mainImage } = props;
+  const { title, slug, totalFavs } = props;
   const [isInFavs, setIsInFavs] = useState(false);
+
   useEffect(() => {
-    const favRecipes: IRecipeCard[] = JSON.parse(
-      localStorage.getItem(LOCAL_STORAGE.favRecipes) || "[]"
+    const favRecipes: string[] = JSON.parse(
+      localStorage.getItem(LOCAL_STORAGE.favRecipes) || '[]',
     );
 
-    setIsInFavs(favRecipes.find((fav) => fav.title === title) !== undefined);
-  }, []);
+    setIsInFavs(favRecipes.find((fav) => fav === slug) !== undefined);
+  }, [slug]);
 
   const setRecipeToFavs = useCallback(() => {
     const existedFavRecipes = JSON.parse(
-      localStorage.getItem(LOCAL_STORAGE.favRecipes) || "[]"
+      localStorage.getItem(LOCAL_STORAGE.favRecipes) || '[]',
     );
 
-    const newFavs = getFavRecipes(existedFavRecipes, {
-      title,
-      slug,
-      mainImage,
-    });
+    const newFavs = getFavRecipes(existedFavRecipes, slug);
 
     setIsInFavs(
       JSON.parse(newFavs).find(
-        (recipe: IRecipeCard) => recipe.title === title
-      ) !== undefined
+        (recipe: IRecipeCard) => recipe.title === title,
+      ) !== undefined,
     );
 
-    localStorage.setItem(LOCAL_STORAGE.favRecipes, newFavs);
+    console.log(slug);
 
-    window.location.reload();
-  }, []);
+    if (isInFavs) {
+      addRecipeToFavs(slug, totalFavs - 1 || 0);
+    } else {
+      addRecipeToFavs(slug, totalFavs + 1 || 0);
+    }
+
+    localStorage.setItem(LOCAL_STORAGE.favRecipes, newFavs);
+  }, [slug, totalFavs, isInFavs]);
 
   return (
     <div className={styles.titleBox}>

@@ -1,6 +1,6 @@
-import { SOCIALS } from "@/constants";
-import styles from "./index.module.scss";
-import classNames from "classnames";
+import { SOCIALS } from '@/constants';
+import styles from './index.module.scss';
+import classNames from 'classnames';
 
 interface IProps {
   isMobMenu?: boolean;
@@ -30,7 +30,7 @@ export const Socials = (props: IProps) => {
                 className={classNames(styles.socials__icon, {
                   [styles.socials__icon_mobMenu]: isMobMenu,
                   [styles.socials__icon_mobMenu_tiktok]:
-                    isMobMenu && item.name === "TikTok",
+                    isMobMenu && item.name === 'TikTok',
                 })}
               />
             }

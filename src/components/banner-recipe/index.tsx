@@ -1,8 +1,8 @@
-import Image from "next/image";
-import Link from "next/link";
-import { getLastRecipe } from "@/lib";
-import { ROUTES } from "@/constants";
-import styles from "./index.module.scss";
+import Image from 'next/image';
+import Link from 'next/link';
+import { getLastRecipe } from '@/lib';
+import { ROUTES } from '@/constants';
+import styles from './index.module.scss';
 
 async function getRecipe() {
   try {
@@ -26,11 +26,11 @@ export const BannerRecipe = async () => {
   return (
     <Link href={`/${ROUTES.recipes}/${slug}`} className={styles.bannerRecipe}>
       <Image
-        src={mainImage || ""}
-        alt={title || ""}
+        src={mainImage || ''}
+        alt={title || ''}
         width={600}
         height={1000}
-        loading="lazy"
+        priority={true}
       />
       <div className={styles.bannerRecipe__link}>
         <h2>Нещодавній рецепт</h2>

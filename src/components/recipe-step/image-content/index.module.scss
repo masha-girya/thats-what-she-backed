@@ -24,6 +24,10 @@
     height: 500px;
     width: 500px;
 
+    @include mixins.mediaTablet {
+      width: 100%;
+    }
+
     &_last {
       object-fit: contain;
       width: 800px;

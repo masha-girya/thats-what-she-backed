@@ -1,7 +1,7 @@
-import Link from "next/link";
-import { ITipShort } from "@/types";
-import { ROUTES } from "@/constants";
-import styles from "./index.module.scss";
+import Link from 'next/link';
+import { ITipShort } from '@/types';
+import { ROUTES } from '@/constants';
+import styles from './index.module.scss';
 
 interface IProps {
   tip: ITipShort;

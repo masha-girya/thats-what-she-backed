@@ -1,6 +1,6 @@
-import { SearchIcon } from "../icons";
-import { PLACEHOLDERS_TEXT } from "@/constants";
-import styles from "./index.module.scss";
+import { SearchIcon } from '../icons';
+import { PLACEHOLDERS_TEXT } from '@/constants';
+import styles from './index.module.scss';
 
 interface IProps {
   searchQuery: string;

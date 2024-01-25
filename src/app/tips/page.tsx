@@ -1,8 +1,8 @@
-import { TipCard, ServerErrorPlug } from "@/components";
-import { getAllTips } from "@/lib";
-import { ERROR_TEXT, TIPS_PAGE_TEXT } from "@/constants";
-import { ITipShort } from "@/types";
-import styles from "./index.module.scss";
+import { TipCard, ServerErrorPlug } from '@/components';
+import { getAllTips } from '@/lib';
+import { ERROR_TEXT, TIPS_PAGE_TEXT } from '@/constants';
+import { ITipShort } from '@/types';
+import styles from './index.module.scss';
 
 async function getTips() {
   try {
