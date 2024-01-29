@@ -1,4 +1,5 @@
 import { ERROR_TEXT } from '@/constants';
+import { IRecipe } from '@/types';
 import { NextResponse } from 'next/server';
 
 export async function getData(
@@ -17,15 +18,15 @@ export async function getData(
   }
 }
 
-export const getFavRecipes = (favRecipes: string[], slug: string) => {
+export const getFavRecipes = (favRecipes: IRecipe[], recipe: IRecipe) => {
   let itemToSet = '';
 
-  if (favRecipes.find((favRecipe) => favRecipe === slug)) {
+  if (favRecipes.find((favRecipe) => favRecipe.slug === recipe.slug)) {
     itemToSet = JSON.stringify(
-      favRecipes.filter((favRecipe) => favRecipe !== slug),
+      favRecipes.filter((favRecipe) => favRecipe.slug !== recipe.slug),
     );
   } else {
-    itemToSet = JSON.stringify([...favRecipes, slug]);
+    itemToSet = JSON.stringify([...favRecipes, recipe]);
   }
 
   return itemToSet;

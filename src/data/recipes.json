@@ -170,7 +170,7 @@
           }
         ]
       },
-      "totalFavs": 1
+      "totalFavs": 2
     },
     {
       "slug": "blueberry-muffins",
@@ -332,7 +332,8 @@
             "text": "P.S. Поки писала рецепт неймовірно захотіла з«їсти шматочок, тож піду приготую чай та з'їм :)"
           }
         ]
-      }
+      },
+      "totalFavs": 1
     },
     {
       "slug": "cheesecake-from-friends",

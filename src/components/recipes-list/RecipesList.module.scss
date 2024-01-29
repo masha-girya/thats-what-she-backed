@@ -1,0 +1,36 @@
+@use 'src/styles/mixins.scss';
+@use 'src/styles/variables.scss' as var;
+
+.recipesList {
+  position: relative;
+  z-index: 2;
+
+  min-height: 420px;
+  padding: calc(var.$header-hight + 50px) 60px 60px;
+
+  display: flex;
+  flex-direction: column;
+
+  @include mixins.mediaTablet {
+    padding: 120px 32px 100px;
+  }
+
+  @include mixins.mediaMobile {
+    padding: 120px 16px 60px;
+  }
+
+  &_isBlock {
+    padding-top: 85px;
+
+    @include mixins.mediaTablet {
+      padding-top: 70px;
+    }
+  }
+
+  &__text {
+    font-size: 22px;
+    font-weight: 600;
+    font-style: italic;
+    color: var.$main-color-tomato;
+  }
+}

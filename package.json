@@ -21,7 +21,7 @@
     "eslint": "8.45.0",
     "eslint-config-next": "13.4.10",
     "fs": "^0.0.1-security",
-    "next": "^13.5.6",
+    "next": "^14.1.0",
     "next-connect": "^1.0.0",
     "path": "^0.12.7",
     "postcss": "8.4.26",
@@ -36,6 +36,7 @@
   "devDependencies": {
     "@types/cors": "^2.8.13",
     "@typescript-eslint/eslint-plugin": "^6.19.1",
+    "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-prettier": "^5.1.3"
   }
 }
