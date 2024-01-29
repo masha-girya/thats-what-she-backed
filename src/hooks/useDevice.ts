@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 export const useDevice = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -10,18 +10,18 @@ export const useDevice = () => {
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 450);
-      setIsTablet(window.innerWidth >= 450 && window.innerWidth < 800)
-      setIsNoteBook(window.innerWidth >= 800 && window.innerWidth < 1200)
-      setIsSmallDesktop(window.innerWidth >= 1200 && window.innerWidth < 1400)
-      setIsDesktop(window.innerWidth >= 1400)
+      setIsTablet(window.innerWidth >= 450 && window.innerWidth < 800);
+      setIsNoteBook(window.innerWidth >= 800 && window.innerWidth < 1200);
+      setIsSmallDesktop(window.innerWidth >= 1200 && window.innerWidth < 1400);
+      setIsDesktop(window.innerWidth >= 1400);
     };
 
     handleResize();
 
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
 
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener('resize', handleResize);
     };
   });
 

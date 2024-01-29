@@ -8,8 +8,8 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Search, RecipeCard, PrevIcon, NextIcon } from '@/components';
-import styles from './index.module.scss';
 import { useDevice } from '@/hooks';
+import styles from './index.module.scss';
 
 interface IProps {
   recipes: {
@@ -39,7 +39,7 @@ export const RecipesListClient = (props: IProps) => {
     }
 
     return 3;
-  }, [window]);
+  }, [isNoteBook, isTablet, isMobile]);
 
   const handleNext = useCallback(() => {
     if (swiper) {
