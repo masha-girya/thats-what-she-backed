@@ -35,7 +35,7 @@ export const linkCutter = (text: string, classNames: string[]) => {
   const splittedText = text.split('*LINK*');
   const result: JSX.Element[] = [];
 
-  splittedText.forEach((part, i) => {
+  splittedText.forEach((part) => {
     if (part[0] === '[') {
       const linkTextIndexFirst = part.indexOf('[');
       const linkTextIndexLast = part.indexOf(']');

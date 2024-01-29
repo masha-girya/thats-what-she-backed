@@ -1,10 +1,10 @@
 import './globals.scss';
 import type { Metadata } from 'next';
-import { Cormorant } from 'next/font/google';
+// import { Cormorant } from 'next/font/google';
 import { Header, Footer, Container } from '@/components';
 import Favicon from '/public/favicon.ico';
 
-const inter = Cormorant({ subsets: ['cyrillic', 'latin'] });
+// const inter = Cormorant({ subsets: ['cyrillic', 'latin'] });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://thats-what-she-baked.vercel.app/'),
