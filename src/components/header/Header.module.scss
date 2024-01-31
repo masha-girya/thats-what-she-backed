@@ -12,8 +12,8 @@
 
   box-sizing: border-box;
 
-  box-shadow: 0 0 10px 0 rgba(33, 33, 33, .1);
-  background-color: #FFFFFF;
+  box-shadow: 0 0 10px 0 rgba(33, 33, 33, 0.1);
+  background-color: #ffffff;
 
   @include mixins.mediaNoteBook {
     padding: 0 30px;
@@ -28,5 +28,19 @@
     max-width: var.$max-width-main;
     margin: 0 auto;
     height: 100%;
+  }
+
+  &__mobile {
+    display: none;
+
+    @include mixins.mediaTablet {
+      display: block;
+    }
+  }
+
+  &__desktop {
+    @include mixins.mediaTablet {
+      display: none;
+    }
   }
 }

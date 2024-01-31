@@ -1,12 +1,10 @@
-import { getRecipeBySlug } from "@/lib";
+import { getAllRecipes } from "@/lib";
 
-export const getRecipe = async (slugs: string[]) => {
+export const getFavRecipes = async (slugs: string[]) => {
   try {
-    const [ recipes ] = await Promise.all(slugs.map(slug => (
-      getRecipeBySlug(slug)
-    )))
+    const recipes = await getAllRecipes(slugs);
 
-    return { res: recipes.recipe };
+    return { res: recipes };
   } catch (error) {
     console.error(error);
     return { res: null };

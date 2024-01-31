@@ -10,8 +10,7 @@ interface IProps {
 }
 
 export const RecipeHeader = ({ recipe }: IProps) => {
-  const { title, description, mainImage, allIngredients, totalFavs } =
-    recipe;
+  const { title, description, mainImage, allIngredients, totalFavs } = recipe;
 
   return (
     <div className={styles.recipeHeader}>
@@ -27,10 +26,9 @@ export const RecipeHeader = ({ recipe }: IProps) => {
         <Image
           src={mainImage || ''}
           alt={title || ''}
-          width={100}
+          width={500}
           height={600}
           priority={true}
-          layout="responsive"
           className={styles.recipeHeader__mainImage}
         />
 

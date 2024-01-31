@@ -4,7 +4,8 @@ import { useEffect, useState } from 'react';
 import { RecipesListClient } from '@/components/recipes-list/recipe-list-client';
 import { FAVS_PAGE_TEXT, LOCAL_STORAGE } from '@/constants';
 import { IRecipeCard } from '@/types';
-import styles from './index.module.scss';
+import { getFavRecipes } from './fav-recipes.fetch';
+import styles from './FavRecipes.module.scss';
 
 const FavRecipes = () => {
   const [favRecipes, setFavRecipes] = useState<IRecipeCard[]>([]);
@@ -12,8 +13,20 @@ const FavRecipes = () => {
   useEffect(() => {
     const favRecipesData = localStorage.getItem(LOCAL_STORAGE.favRecipes);
 
+    const getFavRecipesData = async (favRecipesIds: string[]) => {
+      try {
+        const data = await getFavRecipes(favRecipesIds);
+
+        if (data.res) {
+          setFavRecipes(data.res);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
     if (favRecipesData) {
-      setFavRecipes(JSON.parse(favRecipesData));
+      getFavRecipesData(JSON.parse(favRecipesData));
     }
   }, []);
 

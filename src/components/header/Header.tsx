@@ -6,8 +6,12 @@ export const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.header__container}>
-        <HeaderDesktop />
-        <HeaderMobile />
+        <div className={styles.header__desktop}>
+          <HeaderDesktop />
+        </div>
+        <div className={styles.header__mobile}>
+          <HeaderMobile />
+        </div>
       </div>
     </header>
   );

@@ -1,6 +1,6 @@
 
 import { RecipesList } from '@/components';
-import styles from './recipes.module.scss';
+import styles from './Recipes.module.scss';
 
 const Recipes = () => {
   return (

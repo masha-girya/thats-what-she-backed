@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { RecipesListClient } from './recipe-list-client';
-import { ServerErrorPlug } from '../server-error-plug';
+import { ServerErrorPlug } from '@/components';
 import { getAllRecipes } from '@/lib';
 import { ANCHORS, ERROR_TEXT } from '@/constants';
 import styles from './RecipesList.module.scss';
@@ -13,6 +13,7 @@ interface IProps {
 async function getRecipes() {
   try {
     const recipes = await getAllRecipes();
+
     return { res: recipes };
   } catch (error) {
     console.error(error);

@@ -5,13 +5,7 @@ $z-index-header: 2;
 $z-index-menu: 1;
 
 .headerMobile {
-  display: none;
-
   height: 100%;
-
-  @include mixins.mediaTablet {
-    display: block;
-  }
 
   &__buttons {
     display: flex;

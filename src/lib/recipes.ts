@@ -3,9 +3,13 @@ import { IRecipe } from '@/types';
 import { endpoint } from '@/utils';
 import axios from 'axios';
 
-export async function getAllRecipes() {
+export async function getAllRecipes(slugs?: string[]) {
+  const endpointFormat = slugs
+    ? `${endpoint}/${ROUTES.recipes}?slugs=${slugs.join(',')}`
+    : `${endpoint}/${ROUTES.recipes}`;
+
   try {
-    const data = await fetch(`${endpoint}/${ROUTES.recipes}`);
+    const data = await fetch(endpointFormat);
     const parsedData: { recipes: IRecipe[] } = await data.json();
 
     return parsedData.recipes.map((item) => ({

@@ -4,10 +4,6 @@
 .headerDesktop {
   height: 100%;
 
-  @include mixins.mediaTablet {
-    display: none;
-  }
-
   &__grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

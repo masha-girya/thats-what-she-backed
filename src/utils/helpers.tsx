@@ -2,11 +2,11 @@ import { ERROR_TEXT } from '@/constants';
 import { IRecipe } from '@/types';
 import { NextResponse } from 'next/server';
 
-export async function getData(
+export const getData = async (
   data: any,
   keyword: string,
   customReturnData?: any,
-) {
+) => {
   try {
     if (!data) {
       return new NextResponse(ERROR_TEXT.notFound, { status: 404 });
@@ -16,7 +16,7 @@ export async function getData(
   } catch {
     return new NextResponse(ERROR_TEXT.serverError, { status: 500 });
   }
-}
+};
 
 export const getFavRecipes = (favRecipes: IRecipe[], recipe: IRecipe) => {
   let itemToSet = '';
