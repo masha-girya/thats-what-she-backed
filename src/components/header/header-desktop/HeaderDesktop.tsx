@@ -1,7 +1,7 @@
 import { Nav } from '@/components';
 import { Logo } from '../logo';
 import { FavsRecipes } from '../favs-recipes';
-import styles from './HeaderDesktop.module.scss';
+import styles from './header-desktop.module.scss';
 
 export const HeaderDesktop = () => {
   return (

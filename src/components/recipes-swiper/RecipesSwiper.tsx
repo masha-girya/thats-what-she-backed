@@ -9,7 +9,7 @@ import 'swiper/css/pagination';
 import { NextIcon, PrevIcon, RecipeCard } from '@/components';
 import { IRecipeCard } from '@/types';
 import { useDevice } from '@/hooks';
-import styles from './RecipesSwiper.module.scss';
+import styles from './recipes-swiper.module.scss';
 
 interface IProps {
   recipes: IRecipeCard[];

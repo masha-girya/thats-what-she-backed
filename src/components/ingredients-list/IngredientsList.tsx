@@ -2,7 +2,7 @@
 
 import { useCallback, useState } from 'react';
 import classNames from 'classnames';
-import styles from './IngredientsList.module.scss';
+import styles from './ingredients-list.module.scss';
 
 interface IProps {
   ingredients: string[];

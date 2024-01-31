@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { Search, RecipeCard, RecipesSwiper } from '@/components';
 import { IRecipeCard } from '@/types';
-import styles from './RecipesListClient.module.scss';
+import styles from './recipe-list-client.module.scss';
 
 interface IProps {
   recipes: IRecipeCard[];

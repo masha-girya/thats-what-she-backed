@@ -11,7 +11,7 @@ import {
   Socials,
 } from '@/components';
 import { BUTTONS_TEXT } from '@/constants';
-import styles from './HeaderMobile.module.scss';
+import styles from './header-mobile.module.scss';
 
 export const HeaderMobile = () => {
   const [isMenuOnShow, setIsMenuOnShow] = useState(false);

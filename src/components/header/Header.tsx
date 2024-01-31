@@ -1,6 +1,6 @@
 import { HeaderDesktop } from './header-desktop';
 import { HeaderMobile } from './header-mobile';
-import styles from './Header.module.scss';
+import styles from './header.module.scss';
 
 export const Header = () => {
   return (

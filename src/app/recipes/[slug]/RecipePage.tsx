@@ -11,7 +11,7 @@ import {
 } from '@/components';
 import { getRecipe } from './recipe.fetch';
 import { ERROR_TEXT } from '@/constants';
-import styles from './RecipePage.module.scss';
+import styles from './recipe-page.module.scss';
 
 const RecipePage = async ({ params }: any) => {
   const { res } = await getRecipe(params.slug);

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { BannerRecipe, RecipesList, ArrowIcon } from '@/components';
 import { ANCHORS, BANNER_TEXT, BUTTONS_TEXT } from '@/constants';
-import styles from './Home.module.scss';
+import styles from './home.module.scss';
 
 export default function Home() {
 

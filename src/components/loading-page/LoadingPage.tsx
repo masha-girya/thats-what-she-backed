@@ -1,5 +1,5 @@
 import { LoadingDoughnutIcon } from '@/components';
-import styles from './LoadingPage.module.scss';
+import styles from './loading-page.module.scss';
 
 export const LoadingPage = () => {
   return (

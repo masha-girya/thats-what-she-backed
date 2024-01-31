@@ -9,7 +9,7 @@ import {
 import { ITips } from '@/types';
 import { ERROR_TEXT } from '@/constants';
 import { getTip } from './tip.fetch';
-import styles from './TipPage.module.scss';
+import styles from './tip-page.module.scss';
 
 const TipPage = async ({ params }: any) => {
   const { res } = await getTip(params.slug);

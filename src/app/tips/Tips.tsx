@@ -1,7 +1,7 @@
 import { TipCard, ServerErrorPlug } from '@/components';
 import { ERROR_TEXT, TIPS_PAGE_TEXT } from '@/constants';
 import { getTips } from './tips.fetch';
-import styles from './Tips.module.scss';
+import styles from './tips.module.scss';
 
 const Tips = async () => {
   const { res } = await getTips();

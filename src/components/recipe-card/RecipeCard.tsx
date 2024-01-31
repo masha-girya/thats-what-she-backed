@@ -1,8 +1,8 @@
 import Link from 'next/link';
-import { IRecipeCard } from '@/types';
 import { ArrowIcon } from '@/components';
+import { IRecipeCard } from '@/types';
 import { ROUTES } from '@/constants';
-import styles from './RecipeCard.module.scss';
+import styles from './recipe-card.module.scss';
 
 interface IProps {
   recipe: IRecipeCard;

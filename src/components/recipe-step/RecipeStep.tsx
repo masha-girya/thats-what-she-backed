@@ -2,7 +2,7 @@ import { IngredientsList } from '@/components';
 import { ImageContent } from './image-content';
 import { IIngredients, ISteps } from '@/types';
 import { getLastImages } from '@/utils';
-import styles from './RecipeStep.module.scss';
+import styles from './recipe-step.module.scss';
 
 interface IRecipeStep {
   steps: ISteps;

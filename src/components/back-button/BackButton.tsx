@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation';
 import { ArrowIcon } from '@/components';
 import { BUTTONS_TEXT } from '@/constants';
-import styles from './BackButton.module.scss';
+import styles from './back-button.module.scss';
 
 export const BackButton = () => {
   const router = useRouter();

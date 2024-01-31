@@ -1,6 +1,6 @@
 import { SOCIALS } from '@/constants';
 import classNames from 'classnames';
-import styles from './Socials.module.scss';
+import styles from './socials.module.scss';
 
 interface IProps {
   isMobMenu?: boolean;

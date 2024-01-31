@@ -1,5 +1,5 @@
 import { RECIPES_PAGE_TEXT } from '@/constants';
-import styles from './RecipeSticker.module.scss';
+import styles from './recipe-sticker.module.scss';
 
 interface IProps {
   children: React.ReactNode;

@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useCallback } from 'react';
 import { IMAGE_ALT_TEXT } from '@/constants';
 import LogoImg from '../assets/Logo.png';
-import styles from './Logo.module.scss';
+import styles from './logo.module.scss';
 
 interface IProps {
   setIsMenuOnShow?: (isMenuOnShow: boolean) => void;

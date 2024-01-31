@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { HeartIcon } from '@/components';
 import { useAppSelector } from '@/store';
 import { LINKS_TITLE, ROUTES } from '@/constants';
-import styles from './FavsRecipes.module.scss';
+import styles from './favs-recipes.module.scss';
 
 export const FavsRecipes = () => {
   const { favoritesSlugs } = useAppSelector((state) => state.favoritesReducer);

@@ -1,6 +1,6 @@
 import { Socials } from '@/components';
 import { RIGHTS_TEXT } from '@/constants';
-import styles from './Footer.module.scss';
+import styles from './footer.module.scss';
 
 export const Footer = () => {
   return (

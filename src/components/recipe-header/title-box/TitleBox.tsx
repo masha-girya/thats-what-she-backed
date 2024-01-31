@@ -7,7 +7,7 @@ import { IRecipe } from '@/types';
 import { useAppDispatch, useAppSelector } from '@/store';
 import { favoritesAction } from '@/store/slices/favorites.slice';
 import { addRecipeToFavs } from '@/lib';
-import styles from './TitleBox.module.scss';
+import styles from './title-box.module.scss';
 
 interface IProps {
   recipe: IRecipe;

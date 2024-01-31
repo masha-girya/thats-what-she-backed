@@ -3,7 +3,7 @@ import { IngredientsList, RecipeSticker } from '@/components';
 import { TitleBox } from './title-box';
 import { IRecipe } from '@/types';
 import { RECIPES_PAGE_TEXT } from '@/constants';
-import styles from './RecipeHeader.module.scss';
+import styles from './recipe-header.module.scss';
 
 interface IProps {
   recipe: IRecipe;

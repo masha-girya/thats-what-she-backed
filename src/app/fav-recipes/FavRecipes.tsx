@@ -5,7 +5,7 @@ import { RecipesListClient } from '@/components/recipes-list/recipe-list-client'
 import { FAVS_PAGE_TEXT, LOCAL_STORAGE } from '@/constants';
 import { IRecipeCard } from '@/types';
 import { getFavRecipes } from './fav-recipes.fetch';
-import styles from './FavRecipes.module.scss';
+import styles from './fav-recipes.module.scss';
 
 const FavRecipes = () => {
   const [favRecipes, setFavRecipes] = useState<IRecipeCard[]>([]);
