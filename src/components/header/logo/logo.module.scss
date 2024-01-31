@@ -1,0 +1,13 @@
+@use 'src/styles/mixins.scss';
+
+.logo {
+  width: 80px;
+
+  @include mixins.mediaTablet {
+    width: 70px;
+  }
+}
+
+.link {
+  max-width: max-content;
+}

@@ -1,0 +1,46 @@
+@use 'src/styles/mixins.scss';
+@use 'src/styles/variables.scss' as var;
+
+.header {
+  position: fixed;
+  z-index: 3;
+  top: 0;
+
+  height: var.$header-hight;
+  width: 100%;
+  padding: 0 60px;
+
+  box-sizing: border-box;
+
+  box-shadow: 0 0 10px 0 rgba(33, 33, 33, 0.1);
+  background-color: #ffffff;
+
+  @include mixins.mediaNoteBook {
+    padding: 0 30px;
+  }
+
+  @include mixins.mediaTablet {
+    padding: 0;
+    height: var.$header-hight-mob;
+  }
+
+  &__container {
+    max-width: var.$max-width-main;
+    margin: 0 auto;
+    height: 100%;
+  }
+
+  &__mobile {
+    display: none;
+
+    @include mixins.mediaTablet {
+      display: block;
+    }
+  }
+
+  &__desktop {
+    @include mixins.mediaTablet {
+      display: none;
+    }
+  }
+}

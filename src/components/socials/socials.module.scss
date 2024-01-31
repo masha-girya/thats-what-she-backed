@@ -1,0 +1,42 @@
+@use "src/styles/mixins.scss";
+@use "src/styles/variables.scss" as var;
+
+.socials {
+  display: flex;
+  gap: 30px;
+
+  &_mobMenu {
+    margin-bottom: 140px;
+  }
+
+  &__link {
+    &_mobMenu {
+      svg {
+        fill: var.$main-color-tomato;
+      }
+    }
+  }
+
+  &__icon {
+    transform: scale(1);
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &_mobMenu {
+      fill: var.$main-color-tomato;
+
+      circle {
+        fill: var.$main-color-tomato;
+      }
+
+      &_tiktok {
+        path {
+          fill: #fff;
+        }
+      }
+    }
+  }
+}
