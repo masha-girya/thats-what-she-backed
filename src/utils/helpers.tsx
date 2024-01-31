@@ -1,10 +1,14 @@
-import { ERROR_TEXT } from "@/constants";
-import { IRecipeCard } from "@/types";
-import { NextResponse } from "next/server";
+import { ERROR_TEXT } from '@/constants';
+import { IRecipe } from '@/types';
+import { NextResponse } from 'next/server';
 
-export async function getData(data: any, keyword: string, customReturnData?: any) {
+export async function getData(
+  data: any,
+  keyword: string,
+  customReturnData?: any,
+) {
   try {
-    if(!data) {
+    if (!data) {
       return new NextResponse(ERROR_TEXT.notFound, { status: 404 });
     }
 
@@ -14,43 +18,42 @@ export async function getData(data: any, keyword: string, customReturnData?: any
   }
 }
 
-export const getFavRecipes = (favRecipes: IRecipeCard[], item: IRecipeCard) => {
-  let itemToSet = "";
+export const getFavRecipes = (favRecipes: IRecipe[], recipe: IRecipe) => {
+  let itemToSet = '';
 
-  if (favRecipes.find((recipe) => recipe.title === item.title)) {
+  if (favRecipes.find((favRecipe) => favRecipe.slug === recipe.slug)) {
     itemToSet = JSON.stringify(
-      favRecipes.filter((recipe) => recipe.title !== item.title)
+      favRecipes.filter((favRecipe) => favRecipe.slug !== recipe.slug),
     );
   } else {
-    itemToSet = JSON.stringify([...favRecipes, item]);
+    itemToSet = JSON.stringify([...favRecipes, recipe]);
   }
 
   return itemToSet;
 };
 
 export const linkCutter = (text: string, classNames: string[]) => {
-  const splittedText = text.split("*LINK*");
+  const splittedText = text.split('*LINK*');
   const result: JSX.Element[] = [];
 
-  splittedText.forEach((part, i) => {
-    if (part[0] === "[") {
-      const linkTextIndexFirst = part.indexOf("[");
-      const linkTextIndexLast = part.indexOf("]");
+  splittedText.forEach((part) => {
+    if (part[0] === '[') {
+      const linkTextIndexFirst = part.indexOf('[');
+      const linkTextIndexLast = part.indexOf(']');
 
       const href = part.slice(linkTextIndexLast + 2, part.length - 1);
 
       result.push(
-        <a
-          key={href}
-          href={href}
-          target="_blank"
-          className={classNames[0]}
-        >
+        <a key={href} href={href} target="_blank" className={classNames[0]}>
           {part.slice(linkTextIndexFirst + 1, linkTextIndexLast)}
-        </a>
+        </a>,
       );
     } else {
-      result.push(<p key={part} className={classNames[1]}>{part}</p>);
+      result.push(
+        <p key={part} className={classNames[1]}>
+          {part}
+        </p>,
+      );
     }
   });
 
@@ -58,7 +61,7 @@ export const linkCutter = (text: string, classNames: string[]) => {
 };
 
 export const getLastImages = (stepArr: any[]) =>
-stepArr
-  .map((ar) => Object.keys(ar))
-  .flat()
-  .lastIndexOf("image");
+  stepArr
+    .map((ar) => Object.keys(ar))
+    .flat()
+    .lastIndexOf('image');

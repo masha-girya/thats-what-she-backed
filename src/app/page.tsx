@@ -1,10 +1,10 @@
 // "use client";
 
 // import { useRouter } from "next/navigation";
-import Link from "next/link";
-import { BannerRecipe, RecipesList, ArrowIcon } from "@/components";
-import { ANCHORS, BANNER_TEXT, BUTTONS_TEXT } from "@/constants";
-import styles from "./page.module.scss";
+import Link from 'next/link';
+import { BannerRecipe, RecipesList, ArrowIcon } from '@/components';
+import { ANCHORS, BANNER_TEXT, BUTTONS_TEXT } from '@/constants';
+import styles from './page.module.scss';
 
 export default function Home() {
   // const router = useRouter();
@@ -25,9 +25,7 @@ export default function Home() {
           </h2>
           <Link href={`#${ANCHORS.recipes}`} className={styles.button}>
             <ArrowIcon />
-            <p className={styles.button__text}>
-              {BUTTONS_TEXT.toRecipes}
-            </p>
+            <p className={styles.button__text}>{BUTTONS_TEXT.toRecipes}</p>
           </Link>
         </div>
         <BannerRecipe />

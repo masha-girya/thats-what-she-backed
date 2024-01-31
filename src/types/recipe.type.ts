@@ -1,5 +1,5 @@
-import { Category } from "./category.type";
-import { IIngredients } from "./ingredients.type";
+import { Category } from './category.type';
+import { IIngredients } from './ingredients.type';
 
 export interface IRecipe {
   slug: string;
@@ -15,15 +15,15 @@ export interface IRecipe {
   allIngredients: string[];
   steps: ISteps;
   tips: ITipsRecipe;
+  totalFavs: number;
 }
 
-export interface IRecipeCard extends Pick<
-  IRecipe, "title" | "slug" | "mainImage"
-> {}
+export interface IRecipeCard
+  extends Pick<IRecipe, 'title' | 'slug' | 'mainImage'> {}
 
 export interface ITipsRecipe {
-    [key: string]: string;
-  }
+  [key: string]: string;
+}
 
 export interface ISteps {
   [key: keyof IIngredients]: any[];

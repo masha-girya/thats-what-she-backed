@@ -15,7 +15,7 @@ export const GlassIcon = (props: any) => {
       <path
         id="secondary"
         d="M5.88,9.78a3,3,0,0,0,3.9-3.9A3,3,0,0,0,12,3a9,9,0,1,1-9,9A3,3,0,0,0,5.88,9.78Z"
-        style={{ fill: "#FCC100", strokeWidth: 2 }}
+        style={{ fill: '#FCC100', strokeWidth: 2 }}
       ></path>
       <line
         id="primary-upstroke"
@@ -24,10 +24,10 @@ export const GlassIcon = (props: any) => {
         x2="15.05"
         y2="9.5"
         style={{
-          fill: "none",
-          stroke: "#fc9187",
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
+          fill: 'none',
+          stroke: '#fc9187',
+          strokeLinecap: 'round',
+          strokeLinejoin: 'round',
           strokeWidth: 2.5,
         }}
       ></line>
@@ -39,10 +39,10 @@ export const GlassIcon = (props: any) => {
         x2="14.55"
         y2="15"
         style={{
-          fill: "none",
-          stroke: "#30A49A",
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
+          fill: 'none',
+          stroke: '#30A49A',
+          strokeLinecap: 'round',
+          strokeLinejoin: 'round',
           strokeWidth: 2.5,
         }}
       ></line>
@@ -54,10 +54,10 @@ export const GlassIcon = (props: any) => {
         x2="9.55"
         y2="14"
         style={{
-          fill: "none",
-          stroke: "#FB3800",
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
+          fill: 'none',
+          stroke: '#FB3800',
+          strokeLinecap: 'round',
+          strokeLinejoin: 'round',
           strokeWidth: 2.5,
         }}
       ></line>
@@ -65,10 +65,10 @@ export const GlassIcon = (props: any) => {
         id="primary"
         d="M5.88,9.78a3,3,0,0,0,3.9-3.9A3,3,0,0,0,12,3a9,9,0,1,1-9,9A3,3,0,0,0,5.88,9.78Z"
         style={{
-          fill: "none",
-          stroke: "#FB3800",
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
+          fill: 'none',
+          stroke: '#FB3800',
+          strokeLinecap: 'round',
+          strokeLinejoin: 'round',
           strokeWidth: 1,
         }}
       ></path>

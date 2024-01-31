@@ -14,5 +14,5 @@ export interface ITip {
   image?: string[];
 }
 
-export interface ITipShort extends Pick<ITips, "slug" | "title" | "mainImage" >
-{}
+export interface ITipShort
+  extends Pick<ITips, 'slug' | 'title' | 'mainImage'> {}

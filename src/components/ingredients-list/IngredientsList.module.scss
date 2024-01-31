@@ -1,0 +1,15 @@
+@use "src/styles/variables.scss" as var;
+
+.ingredientsList {
+  list-style: none;
+
+  &__checkbox {
+    margin-right: 5px;
+  }
+
+  &__item {
+    &_checked {
+      text-decoration: line-through;
+    }
+  }
+}

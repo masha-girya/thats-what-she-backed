@@ -1,0 +1,41 @@
+@use "src/styles/mixins.scss";
+@use "src/styles/variables.scss" as var;
+
+.recipe {
+  @include mixins.mainBox();
+
+  margin: 0 auto;
+
+  overflow: hidden;
+
+  &__recipeBox {
+    width: 100%;
+    max-width: var.$max-width-recipes;
+
+    margin: 0 auto;
+
+    padding: calc(var.$header-hight + 50px) 100px 100px 150px;
+
+    @include mixins.mediaNoteBook {
+      padding: calc(var.$header-hight + 30px) 64px 80px;
+    }
+  
+    @include mixins.mediaTablet {
+      padding: 120px 32px 50px;
+    }
+  
+    @include mixins.mediaMobile {
+      padding: 110px 16px 50px;
+    }
+  
+  }
+
+  &__stickerInfo {
+    margin-bottom: 5px;
+
+    &__title {
+      font-style: italic;
+      font-weight: 700;
+    }
+  }
+}
