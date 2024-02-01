@@ -1,7 +1,7 @@
 import { RecipeSticker } from '../recipe-sticker';
 import { ITipsRecipe } from '@/types';
 import { RECIPES_PAGE_TEXT } from '@/constants';
-import styles from './RecipeTips.module.scss';
+import styles from './recipe-tips.module.scss';
 
 interface IProps {
   tips: ITipsRecipe;

@@ -1,6 +1,6 @@
 import { ServerErrorPlug } from '@/components';
 import { ERROR_TEXT } from '@/constants';
-import styles from './index.module.scss';
+import styles from './about-me.module.scss';
 
 const AboutMe = () => {
   return (

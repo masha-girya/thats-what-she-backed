@@ -1,33 +1,27 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import Link from 'next/link';
-import { HeartIcon } from '../../icons';
-import { LINKS_TITLE, LOCAL_STORAGE, ROUTES } from '@/constants';
-import styles from './FavsRecipes.module.scss';
+import { HeartIcon } from '@/components';
+import { useAppSelector } from '@/store';
+import { LINKS_TITLE, ROUTES } from '@/constants';
+import styles from './favs-recipes.module.scss';
 
 export const FavsRecipes = () => {
-  const [favRecipes, setFavRecipes] = useState<string[]>([]);
-
-  useEffect(() => {
-    setFavRecipes(
-      JSON.parse(localStorage.getItem(LOCAL_STORAGE.favRecipes) || '[]'),
-    );
-  }, []);
+  const { favoritesSlugs } = useAppSelector((state) => state.favoritesReducer);
 
   return (
     <Link
       href={`/${ROUTES.favRecipes}`}
       title={LINKS_TITLE.favRecipes}
-      className={classNames(styles.favsHeader)}
+      className={styles.favsHeader}
     >
-      {favRecipes.length > 0 && (
-        <div className={styles.favsHeader__amount}>{favRecipes.length}</div>
+      {favoritesSlugs.length > 0 && (
+        <div className={styles.favsHeader__amount}>{favoritesSlugs.length}</div>
       )}
       <HeartIcon
         className={classNames(styles.favsHeader__icon, {
-          [styles.favsHeader__icon_full]: favRecipes.length > 0,
+          [styles.favsHeader__icon_full]: favoritesSlugs.length > 0,
         })}
       />
     </Link>

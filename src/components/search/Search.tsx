@@ -1,6 +1,6 @@
 import { SearchIcon } from '@/components/icons/SearchIcon';
 import { PLACEHOLDERS_TEXT } from '@/constants';
-import styles from './Search.module.scss';
+import styles from './search.module.scss';
 
 interface IProps {
   searchQuery: string;

@@ -13,25 +13,23 @@
 
   cursor: pointer;
 
+  transition: fill 0.3s ease, transform .2s ease-in-out;
+
   @include mixins.mediaTablet {
     @include mixins.square(32px);
   }
 
   &:hover {
-    svg {
-      transform: scale(1.1);
-    }
+    transform: scale(1.1);
   }
 
   &:active {
-    svg {
-      transform: scale(.9);
-    }
+    transform: scale(.9);
   }
 
   &__icon {
     fill: var.$color-pink;
-    transition: fill 0.3s ease, transform .2s ease-in-out;
+    transition: fill 0.3s ease;
 
     &_full {
       fill: var.$main-color-tomato;
@@ -42,6 +40,7 @@
     position: absolute;
     top: 0px;
     right: -3px;
+    z-index: 2;
 
     display: flex;
     justify-content: center;

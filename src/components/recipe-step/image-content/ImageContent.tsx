@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import styles from './ImageContent.module.scss';
+import styles from './image-content.module.scss';
 
 interface IProps {
   stepName: string;

@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { getLastRecipe } from '@/lib';
 import { ROUTES } from '@/constants';
-import styles from './BannerRecipe.module.scss';
+import styles from './banner-recipe.module.scss';
 
 async function getRecipe() {
   try {

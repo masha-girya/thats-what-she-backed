@@ -1,1 +1,1 @@
-export { default } from './tips.page';
+export { default } from './Tips';

@@ -1,10 +1,8 @@
-import './globals.scss';
 import type { Metadata } from 'next';
-// import { Cormorant } from 'next/font/google';
+import StoreProvider from '@/components/store-provider';
 import { Header, Footer, Container } from '@/components';
 import Favicon from '/public/favicon.ico';
-
-// const inter = Cormorant({ subsets: ['cyrillic', 'latin'] });
+import './globals.scss';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://thats-what-she-baked.vercel.app/'),
@@ -44,9 +42,11 @@ export default function RootLayout({
   return (
     <html lang="uk">
       <body>
-        <Header />
-        <Container>{children}</Container>
-        <Footer />
+        <StoreProvider>
+          <Header />
+          <Container>{children}</Container>
+          <Footer />
+        </StoreProvider>
       </body>
     </html>
   );

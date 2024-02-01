@@ -1,5 +1,5 @@
 import { GlassIcon } from '@/components';
-import styles from './ServerErrorPlug.module.scss';
+import styles from './server-error-plug.module.scss';
 
 interface IProps {
   text: string;

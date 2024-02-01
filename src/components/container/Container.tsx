@@ -1,4 +1,4 @@
-import styles from './Container.module.scss';
+import styles from './container.module.scss';
 
 interface IProps {
   children: React.ReactNode;

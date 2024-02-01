@@ -4,7 +4,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import { useCallback } from 'react';
 import classNames from 'classnames';
 import { NAV } from '@/constants';
-import styles from './Nav.module.scss';
+import styles from './nav.module.scss';
 
 interface INav {
   isFooter?: boolean;
