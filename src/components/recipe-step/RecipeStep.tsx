@@ -1,3 +1,4 @@
+import { useCallback, useMemo } from 'react';
 import { IngredientsList } from '@/components';
 import { ImageContent } from './image-content';
 import { IIngredients, ISteps } from '@/types';
@@ -12,9 +13,9 @@ interface IRecipeStep {
 export const RecipeStep = (props: IRecipeStep) => {
   const { steps, ingredients } = props;
 
-  const stepsKeysArr = Object.keys(steps);
+  const stepsKeysArr = useMemo(() => Object.keys(steps), [steps]);
 
-  const getContent = (item: any, index: number, step: any) => {
+  const getContent = useCallback((item: any, index: number, step: any) => {
     switch (true) {
       case 'text' in item:
         return (
@@ -36,14 +37,16 @@ export const RecipeStep = (props: IRecipeStep) => {
           />
         );
     }
-  };
+  }, [stepsKeysArr, steps]);
 
   return (
     <div className={styles.steps}>
       {stepsKeysArr.map((step) => (
         <div key={step}>
           <h2 className={styles.steps__title}>{step}</h2>
+
           <IngredientsList ingredients={ingredients[step]} />
+
           <div>
             {steps[step].map((item: any, i: number) =>
               getContent(item, i, step),

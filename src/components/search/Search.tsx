@@ -1,4 +1,4 @@
-import { SearchIcon } from '@/components/icons/SearchIcon';
+import { SearchIcon } from '@/components';
 import { PLACEHOLDERS_TEXT } from '@/constants';
 import styles from './search.module.scss';
 

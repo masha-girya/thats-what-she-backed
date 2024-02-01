@@ -1,5 +1,6 @@
 export * from './ArrowIcon';
 export * from './CakeIcon';
+export * from './Checkmark';
 export * from './GlassIcon';
 export * from './HeartIcon';
 export * from './InstagramIcon';

@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { Search, RecipeCard, RecipesSwiper } from '@/components';
 import { IRecipeCard } from '@/types';
+import { useDebounce } from '@/hooks';
 import styles from './recipe-list-client.module.scss';
 
 interface IProps {
@@ -18,15 +19,17 @@ export const RecipesListClient = (props: IProps) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [recipesOnShow, setRecipesOnShow] = useState(recipes);
 
+  const { debouncedValue } = useDebounce(searchQuery, 500);
+
   useEffect(() => {
     const newRecipes = recipes.filter((recipe) =>
       recipe.title
         .toLocaleLowerCase()
-        .includes(searchQuery.toLocaleLowerCase()),
+        .includes(debouncedValue.toLocaleLowerCase()),
     );
 
     setRecipesOnShow(newRecipes);
-  }, [searchQuery]);
+  }, [debouncedValue, recipes]);
 
   return (
     <>
