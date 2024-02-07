@@ -70,17 +70,16 @@ export const RecipesSwiper = (props: IProps) => {
         ))}
       </Swiper>
 
-      {recipes.length > 3 ||
-        (isNoteBook && (
-          <>
-            <div className={styles.prevIcon} onClick={handlePrev}>
-              <PrevIcon />
-            </div>
-            <div className={styles.nextIcon} onClick={handleNext}>
-              <NextIcon />
-            </div>
-          </>
-        ))}
+      {(recipes.length > 3 || isNoteBook) && (
+        <>
+          <div className={styles.prevIcon} onClick={handlePrev}>
+            <PrevIcon />
+          </div>
+          <div className={styles.nextIcon} onClick={handleNext}>
+            <NextIcon />
+          </div>
+        </>
+      )}
     </>
   );
 };

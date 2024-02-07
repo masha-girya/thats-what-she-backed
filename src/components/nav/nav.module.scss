@@ -1,5 +1,5 @@
-@use "src/styles/mixins.scss";
-@use "src/styles/variables.scss" as var;
+@use 'src/styles/mixins.scss';
+@use 'src/styles/variables.scss' as var;
 
 .nav {
   justify-self: center;
@@ -32,7 +32,7 @@
     cursor: pointer;
 
     &::after {
-      content: "";
+      content: '';
 
       position: absolute;
       left: 0;
@@ -45,11 +45,13 @@
       transition: width 0.3s ease;
     }
 
-    &:hover {
-      color: var.$main-color-tomato;
+    @include mixins.hover {
+      &:hover {
+        color: var.$main-color-tomato;
 
-      &::after {
-        width: 100%;
+        &::after {
+          width: 100%;
+        }
       }
     }
 
@@ -64,12 +66,14 @@
     &_footer {
       color: #ffffff;
 
-      &:hover {
-        color: #ffffff;
+      @include mixins.hover {
+        &:hover {
+          color: #ffffff;
 
-        &::after {
-          background-color: #ffffff;
-          width: 100%;
+          &::after {
+            background-color: #ffffff;
+            width: 100%;
+          }
         }
       }
     }

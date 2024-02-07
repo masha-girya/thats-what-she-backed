@@ -19,6 +19,7 @@
 
     &__checkmarkBox {
       @include mixins.square(15px);
+      min-width: 15px;
     
       border-radius: 5px;
       border: 1px solid var.$color-text-opacity;

@@ -12,41 +12,29 @@
   line-height: 14px;
   font-style: italic;
   text-transform: lowercase;
+  color: var.$color-text;
 
-  transition: transform .2s ease, color .3s ease;;
+  transition: transform 0.2s ease, color 0.3s ease;
 
   &__arrow {
     transform: translateY(1px) rotate(180deg);
-    transition: transform .2s ease;
+    transition: transform 0.2s ease;
 
     path {
-      transition: fill .3s ease;
+      transition: fill 0.3s ease;
     }
   }
 
-  &:hover {
-    transform: translateX(5px);
-    color: var.$color-apricot;
-
-    .backBtn__arrow {
-      transform: translateY(1px) rotate(180deg) translateX(10px);
-  
-      path {
-        fill: var.$color-apricot;
-      }
-    }
-  }
-
-  @include mixins.mediaTablet {
+  @include mixins.hover {
     &:hover {
-      transform: translateX(0);
-      color: initial;
-  
+      transform: translateX(5px);
+      color: var.$color-apricot;
+
       .backBtn__arrow {
-        transform: translateY(1px) rotate(180deg) translateX(0);
-    
+        transform: translateY(1px) rotate(180deg) translateX(10px);
+
         path {
-          fill: initial;
+          fill: var.$color-apricot;
         }
       }
     }

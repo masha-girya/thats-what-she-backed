@@ -6,6 +6,7 @@ import { Search, RecipeCard, RecipesSwiper } from '@/components';
 import { IRecipeCard } from '@/types';
 import { useDebounce } from '@/hooks';
 import styles from './recipe-list-client.module.scss';
+import { useParams } from 'next/navigation';
 
 interface IProps {
   recipes: IRecipeCard[];
@@ -15,6 +16,7 @@ interface IProps {
 
 export const RecipesListClient = (props: IProps) => {
   const { recipes, isFavRecipes, isSlider } = props;
+  const { slug } = useParams();
 
   const [searchQuery, setSearchQuery] = useState('');
   const [recipesOnShow, setRecipesOnShow] = useState(recipes);
@@ -54,7 +56,7 @@ export const RecipesListClient = (props: IProps) => {
           ))}
 
         {isSlider && (
-          <RecipesSwiper recipes={recipes} />
+          <RecipesSwiper recipes={recipes.filter(recipe => recipe.slug !== slug)} />
         )}
       </div>
     </>

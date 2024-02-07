@@ -25,7 +25,9 @@
     }
   }
 
-  &:hover &__background__img {
-    transform: scale(1.1);
+  @include mixins.hover {
+    &:hover &__background__img {
+      transform: scale(1.1);
+    }
   }
 }

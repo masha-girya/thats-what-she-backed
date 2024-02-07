@@ -2,27 +2,29 @@
 @use 'src/styles/mixins.scss';
 
 .linkBox {
-  &:hover .button {
-    border-bottom-color: var.$main-color-tomato;
-
-    &__text {
-      color: var.$main-color-tomato;
+  @include mixins.hover {
+    &:hover .button {
       border-bottom-color: var.$main-color-tomato;
-
-      padding-left: 30px;
-    }
-
-    svg {
-      transform: translateX(5px);
-
-      path {
-        fill: var.$main-color-tomato;
+  
+      &__text {
+        color: var.$main-color-tomato;
+        border-bottom-color: var.$main-color-tomato;
+  
+        padding-left: 30px;
       }
-    }
-
-    &_main {
+  
       svg {
-        transform: translateX(0);
+        transform: translateX(5px);
+  
+        path {
+          fill: var.$main-color-tomato;
+        }
+      }
+  
+      &_main {
+        svg {
+          transform: translateX(0);
+        }
       }
     }
   }
