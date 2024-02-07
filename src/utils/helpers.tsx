@@ -1,3 +1,4 @@
+import { InnerLink } from '@/components';
 import { ERROR_TEXT } from '@/constants';
 import { IRecipe } from '@/types';
 import { NextResponse } from 'next/server';
@@ -32,7 +33,11 @@ export const getFavRecipes = (favRecipes: IRecipe[], recipe: IRecipe) => {
   return itemToSet;
 };
 
-export const linkCutter = (text: string, classNames: string[]) => {
+export const linkCutter = (
+  text: string,
+  classNames: string[],
+  isAnchor?: boolean,
+) => {
   const splittedText = text.split('*LINK*');
   const result: JSX.Element[] = [];
 
@@ -44,13 +49,17 @@ export const linkCutter = (text: string, classNames: string[]) => {
       const href = part.slice(linkTextIndexLast + 2, part.length - 1);
 
       result.push(
-        <a key={href} href={href} target="_blank" className={classNames[0]}>
-          {part.slice(linkTextIndexFirst + 1, linkTextIndexLast)}
-        </a>,
+        <InnerLink
+          key={href}
+          href={href}
+          content={part.slice(linkTextIndexFirst + 1, linkTextIndexLast)}
+          style={classNames[1]}
+          isAnchor={isAnchor}
+        />,
       );
     } else {
       result.push(
-        <p key={part} className={classNames[1]}>
+        <p key={part} className={classNames[0]}>
           {part}
         </p>,
       );

@@ -25,6 +25,10 @@
 
     object-fit: cover;
     object-position: center;
+
+    @include mixins.mediaMobile {
+      max-height: 400px;
+    }
   }
 
   &__ingredientsBox {

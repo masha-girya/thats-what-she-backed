@@ -1,4 +1,4 @@
-@use "src/styles/variables.scss" as var;
+@use 'src/styles/variables.scss' as var;
 
 .recipeTips {
   max-width: 800px;
@@ -14,9 +14,20 @@
     margin-bottom: 10px;
 
     &__title {
-    font-weight: 600;
-    font-style: italic;
-    margin-bottom: 5px;
+      font-weight: 600;
+      font-style: italic;
+      margin-bottom: 5px;
+    }
+
+    &__text {
+      display: inline;
+
+      &_link {
+        display: inline;
+        color: var.$main-color-tomato;
+        text-decoration: underline;
+        font-weight: 600;
+      }
     }
   }
 }

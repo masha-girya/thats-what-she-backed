@@ -16,7 +16,7 @@ export const Tip = (props: IProps) => {
       {Array.isArray(tip.text) &&
         tip.text.map((tipText) => (
           <div key={tipText} className={styles.tip__textBox}>
-            {linkCutter(tipText, [styles.tip__link, styles.tip__text])}
+            {linkCutter(tipText, [styles.tip__text])}
           </div>
         ))}
 

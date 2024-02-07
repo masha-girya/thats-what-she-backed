@@ -46,7 +46,7 @@ export const RecipeStep = (props: IRecipeStep) => {
   return (
     <div className={styles.steps}>
       {stepsKeysArr.map((step) => (
-        <div key={step}>
+        <div key={step} id={step} className={styles.steps__step}>
           <h2 className={styles.steps__title}>{step}</h2>
 
           <IngredientsList ingredients={ingredients[step]} />

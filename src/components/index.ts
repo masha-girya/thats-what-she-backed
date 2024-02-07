@@ -4,6 +4,7 @@ export * from './container';
 export * from './footer';
 export * from './header';
 export * from './icons';
+export * from './inner-link';
 export * from './ingredients-list';
 export * from './link-button';
 export * from './loading-page';
