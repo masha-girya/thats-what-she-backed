@@ -1,5 +1,5 @@
-@use "src/styles/mixins.scss";
-@use "src/styles/variables.scss" as var;
+@use 'src/styles/mixins.scss';
+@use 'src/styles/variables.scss' as var;
 
 .favsHeader {
   position: relative;
@@ -13,18 +13,20 @@
 
   cursor: pointer;
 
-  transition: fill 0.3s ease, transform .2s ease-in-out;
+  transition: fill 0.3s ease, transform 0.2s ease-in-out;
 
   @include mixins.mediaTablet {
     @include mixins.square(32px);
   }
 
-  &:hover {
-    transform: scale(1.1);
+  @include mixins.hover {
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 
   &:active {
-    transform: scale(.9);
+    transform: scale(0.9);
   }
 
   &__icon {

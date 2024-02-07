@@ -1,11 +1,15 @@
 $main-color-tomato: #FB3800;
+$main-color-tomato-opacity: #FB380060;
 $color-pink: #fc9187;
 $color-apricot: #FCC100;
 $color-blue: #30A49A;
 $color-text: #444444;
+$color-text-opacity: #44444450;
+$color-text-opacity2: #44444499;
 
 $max-width-recipe-image: 728px;
 $box-min-height: calc(100vh - 70px);
+$box-min-height-mob: calc(100vh - 120px);
 $max-width-main: 1900px;
 $max-width-recipes: 1400px;
 

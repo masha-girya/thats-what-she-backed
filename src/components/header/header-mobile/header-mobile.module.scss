@@ -27,7 +27,7 @@ $z-index-menu: 1;
     height: 100%;
     padding: 0 30px;
 
-    box-shadow: 0 0 10px 0 rgba(33, 33, 33, .1);
+    // box-shadow: 0 0 10px 0 rgba(33, 33, 33, .1);
   }
 
   &__menuBtn {
@@ -39,7 +39,7 @@ $z-index-menu: 1;
       fill: var.$main-color-tomato;
 
       transform: scale(1);
-      transition: transform .3s ease;
+      transition: transform 0.3s ease;
 
       &:active {
         transform: scale(0.8);
@@ -59,7 +59,7 @@ $z-index-menu: 1;
 
     background-color: #fff;
 
-    transition: height .3s ease;
+    transition: height 0.3s ease;
 
     &_onShow {
       height: calc(100vh - var.$header-hight-mob);

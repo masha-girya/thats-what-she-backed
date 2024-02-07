@@ -5,6 +5,7 @@ export * from './footer';
 export * from './header';
 export * from './icons';
 export * from './ingredients-list';
+export * from './link-button';
 export * from './loading-page';
 export * from './nav';
 export * from './react-skeleton';

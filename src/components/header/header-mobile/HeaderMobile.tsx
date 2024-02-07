@@ -43,7 +43,7 @@ export const HeaderMobile = () => {
           <FavsRecipes />
           <button
             type="button"
-            name={BUTTONS_TEXT.mobileMenu}
+            aria-label={BUTTONS_TEXT.mobileMenu}
             className={styles.headerMobile__menuBtn}
             onClick={handleClickMenu}
           >

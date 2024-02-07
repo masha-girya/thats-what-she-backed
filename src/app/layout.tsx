@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import StoreProvider from '@/components/store-provider';
 import { Header, Footer, Container } from '@/components';
 import Favicon from '/public/favicon.ico';
-import './globals.scss';
+import '@/styles/globals.scss';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://thats-what-she-baked.vercel.app/'),

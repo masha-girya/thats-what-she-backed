@@ -10,12 +10,14 @@
   overflow: hidden;
 
   transform: translateX(25px);
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 
   cursor: pointer;
 
-  &:hover {
-    transform: translateX(0);
+  @include mixins.hover {
+    &:hover {
+      transform: translateX(0);
+    }
   }
 
   @include mixins.mediaTablet {
@@ -36,16 +38,16 @@
     padding: 15px 30px 50px;
     width: 100%;
 
-    background-color: #FFFFFF;
+    background-color: #ffffff;
 
-    transition: all .3s ease;
+    transition: all 0.3s ease;
 
     cursor: pointer;
 
     @include mixins.mediaTablet {
       padding-bottom: 30px;
     }
-  
+
     p {
       margin-top: 10px;
 
@@ -54,7 +56,7 @@
       font-size: 20px;
       color: #00000090;
 
-      transition: all .3s ease;
+      transition: all 0.3s ease;
     }
 
     h2 {
@@ -68,15 +70,17 @@
       text-transform: uppercase;
       letter-spacing: 1px;
 
-      background-color: #FFFFFF;
+      background-color: #ffffff;
 
       border-bottom: 2px solid transparent;
 
-      transition: all .3s ease;
+      transition: all 0.3s ease;
     }
 
-    &:hover h1 {
-      border-bottom-color: var.$main-color-tomato;
+    @include mixins.hover {
+      &:hover h1 {
+        border-bottom-color: var.$main-color-tomato;
+      }
     }
   }
 
@@ -86,17 +90,15 @@
 
     width: 100%;
     height: 100%;
-  
+
     object-fit: cover;
     object-position: center;
-    transition: all .3s ease;
+    transition: all 0.3s ease;
   }
 
-  &:hover img {
-    filter: blur(0);
-  }
-
-  &:hover .recipe__link {
-    background-color: #FFFFFF;
+  @include mixins.hover {
+    &:hover .recipe__link {
+      background-color: #ffffff;
+    }
   }
 }

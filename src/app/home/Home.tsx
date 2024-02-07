@@ -1,10 +1,8 @@
-import Link from 'next/link';
-import { BannerRecipe, RecipesList, ArrowIcon } from '@/components';
+import { BannerRecipe, RecipesList, LinkButton } from '@/components';
 import { ANCHORS, BANNER_TEXT, BUTTONS_TEXT } from '@/constants';
 import styles from './home.module.scss';
 
 export default function Home() {
-
   return (
     <main className={styles.main}>
       <div className={styles.main__container}>
@@ -15,10 +13,12 @@ export default function Home() {
             <br />
             {BANNER_TEXT.myGoal}
           </h2>
-          <Link href={`#${ANCHORS.recipes}`} className={styles.button}>
-            <ArrowIcon />
-            <p className={styles.button__text}>{BUTTONS_TEXT.toRecipes}</p>
-          </Link>
+          <LinkButton
+            linkStyles={styles.home__linkButtonWrapper}
+            link={`#${ANCHORS.recipes}`}
+            text={BUTTONS_TEXT.toRecipes}
+            isMain
+          />
         </div>
         <BannerRecipe />
       </div>

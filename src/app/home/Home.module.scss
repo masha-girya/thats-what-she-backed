@@ -11,6 +11,7 @@
     width: 100%;
     max-height: 1000px;
     height: calc(100vh);
+  
     margin: 0 auto;
     padding-top: var.$header-hight;
 
@@ -61,77 +62,15 @@
       max-width: 650px;
       text-align: center;
     }
-  }
-}
 
-.button {
-  position: relative;
-
-  overflow: hidden;
-
-  margin-top: 40px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  transition: all .3s ease;
-
-  @include mixins.mediaTablet {
-    margin: 30px auto;
   }
 
-  &__text {
-    position: relative;
-    z-index: 2;
+  &__linkButtonWrapper {
+    margin-top: 40px;
+    
 
-    padding: 5px 10px;
-
-    text-transform: uppercase;
-    font-weight: 400;
-    color: var.$color-pink;
-    font-style: italic;
-
-    border-bottom: 1px solid var.$color-pink;
-    background-color: inherit;
-
-    transition: all .3s ease;
-  }
-
-  svg {
-    position: absolute;
-    left: 0;
-    z-index: 0;
-
-    margin-right: 5px;
-    margin-left: 5px;
-
-    transform: translateX(-25px);
-    transition: all .3s ease;
-
-    path {
-      fill: var.$color-pink;
-      transition: all .3s ease;
+    @include mixins.mediaTablet {
+      margin: 30px auto;
     }
-  }
-
-  &:hover {
-    border-bottom-color: var.$main-color-tomato;
-  }
-
-  &:hover &__text {
-    color: var.$main-color-tomato;
-    padding-left: 30px;
-  }
-
-  &:hover svg {
-    transform: translateX(0);
-    path {
-      fill: var.$main-color-tomato
-    }
-  }
-
-  &:active {
-    transform: scale(0.9);
   }
 }

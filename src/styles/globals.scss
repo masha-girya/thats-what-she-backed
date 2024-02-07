@@ -14,7 +14,7 @@ html, body {
 }
 
 html {
-  scroll-behavior: smooth;
+  @include mixins.scrollBar();
 }
   
 body {
