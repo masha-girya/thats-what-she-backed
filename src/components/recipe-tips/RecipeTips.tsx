@@ -1,5 +1,6 @@
 import { RecipeSticker } from '../recipe-sticker';
 import { ITipsRecipe } from '@/types';
+import { linkCutter } from '@/utils';
 import { RECIPES_PAGE_TEXT } from '@/constants';
 import styles from './recipe-tips.module.scss';
 
@@ -18,7 +19,7 @@ export const RecipeTips = (props: IProps) => {
         {Object.keys(tips).map((tip, i) => (
           <div key={i} className={styles.recipeTips__info}>
             <h3 className={styles.recipeTips__info__title}>{tip}</h3>
-            <p className={styles.recipeTips__info__text}>{tips[tip]}</p>
+            {linkCutter(tips[tip], [styles.recipeTips__info__text], true)}
           </div>
         ))}
       </RecipeSticker>

@@ -9,7 +9,6 @@
     font-weight: 400;
     color: var.$main-color-tomato;
 
-
     margin-bottom: 10px;
   }
 
@@ -23,12 +22,5 @@
 
   &__text {
     display: inline;
-  }
-
-  &__link {
-    display: inline;
-    color: var.$color-pink;
-    font-weight: 600;
-    text-decoration: underline;
   }
 }

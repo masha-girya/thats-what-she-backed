@@ -1,0 +1,9 @@
+@use 'src/styles/variables.scss' as var;
+
+.link {
+  display: inline;
+  color: var.$main-color-tomato;
+  font-weight: 600;
+  font-style: italic;
+  text-decoration: underline;
+}
