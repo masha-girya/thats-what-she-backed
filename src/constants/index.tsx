@@ -1,3 +1,4 @@
+export * from './about-me.constants';
 export * from './data.constants';
 export * from './errors.constants';
 export * from './nav.constants';
