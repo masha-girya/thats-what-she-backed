@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Article } from '@/components';
+import { Article, Socials } from '@/components';
 import { TextContent } from '@/components/article-text-content';
 import { ABOUT_ME_DATA } from '@/constants';
 import MyImage from './assets/IMG_5264.jpg';
@@ -30,11 +30,7 @@ const AboutMe = () => {
         <Article dataSet={article1.dataSet} title={article1.title}>
           <TextContent content={article1.content} />
         </Article>
-        <Article
-          dataSet={article2.dataSet}
-          title={article2.title}
-          isShadowBox
-        >
+        <Article dataSet={article2.dataSet} title={article2.title} isShadowBox>
           <div className={styles.about__article__textBox}>
             {article2.content.map((info) => (
               <div className={styles.textImagePair}>
@@ -74,6 +70,9 @@ const AboutMe = () => {
           {article4.content.map((text) => (
             <TextContent content={text} />
           ))}
+          <div className={styles.about__socials}>
+            <Socials isInSection />
+          </div>
         </Article>
       </section>
     </main>
