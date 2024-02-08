@@ -1,19 +1,19 @@
-import CupCake1 from '@/app/about-me/assets/cupcakes/IMG_5323.jpg';
-import CupCake2 from '@/app/about-me/assets/cupcakes/IMG_5327.jpg';
-import CupCake3 from '@/app/about-me/assets/cupcakes/IMG_5482.jpg';
-import CupCake4 from '@/app/about-me/assets/cupcakes/IMG_5573.jpg';
-import Cake1 from '@/app/about-me/assets/cakes/IMG_4779.jpg';
-import Cake2 from '@/app/about-me/assets/cakes/IMG_4852.jpg';
-import Cake3 from '@/app/about-me/assets/cakes/IMG_5816.jpg';
-import Cake4 from '@/app/about-me/assets/cakes/IMG_7875.jpg';
-import Ideas1 from '@/app/about-me/assets/ideas/IMG_3464.jpg';
-import Ideas2 from '@/app/about-me/assets/ideas/IMG_4109.jpg';
-import Ideas3 from '@/app/about-me/assets/ideas/IMG_8520.jpg';
-import Ideas4 from '@/app/about-me/assets/ideas/IMG_6309.jpg';
-import Experiments1 from '@/app/about-me/assets/experiments/IMG_5829.jpg';
-import Experiments2 from '@/app/about-me/assets/experiments/IMG_6947.jpg';
-import Experiments3 from '@/app/about-me/assets/experiments/IMG_2986.jpg';
-import Experiments4 from '@/app/about-me/assets/experiments/IMG_6965.jpg';
+import CupCake1 from '../app/about-me/assets/cupcakes/IMG_5323.jpg';
+import CupCake2 from '../app/about-me/assets/cupcakes/IMG_5327.jpg';
+import CupCake3 from '../app/about-me/assets/cupcakes/IMG_5482.jpg';
+import CupCake4 from '../app/about-me/assets/cupcakes/IMG_5573.jpg';
+import Cake1 from '../app/about-me/assets/cakes/IMG_4779.jpg';
+import Cake2 from '../app/about-me/assets/cakes/IMG_4852.jpg';
+import Cake3 from '../app/about-me/assets/cakes/IMG_5816.jpg';
+import Cake4 from '../app/about-me/assets/cakes/IMG_7875.jpg';
+import Ideas1 from '../app/about-me/assets/ideas/IMG_3464.jpg';
+import Ideas2 from '../app/about-me/assets/ideas/IMG_4109.jpg';
+import Ideas3 from '../app/about-me/assets/ideas/IMG_8520.jpg';
+import Ideas4 from '../app/about-me/assets/ideas/IMG_6309.jpg';
+import Experiments1 from '../app/about-me/assets/experiments/IMG_5829.jpg';
+import Experiments2 from '../app/about-me/assets/experiments/IMG_6947.jpg';
+import Experiments3 from '../app/about-me/assets/experiments/IMG_2986.jpg';
+import Experiments4 from '../app/about-me/assets/experiments/IMG_6965.jpg';
 
 const MOCK_TITLE = 'Хто тут пече?';
 const MOCK_ABOUT_ME =
