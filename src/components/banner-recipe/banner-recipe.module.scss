@@ -21,12 +21,17 @@
   }
 
   @include mixins.mediaTablet {
-    min-height: 300px;
+    min-height: 350px;
     width: 100%;
 
     flex: 1;
 
     transform: translateX(0);
+  }
+
+  @include mixins.mediaMobile {
+    // max-height: 300px;
+    // max-height: 30%;
   }
 
   &__link {
@@ -94,6 +99,10 @@
     object-fit: cover;
     object-position: center;
     transition: all 0.3s ease;
+
+    @include mixins.mediaMobile {
+      // max-height: 350px;
+    }
   }
 
   @include mixins.hover {
