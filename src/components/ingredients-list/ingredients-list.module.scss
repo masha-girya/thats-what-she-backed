@@ -1,5 +1,5 @@
-@use "src/styles/variables.scss" as var;
-@use "src/styles/mixins.scss";
+@use 'src/styles/variables.scss' as var;
+@use 'src/styles/mixins.scss';
 
 .ingredientsList {
   list-style: none;
@@ -11,6 +11,8 @@
     align-items: center;
     gap: 10px;
 
+    transition: opacity 0.3s ease;
+
     cursor: pointer;
 
     &__checkbox {
@@ -18,26 +20,30 @@
     }
 
     &__checkmarkBox {
+      position: relative;
+
       @include mixins.square(15px);
       min-width: 15px;
-    
+
       border-radius: 5px;
       border: 1px solid var.$color-text-opacity;
-    
+
       background-color: transparent;
-    
+
       &__checkmark {
         position: absolute;
-        top: -2px;
-        left: -1px;
-    
+        top: 0;
+        bottom: 0;
+        left: -2px;
+        margin: auto;
+
         width: 22px;
         height: auto;
-    
+
         opacity: 0;
-    
-        transition: opacity .3s ease;
-    
+
+        transition: opacity 0.3s ease;
+
         path {
           fill: var.$color-text-opacity2;
         }
@@ -46,6 +52,7 @@
 
     &_checked {
       text-decoration: line-through;
+      opacity: 0.77;
     }
 
     &_checked &__checkmarkBox {
