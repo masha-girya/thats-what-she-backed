@@ -8,7 +8,7 @@ export const TextContent = ({ content }: IProps) => {
   return (
     <div className={styles.textContent}>
       {content.map((text) => (
-        <p>{text}</p>
+        <p key={text}>{text}</p>
       ))}
     </div>
   );

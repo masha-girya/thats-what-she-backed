@@ -4,7 +4,22 @@
 .about {
   @include mixins.mainBox();
 
-  padding: calc(var.$header-hight + 30px) 220px 60px;
+  padding: calc(var.$header-hight + 30px) 14% 60px;
+
+  @include mixins.mediaNoteBook {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  @include mixins.mediaTablet {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  @include mixins.mediaMobile {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 
   &__intro {
     display: flex;
@@ -15,6 +30,20 @@
     margin: 0 auto 40px;
 
     background-color: #ffffff;
+
+    -webkit-box-shadow: 0px 0px 18px -3px rgba(212, 212, 212, 1);
+    -moz-box-shadow: 0px 0px 18px -3px rgba(212, 212, 212, 1);
+    box-shadow: 0px 0px 18px -3px rgba(212, 212, 212, 1);
+
+    @include mixins.mediaTablet {
+      flex-direction: column;
+    }
+
+    @include mixins.mediaMobile {
+      gap: 20px;
+
+      padding: 20px;
+    }
 
     &::before {
       content: '';
@@ -32,15 +61,46 @@
 
     &__image {
       object-fit: cover;
-      min-width: 500px;
+      width: 55%;
+
+      @include mixins.mediaNoteBook {
+        width: 50%;
+      }
+
+      @include mixins.mediaTablet {
+        width: 100%;
+        max-height: 400px;
+      }
     }
 
     &__text {
+      width: 45%;
+
+      @include mixins.mediaNoteBook {
+        width: 50%;
+      }
+
+      @include mixins.mediaNoteBook {
+        width: 100%;
+      }
+
       &__title {
         font-size: 40px;
         font-weight: 600;
 
         margin-bottom: 30px;
+
+        @include mixins.mediaTablet {
+          font-size: 37px;
+
+          margin-bottom: 20px;
+        }
+
+        @include mixins.mediaMobile {
+          font-size: 30px;
+
+          margin-bottom: 10px;
+        }
       }
 
       &__desc {
@@ -48,6 +108,10 @@
 
         &:first-of-type {
           margin-bottom: 10px;
+        }
+
+        @include mixins.mediaTablet {
+          letter-spacing: 0;
         }
       }
     }
@@ -61,6 +125,12 @@
 .textImagePair {
   margin-top: 10px;
 
+  &__textBox {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
   &__textMain {
     font-weight: 600;
     font-size: 18px;
@@ -71,8 +141,20 @@
     display: flex;
     justify-content: space-around;
 
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
     margin-top: 30px;
     margin-bottom: 30px;
+
+    @include mixins.mediaNoteBook {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    @include mixins.mediaMobile {
+      grid-template-columns: repeat(1, 1fr);
+    }
 
     &__image {
       width: 100%;
@@ -88,12 +170,28 @@
 
       cursor: pointer;
 
+      @include mixins.mediaNoteBook {
+        height: 350px;
+      }
+
+      @include mixins.mediaTablet {
+        min-width: none;
+      }
+
       &:nth-child(even) {
         transform: rotate(10deg);
+
+        @include mixins.mediaNoteBook {
+          transform: rotate(0);
+        }
       }
 
       &:nth-child(odd) {
         transform: rotate(-5deg);
+
+        @include mixins.mediaNoteBook {
+          transform: rotate(0);
+        }
       }
 
       @include mixins.hover {

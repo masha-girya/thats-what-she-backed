@@ -1,6 +1,17 @@
+@use 'src/styles/mixins.scss';
+@use 'src/styles/variables.scss' as var;
+
 .article {
   margin-bottom: 40px;
   padding: 0 50px;
+
+  @include mixins.mediaTablet {
+    padding: 0 30px;
+  }
+
+  @include mixins.mediaMobile {
+    padding: 0 20px;
+  }
 
   &_shadowBox {
     padding: 60px;
@@ -8,6 +19,10 @@
     -webkit-box-shadow: 0px 0px 18px -3px rgba(212, 212, 212, 1);
     -moz-box-shadow: 0px 0px 18px -3px rgba(212, 212, 212, 1);
     box-shadow: 0px 0px 18px -3px rgba(212, 212, 212, 1);
+
+    @include mixins.mediaTablet {
+      padding: 30px 5%;
+    }
   }
 
   &__title {
