@@ -1,3 +1,4 @@
+export * from './article';
 export * from './back-button';
 export * from './banner-recipe';
 export * from './container';

@@ -9,15 +9,11 @@
     margin-bottom: 140px;
   }
 
-  &__link {
-    &_mobMenu {
-      svg {
-        fill: var.$main-color-tomato;
-      }
-    }
+  &_inSection {
+    flex-wrap: wrap;
   }
 
-  &__icon {
+  &__link {
     transform: scale(1);
     transition: transform 0.3s ease;
 
@@ -27,7 +23,16 @@
       }
     }
 
-    &_mobMenu {
+    &_inSection {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+
+  &__icon {
+    &_mobMenu,
+    &_inSection {
       fill: var.$main-color-tomato;
 
       circle {
@@ -40,5 +45,10 @@
         }
       }
     }
+  }
+
+  &__title {
+    color: var.$main-color-tomato;
+    font-style: italic;
   }
 }

@@ -9,19 +9,27 @@
   font-size: 16px;
 }
 
-html, body {
+html,
+body {
   width: 100%;
 }
 
 html {
   @include mixins.scrollBar();
 }
-  
+
 body {
   margin: 0;
 }
 
-h1, h2, h3, h4, h5, p, ul, li {
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+ul,
+li {
   margin: 0;
   color: var.$color-text;
 }

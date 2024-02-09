@@ -22,5 +22,5 @@ export const NAV = {
   recipes: ['Рецепти', ROUTES.recipes],
   tips: ['Тіпси', ROUTES.tips],
   // blog: ["Блог", ROUTES.blog],
-  // about: ["Про мене", ROUTES.about],
+  about: ["Про мене", ROUTES.about],
 };
