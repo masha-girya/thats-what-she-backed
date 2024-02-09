@@ -29,11 +29,6 @@
     transform: translateX(0);
   }
 
-  @include mixins.mediaMobile {
-    // max-height: 300px;
-    // max-height: 30%;
-  }
-
   &__link {
     position: absolute;
     bottom: 0;
@@ -99,10 +94,6 @@
     object-fit: cover;
     object-position: center;
     transition: all 0.3s ease;
-
-    @include mixins.mediaMobile {
-      // max-height: 350px;
-    }
   }
 
   @include mixins.hover {
