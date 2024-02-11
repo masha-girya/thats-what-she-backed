@@ -7,4 +7,6 @@ export const ERROR_TEXT = {
   blog: 'Перша стаття блогу буде зовсім-зовсім скоро!',
   serverError: 'Internal Server Error',
   notFound: 'Not found',
+  articles: 'Не можу зараз завантажити статті',
+  articlesByQuery: 'За даним запитом немає статей'
 };

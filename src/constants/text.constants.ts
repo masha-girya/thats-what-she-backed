@@ -17,10 +17,12 @@ export const LINKS_TITLE = {
 
 export const IMAGE_ALT_TEXT = {
   logo: 'Thats What She Backed Logo',
+  blogBackground: 'Фонова картинка з їжею',
 } as const;
 
 export const PLACEHOLDERS_TEXT = {
-  search: 'пошук рецепту',
+  searchRecipe: 'пошук рецепту',
+  searchArticle: 'пошук статті',
 } as const;
 
 export const RECIPES_PAGE_TEXT = {
@@ -35,6 +37,12 @@ export const TIPS_PAGE_TEXT = {
 
 export const FAVS_PAGE_TEXT = {
   title: 'Улюблені рецепти',
+} as const;
+
+export const BLOG_PAGE_TEXT = {
+  title: 'Тут зібрані мої думки та досвід на тему їжі',
+  subTitle:
+    'З подорожей по Україні та світу, про улюблені місця, куди я із задоволенням повертаюсь знову і знову, про місця, які хочу відвідати. Про чесність з клієнтами та творчість, через яку передається любов до людей і їжі.',
 } as const;
 
 export const RIGHTS_TEXT =

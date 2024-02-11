@@ -7,6 +7,7 @@ import { BlogCard } from './blog-card';
 import { PaginationWrapper } from './pagination-blog';
 import { getArticles } from '@/lib';
 import { IArticle } from '@/types';
+import { ERROR_TEXT, PLACEHOLDERS_TEXT } from '@/constants';
 import styles from './blog-list.module.scss';
 
 export const BlogList = () => {
@@ -56,29 +57,25 @@ export const BlogList = () => {
   return (
     <section className={styles.blogList}>
       <div className={styles.blogList__filters}>
-        <div className={styles.blogList__filters__search}>
-          <Search
-            searchQuery={searchQuery}
-            setSearchQuery={setSearchQuery}
-            // placeholder={}
-          />
-        </div>
+        <Search
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+          placeholder={PLACEHOLDERS_TEXT.searchArticle}
+        />
       </div>
 
       {!isOnLoad && !blogArticles && (
-        <ServerErrorPlug text="Не можу зараз завантажити статті" />
+        <ServerErrorPlug text={ERROR_TEXT.articles} />
       )}
 
       {isOnLoad && <LoadingPage isInBlock />}
 
       {!isOnLoad && blogArticles?.length !== 0 && (
         <>
-          <div className={styles.blogList__cardsWrapper}>
-            <div className={styles.blogList__cards}>
-              {blogArticles?.map((card, index) => (
-                <BlogCard key={index} card={card} />
-              ))}
-            </div>
+          <div className={styles.blogList__cards}>
+            {blogArticles?.map((card, index) => (
+              <BlogCard key={index} card={card} />
+            ))}
           </div>
 
           <PaginationWrapper
@@ -90,7 +87,7 @@ export const BlogList = () => {
       )}
 
       {!isOnLoad && blogArticles?.length === 0 && searchQuery.length > 0 && (
-        <p className={styles.noArticlesPlug}>За даним запитом немає статей</p>
+        <p className={styles.noArticlesPlug}>{ERROR_TEXT.articlesByQuery}</p>
       )}
     </section>
   );

@@ -1,14 +1,14 @@
 import { SearchIcon } from '@/components';
-import { PLACEHOLDERS_TEXT } from '@/constants';
 import styles from './search.module.scss';
 
 interface IProps {
   searchQuery: string;
   setSearchQuery: (searchQuery: string) => void;
+  placeholder: string;
 }
 
 export const Search = (props: IProps) => {
-  const { searchQuery, setSearchQuery } = props;
+  const { searchQuery, setSearchQuery, placeholder } = props;
 
   return (
     <div className={styles.search}>
@@ -17,11 +17,11 @@ export const Search = (props: IProps) => {
       </div>
       <input
         type="text"
-        name={PLACEHOLDERS_TEXT.search}
+        name={placeholder}
         className={styles.search__input}
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
-        placeholder={PLACEHOLDERS_TEXT.search}
+        placeholder={placeholder}
       />
     </div>
   );
