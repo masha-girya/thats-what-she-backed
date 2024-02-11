@@ -1,5 +1,7 @@
 @use 'src/styles/mixins.scss';
+@use 'src/styles/variables.scss' as var;
 
 .blog {
   @include mixins.mainBox();
+  padding: calc(var.$header-hight + 70px) 64px 100px;
 }

@@ -1,0 +1,68 @@
+@use 'src/styles/mixins.scss' as mixins;
+
+.blogList {
+  // padding: 60px 122px 100px;
+  // min-height: 513px;
+
+  // @media (max-width: 1279px) {
+  //   padding: 60px 60px 100px;
+  // }
+
+  @include mixins.mediaTablet {
+    // padding: 60px 16px;
+    // min-height: 306px;
+  }
+
+  &__filters {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    margin-bottom: 60px;
+
+    @media (max-width: 1279px) {
+      flex-direction: column;
+    }
+
+    @include mixins.mediaTablet {
+      margin-bottom: 40px;
+      justify-content: center;
+    }
+
+    &__search {
+      width: 380px;
+      min-width: 280px;
+      height: 47px;
+
+      @include mixins.mediaTablet {
+        width: 100%;
+        max-width: 360px;
+      }
+    }
+  }
+
+  &__cardsWrapper {
+    margin: 0 auto;
+  }
+
+  &__cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 25px;
+
+    margin: 0 auto;
+
+    @media (max-width: 1433px) {
+      max-width: 785px;
+    }
+
+    @media (max-width: 1028px) {
+      max-width: 380px;
+    }
+
+    @include mixins.mediaTablet {
+      gap: 28px;
+      max-width: 328px;
+    }
+  }
+}

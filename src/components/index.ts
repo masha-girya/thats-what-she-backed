@@ -1,6 +1,7 @@
 export * from './article';
 export * from './back-button';
 export * from './banner-recipe';
+export * from './blog-list';
 export * from './container';
 export * from './footer';
 export * from './header';
@@ -10,6 +11,7 @@ export * from './ingredients-list';
 export * from './link-button';
 export * from './loading-page';
 export * from './nav';
+export * from './pagination';
 export * from './react-skeleton';
 export * from './recipe-card';
 export * from './recipe-header';

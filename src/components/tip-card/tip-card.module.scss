@@ -4,7 +4,8 @@
 .tipCard {
   width: 400px;
 
-  box-shadow: 0 0 10px 0 rgba(33, 33, 33, 0.1);
+  @include mixins.cardShadow();
+
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 
   cursor: pointer;

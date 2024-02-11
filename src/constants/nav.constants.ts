@@ -21,6 +21,6 @@ export const NAV = {
   home: ['Головна', ROUTES.home],
   recipes: ['Рецепти', ROUTES.recipes],
   tips: ['Тіпси', ROUTES.tips],
-  // blog: ["Блог", ROUTES.blog],
+  blog: ["Блог", ROUTES.blog],
   about: ["Про мене", ROUTES.about],
 };
