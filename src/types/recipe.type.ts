@@ -13,6 +13,7 @@ export interface IRecipe {
   amount: string;
   ingredients: IIngredients;
   steps: ISteps;
+  lastImage: string;
   tips: ITipsRecipe;
   totalFavs: number;
 }

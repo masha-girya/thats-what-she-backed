@@ -18,6 +18,9 @@ export const LINKS_TITLE = {
 export const IMAGE_ALT_TEXT = {
   logo: 'Thats What She Backed Logo',
   blogBackground: 'Фонова картинка з їжею',
+  lastRecipeImage: 'Остання головна картинка',
+  articleImage: 'Картинка до статті',
+  imageInConstructor: 'Картинка №',
 } as const;
 
 export const PLACEHOLDERS_TEXT = {

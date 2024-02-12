@@ -28,8 +28,8 @@ export const RecipeHeader = ({ recipe }: IProps) => {
           alt={title || ''}
           width={500}
           height={600}
-          priority={true}
           className={styles.recipeHeader__mainImage}
+          priority={true}
         />
 
         <div className={styles.recipeHeader__rightCol}>

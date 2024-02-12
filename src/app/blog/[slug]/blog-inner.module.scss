@@ -1,0 +1,31 @@
+@use 'src/styles/mixins.scss';
+@use 'src/styles/variables.scss' as var;
+
+.blogInner {
+  @include mixins.mainBox();
+  padding: calc(var.$header-hight + 70px) 11% 100px;
+
+  @include mixins.mediaTablet {
+    padding: calc(var.$header-hight + 50px) 32px 80px;
+  }
+
+  @include mixins.mediaMobile {
+    padding: calc(var.$header-hight + 30px) 16px 80px;
+  }
+
+  &__backBtn {
+    margin-bottom: 30px;
+
+    @include mixins.mediaTablet {
+      display: none;
+    }
+  }
+
+  &__container {
+    min-height: 800px;
+
+    @include mixins.mediaTablet {
+      min-height: 100vh;
+    }
+  }
+}

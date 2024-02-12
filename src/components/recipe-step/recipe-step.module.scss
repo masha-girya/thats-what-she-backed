@@ -1,5 +1,5 @@
-@use "src/styles/mixins.scss";
-@use "src/styles/variables.scss" as var;
+@use 'src/styles/mixins.scss';
+@use 'src/styles/variables.scss' as var;
 
 .steps {
   margin-top: 50px;
@@ -14,11 +14,22 @@
     font-size: 40px;
     font-weight: 600;
     color: var.$main-color-tomato;
-    font-family: "Cormorant Garamond", serif;
+    font-family: 'Cormorant Garamond', serif;
   }
 
-  &__text {
+  &__lastImage {
     margin-top: 20px;
-    max-width: 728px;
+
+    object-fit: contain;
+    width: 800px;
+    height: auto;
+
+    @include mixins.mediaNoteBook {
+      width: 600px;
+    }
+
+    @include mixins.mediaTablet {
+      width: 100%;
+    }
   }
 }

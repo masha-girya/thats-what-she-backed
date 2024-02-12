@@ -15,13 +15,17 @@ export const getArticles = async (currentPage: number, searchQuery = '') => {
     return response.data;
   } catch (error) {
     console.error(error);
+    return null;
   }
 };
 
-// export const getArticleBySlug = async (slug: string) => {
-//   let apiEndpoint = `${API_ENDPOINT_BLOG}/pages?type=news.NewsSinglePage&slug=${slug}&fields=*`;
+export const getArticleBySlug = async (slug: string) => {
+  try {
+    const response = await axios.get(`${endpoint}/${ROUTES.blog}/${slug}`);
 
-//   const response = await axios.get(apiEndpoint);
-
-//   return response.data.items[0];
-// };
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+};

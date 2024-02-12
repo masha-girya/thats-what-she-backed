@@ -14,5 +14,5 @@ export interface IArticle {
 
 export interface IArticleBody {
   text: string[],
-  images: string[],
+  image: string[],
 }

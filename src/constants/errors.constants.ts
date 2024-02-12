@@ -8,5 +8,6 @@ export const ERROR_TEXT = {
   serverError: 'Internal Server Error',
   notFound: 'Not found',
   articles: 'Не можу зараз завантажити статті',
-  articlesByQuery: 'За даним запитом немає статей'
+  articlesByQuery: 'За даним запитом немає статей',
+  articleInner: 'Такої статті я ще не написала',
 };

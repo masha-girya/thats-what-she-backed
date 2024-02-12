@@ -5,9 +5,9 @@ export const getRecipe = async (slug: string) => {
   try {
     const recipe: { recipe: IRecipe } = await getRecipeBySlug(slug);
 
-    return { res: recipe.recipe };
+    return { recipe: recipe.recipe };
   } catch (error) {
     console.error(error);
-    return { res: null };
+    return { recipe: null };
   }
 }

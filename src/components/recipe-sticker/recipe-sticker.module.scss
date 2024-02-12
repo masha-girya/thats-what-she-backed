@@ -1,5 +1,5 @@
-@use "src/styles/mixins.scss";
-@use "src/styles/variables.scss" as var;
+@use 'src/styles/mixins.scss';
+@use 'src/styles/variables.scss' as var;
 
 .recipeSticker {
   position: relative;
@@ -8,7 +8,7 @@
   padding: 30px 40px;
   max-width: max-content;
 
-  background-color: #FCEC5270;
+  background-color: #fcec5270;
 
   box-shadow: 0 0 10px 0 rgba(33, 33, 33, 0.1);
 
@@ -31,12 +31,15 @@
     transform: rotate(270deg);
 
     @include mixins.mediaTablet {
-      top: -44px;
-      left: -14px;
+      top: -30px;
+      left: -24px;
+
+      font-size: 40px;
     }
 
     @include mixins.mediaMobile {
-      top: -38px;
+      top: -28px;
+      left: -14px;
     }
   }
 }

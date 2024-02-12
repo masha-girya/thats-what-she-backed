@@ -261,14 +261,10 @@
           },
           {
             "text": ["Ось такий наш клафуті у розрізі! Ну неймовірно апетитно!"]
-          },
-          {
-            "image": [
-              "https://res.cloudinary.com/dqkoxlze0/image/upload/v1707318418/bakery/clafoutis/g6pf4oru3yxkg5wvyvrx.jpg"
-            ]
           }
         ]
       },
+      "lastImage": "https://res.cloudinary.com/dqkoxlze0/image/upload/v1707318418/bakery/clafoutis/g6pf4oru3yxkg5wvyvrx.jpg",
       "totalFavs": 0
     },
     {
@@ -432,12 +428,12 @@
           {
             "image": [
               "https://res.cloudinary.com/dqkoxlze0/image/upload/v1705400252/bakery/pumpkin%20blondies/v5mjxvn2jnvhriwndgmj.jpg",
-              "https://res.cloudinary.com/dqkoxlze0/image/upload/v1705400254/bakery/pumpkin%20blondies/uuryyfl4vtpa3yj3xtpb.jpg",
-              "https://res.cloudinary.com/dqkoxlze0/image/upload/v1705400252/bakery/pumpkin%20blondies/f6qrhl2cbmhlxur4ktkv.jpg"
+              "https://res.cloudinary.com/dqkoxlze0/image/upload/v1705400254/bakery/pumpkin%20blondies/uuryyfl4vtpa3yj3xtpb.jpg"
             ]
           }
         ]
       },
+      "lastImage": "https://res.cloudinary.com/dqkoxlze0/image/upload/v1705400252/bakery/pumpkin%20blondies/f6qrhl2cbmhlxur4ktkv.jpg",
       "totalFavs": 3
     },
     {
@@ -594,8 +590,7 @@
           {
             "image": [
               "https://res.cloudinary.com/dqkoxlze0/image/upload/v1691335156/bakery/blueberry%20muffins/photo_2023-08-06_18-17-24_srqzly.jpg",
-              "https://res.cloudinary.com/dqkoxlze0/image/upload/v1691335156/bakery/blueberry%20muffins/photo_2023-08-06_18-17-23_oqvzfw.jpg",
-              "https://res.cloudinary.com/dqkoxlze0/image/upload/v1691335156/bakery/blueberry%20muffins/photo_2023-08-06_18-17-25_meuqfl.jpg"
+              "https://res.cloudinary.com/dqkoxlze0/image/upload/v1691335156/bakery/blueberry%20muffins/photo_2023-08-06_18-17-23_oqvzfw.jpg"
             ]
           },
           {
@@ -605,6 +600,7 @@
           }
         ]
       },
+      "lastImage": "https://res.cloudinary.com/dqkoxlze0/image/upload/v1691335156/bakery/blueberry%20muffins/photo_2023-08-06_18-17-25_meuqfl.jpg",
       "totalFavs": 1
     },
     {
@@ -870,14 +866,10 @@
           },
           {
             "text": ["І ось який гарний чіз в розрізі!"]
-          },
-          {
-            "image": [
-              "https://res.cloudinary.com/dqkoxlze0/image/upload/v1690967129/bakery/cheesecake%20Friends/photo_2023-07-01_20-33-56_t1oko7.jpg"
-            ]
           }
         ]
-      }
+      },
+      "lastImage": "https://res.cloudinary.com/dqkoxlze0/image/upload/v1690967129/bakery/cheesecake%20Friends/photo_2023-07-01_20-33-56_t1oko7.jpg"
     }
   ]
 }
