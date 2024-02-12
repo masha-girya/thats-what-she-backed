@@ -1,6 +1,7 @@
 export * from './ArrowIcon';
 export * from './CakeIcon';
 export * from './Checkmark';
+export * from './FacebookIcon';
 export * from './GlassIcon';
 export * from './HeartIcon';
 export * from './InstagramIcon';
@@ -14,3 +15,5 @@ export * from './PinterestIcon';
 export * from './PrevIcon';
 export * from './SearchIcon';
 export * from './TikTokIcon';
+export * from './TelegramIcon';
+export * from './TwitterIcon';

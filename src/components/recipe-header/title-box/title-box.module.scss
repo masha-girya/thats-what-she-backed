@@ -30,6 +30,7 @@
 
   &__favs {
     position: relative;
+
     cursor: pointer;
 
     svg {
@@ -46,6 +47,12 @@
         fill: var.$main-color-tomato;
         opacity: 0.2;
         transition: opacity .3s ease;
+      }
+    }
+
+    @include mixins.hover {
+      &:hover svg path {
+        opacity: 1;
       }
     }
 
