@@ -1,0 +1,25 @@
+{
+  "data": [
+    {
+      "title": "Test blog",
+      "capture": "Article about Bali food",
+      "mainImage": "https://res.cloudinary.com/dqkoxlze0/image/upload/v1707734146/blog/Bali-food/dhfklvk3zoamnmcoc1a9.jpg",
+      "slug": "bali-food",
+      "date": "11 Feb",
+      "body": [
+        {
+          "text": [
+            "Це найпопулярні страва в Індонезії - Nasi Goreng (чит. Насі Горенг)",
+            "Взагалі в Азії рис - король столу. Його їдять на сніданок, обід та вечерю. З нього також роблять десерти!"
+          ]
+        },
+        {
+          "image": [
+            "https://res.cloudinary.com/dqkoxlze0/image/upload/v1707734155/blog/Bali-food/yapstovp3lhohvjyqnhr.jpg",
+            "https://res.cloudinary.com/dqkoxlze0/image/upload/v1707734155/blog/Bali-food/yapstovp3lhohvjyqnhr.jpg"
+          ]
+        }
+      ]
+    }
+  ]
+}

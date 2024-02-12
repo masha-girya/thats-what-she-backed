@@ -1,5 +1,5 @@
-import { DATA_KEYS } from '@/constants';
 import recipes from '@/data/recipes.json';
+import { DATA_KEYS } from '@/constants';
 import { getData } from '@/utils';
 
 export async function GET(req: Request) {

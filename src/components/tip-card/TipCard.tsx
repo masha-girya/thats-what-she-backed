@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { ImageLoader } from '@/components';
 import { ITipShort } from '@/types';
 import { ROUTES } from '@/constants';
 import styles from './tip-card.module.scss';
@@ -13,7 +14,12 @@ export const TipCard = ({ tip }: IProps) => {
   return (
     <Link href={`${ROUTES.tips}/${slug}`} className={styles.tipCard}>
       <div className={styles.tipCard__image}>
-        <img src={mainImage} alt={`Фото ${title}`} />
+        <ImageLoader
+          image={mainImage || ''}
+          alt={`Фото ${title}`}
+          width={400}
+          height={180}
+        />
       </div>
       <h3 className={styles.tipCard__title}>{title}</h3>
     </Link>

@@ -3,4 +3,6 @@ export const DATA_KEYS = {
   recipe: 'recipe',
   tips: 'tips',
   tip: 'tip',
+  blog: 'blog',
+  article: 'article',
 } as const;

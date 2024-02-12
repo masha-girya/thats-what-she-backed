@@ -1,0 +1,114 @@
+@use 'src/styles/mixins.scss';
+@use 'src/styles/variables.scss' as var;
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 40px;
+  height: 40px;
+
+  border-radius: 4px;
+  // border: 1px solid var.$color-pink;
+
+  transition: background-color 0.3s ease;
+
+  cursor: pointer;
+
+  p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: var.$color-text-opacity2;
+    font-size: 16px;
+    font-weight: 600;
+
+    transition: color 0.3s ease-in-out;
+  }
+
+  svg path {
+    stroke: var.$color-text;
+    transition: stroke 0.3s ease-in-out;
+  }
+
+  @include mixins.hover {
+    &:hover {
+      background-color: var.$color-pink;
+
+      svg path {
+        stroke: var.$main-color-tomato;
+      }
+
+      p {
+        color: #fff;
+      }
+    }
+  }
+
+  &_active {
+    background-color: var.$color-apricot;
+
+    p {
+      color: #fff;
+    }
+
+    svg path {
+      stroke: #272727;
+    }
+  }
+
+  &--empty {
+    // background-color: #1e1e1e;
+
+    cursor: default;
+
+    // @include mixins.hover {
+    //   &:hover {
+    //     background-color: #1e1e1e;
+
+    //     p {
+    //       color: #b0b0b0;
+    //     }
+    //   }
+    // }
+  }
+
+  &--prev,
+  &--next {
+    @include mixins.hover {
+      &:hover {
+        background-color: transparent;
+
+        svg path {
+          stroke: var.$main-color-tomato;
+        }
+      }
+    }
+
+    &_nonClickable {
+      cursor: default;
+
+      @include mixins.hover {
+        &:hover {
+          svg path {
+            stroke: var.$color-text;
+          }
+        }
+      }
+    }
+  }
+
+  &--number {
+    &_nonClickable {
+      cursor: default;
+
+      @include mixins.hover {
+        &:hover {
+          background-color: var.$color-apricot;
+        }
+      }
+    }
+  }
+}

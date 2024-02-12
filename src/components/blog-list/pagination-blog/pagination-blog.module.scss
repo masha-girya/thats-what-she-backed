@@ -1,0 +1,14 @@
+@use 'src/styles/mixins.scss';
+
+.paginationWrapper {
+  display: flex;
+  gap: 16px;
+
+  width: max-content;
+
+  margin: 60px auto 0;
+
+  @include mixins.mediaTablet {
+    margin-top: 30px;
+  }
+}

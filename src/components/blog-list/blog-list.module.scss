@@ -1,0 +1,56 @@
+@use 'src/styles/mixins.scss';
+@use 'src/styles/variables.scss' as var;
+
+.blogList {
+  width: 100%;
+  max-width: calc(var.$card-width * 3 + var.$card-gap * 2 + 128px);
+
+  padding: 0 64px 100px;
+  margin: 0 auto;
+
+  @media (max-width: calc(var.$card-width * 3 + var.$card-gap * 2 + 128px)) {
+    max-width: calc(var.$card-width * 2 + var.$card-gap + 128px);
+  }
+
+  @include mixins.mediaNoteBook {
+    padding: 0 32px 90px;
+    max-width: calc(var.$card-width * 2 + var.$card-gap + 64px);
+  }
+
+  @media (max-width: calc(var.$card-width * 2 + var.$card-gap + 128px)) {
+    max-width: calc(var.$card-width + 64px);
+  }
+
+  @include mixins.mediaMobile {
+    padding: 0 16px 80px;
+    max-width: calc(var.$card-width + 32px);
+  }
+
+  &__filters {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+
+    margin-bottom: 60px;
+
+    @include mixins.mediaSmallDesktop {
+      justify-content: center;
+
+      margin-bottom: 30px;
+    }
+  }
+
+  &__cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var.$card-gap;
+
+    margin: 0 auto;
+
+    @include mixins.mediaTablet {
+      flex-direction: column;
+
+      max-width: 400px;
+    }
+  }
+}

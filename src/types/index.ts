@@ -1,3 +1,4 @@
+export * from './blog.type';
 export * from './category.type';
 export * from './ingredients.type';
 export * from './recipe.type';

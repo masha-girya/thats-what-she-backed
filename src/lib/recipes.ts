@@ -1,7 +1,7 @@
+import axios from 'axios';
 import { ROUTES } from '@/constants';
 import { IRecipe } from '@/types';
 import { endpoint } from '@/utils';
-import axios from 'axios';
 
 export async function getAllRecipes(slugs?: string[]) {
   const endpointFormat = slugs

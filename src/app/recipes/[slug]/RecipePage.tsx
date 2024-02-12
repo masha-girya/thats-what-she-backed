@@ -14,13 +14,14 @@ import { ERROR_TEXT } from '@/constants';
 import styles from './recipe-page.module.scss';
 
 const RecipePage = async ({ params }: any) => {
-  const { res } = await getRecipe(params.slug);
+  const { recipe } = await getRecipe(params.slug);
 
-  if (!res) {
+  if (!recipe) {
     return <ServerErrorPlug text={ERROR_TEXT.recipeInner} />;
   }
 
-  const { ingredients, steps, bakingTime, formSize, amount, tips } = res;
+  const { ingredients, steps, bakingTime, formSize, amount, tips, lastImage } =
+    recipe;
 
   const stickerInfo = [
     {
@@ -43,7 +44,7 @@ const RecipePage = async ({ params }: any) => {
         <div className={styles.recipe__recipeBox}>
           <BackButton />
 
-          <RecipeHeader recipe={res} />
+          <RecipeHeader recipe={recipe} />
 
           <RecipeTips tips={tips} />
 
@@ -58,7 +59,11 @@ const RecipePage = async ({ params }: any) => {
             ))}
           </RecipeSticker>
 
-          <RecipeStep ingredients={ingredients} steps={steps} />
+          <RecipeStep
+            ingredients={ingredients}
+            steps={steps}
+            lastImage={lastImage}
+          />
         </div>
 
         <RecipesList isBlock isSlider />

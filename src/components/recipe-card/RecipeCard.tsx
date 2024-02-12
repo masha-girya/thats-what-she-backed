@@ -1,4 +1,4 @@
-import { LinkButton } from '@/components';
+import { ImageLoader, LinkButton } from '@/components';
 import { IRecipeCard } from '@/types';
 import { ROUTES } from '@/constants';
 import styles from './recipe-card.module.scss';
@@ -17,9 +17,9 @@ export const RecipeCard = ({ recipe }: IProps) => {
       text={title}
     >
       <div className={styles.recipeCard__background}>
-        <img
-          className={styles.recipeCard__background__img}
-          src={mainImage}
+        <ImageLoader
+          styles={styles.recipeCard__background__img}
+          image={mainImage}
           alt={`Фото ${title}`}
         />
       </div>

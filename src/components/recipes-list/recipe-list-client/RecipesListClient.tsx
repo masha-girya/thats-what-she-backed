@@ -1,12 +1,13 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useParams } from 'next/navigation';
 import classNames from 'classnames';
 import { Search, RecipeCard, RecipesSwiper } from '@/components';
 import { IRecipeCard } from '@/types';
 import { useDebounce } from '@/hooks';
+import { PLACEHOLDERS_TEXT } from '@/constants';
 import styles from './recipe-list-client.module.scss';
-import { useParams } from 'next/navigation';
 
 interface IProps {
   recipes: IRecipeCard[];
@@ -41,7 +42,11 @@ export const RecipesListClient = (props: IProps) => {
             [styles.recipeListClient__search_favs]: isFavRecipes,
           })}
         >
-          <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+          <Search
+            searchQuery={searchQuery}
+            setSearchQuery={setSearchQuery}
+            placeholder={PLACEHOLDERS_TEXT.searchRecipe}
+          />
         </div>
       )}
 
@@ -56,7 +61,9 @@ export const RecipesListClient = (props: IProps) => {
           ))}
 
         {isSlider && (
-          <RecipesSwiper recipes={recipes.filter(recipe => recipe.slug !== slug)} />
+          <RecipesSwiper
+            recipes={recipes.filter((recipe) => recipe.slug !== slug)}
+          />
         )}
       </div>
     </>

@@ -14,7 +14,7 @@ export const ReactSkeleton = (props: IProps) => {
   const { value, children, width, height, count } = props;
 
   return (
-    <SkeletonTheme baseColor="#14142B" highlightColor="#2E2E50" width={'100%'}>
+    <SkeletonTheme baseColor="#fcd0cc" highlightColor="#FFFFFF" width={'100%'}>
       {value ? (
         children
       ) : (

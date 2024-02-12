@@ -2,8 +2,10 @@
 @use 'src/styles/variables.scss' as var;
 
 .search {
-  justify-self: flex-end;
   position: relative;
+
+  justify-self: flex-end;
+
   height: 40px;
   width: 300px;
 
