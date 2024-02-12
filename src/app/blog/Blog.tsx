@@ -11,6 +11,7 @@ const Blog = () => {
         alt={IMAGE_ALT_TEXT.blogBackground}
         width={100}
         height={400}
+        priority
         src={BackgroundImage.src}
         className={styles.blog__image}
       />

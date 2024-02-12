@@ -26,6 +26,10 @@ export const ImageLoader = (props: IProps) => {
         setCurrentImage(loadingImage.src);
         setLoading(false);
       };
+
+      loadingImage.onerror = () => {
+        setLoading(false);
+      };
     };
 
     fetchImage();
