@@ -20,7 +20,7 @@ const getBlogWithQuery = (blogData: IArticle[], query: string) => {
 };
 
 export async function GET(req: Request) {
-  let blogData: IArticle[] = blog.data;
+  let blogData: IArticle[] | any[] = blog.data;
   const initialLength = blogData.length;
 
   if (blogData.length === 0) {

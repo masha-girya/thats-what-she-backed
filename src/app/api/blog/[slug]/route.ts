@@ -1,9 +1,9 @@
-import { DATA_KEYS } from '@/constants';
 import blog from '@/data/blog.json';
 import { getData } from '@/utils';
+import { DATA_KEYS } from '@/constants';
 
 export async function GET(req: Request, { params }: any) {
-  const recipe = blog.data.find((item) => item.slug === params.slug);
+  const article = blog.data.find((item) => item.slug === params.slug);
 
-  return getData(recipe, DATA_KEYS.article);
+  return getData(article, DATA_KEYS.article);
 }
