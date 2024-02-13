@@ -1,5 +1,5 @@
-@use "src/styles/mixins.scss";
-@use "src/styles/variables.scss" as var;
+@use 'src/styles/mixins.scss';
+@use 'src/styles/variables.scss' as var;
 
 .recipe {
   @include mixins.mainBox();
@@ -14,20 +14,31 @@
 
     margin: 0 auto;
 
-    padding: calc(var.$header-hight + 50px) 100px 100px 150px;
+    padding: calc(var.$header-hight + 50px) 7% 0;
 
     @include mixins.mediaNoteBook {
       padding: calc(var.$header-hight + 30px) 64px 80px;
     }
-  
+
     @include mixins.mediaTablet {
       padding: 120px 32px 50px;
     }
-  
+
     @include mixins.mediaMobile {
       padding: 110px 16px 50px;
     }
-  
+
+    &__head {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__shareText {
+      max-width: var.$max-width-recipe-image;
+      margin-bottom: 20px;
+
+      font-size: 18px;
   }
 
   &__stickerInfo {

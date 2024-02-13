@@ -9,6 +9,7 @@ export const BUTTONS_TEXT = {
   toRecipes: 'До рецептів',
   goBack: 'Повернутись назад',
   mobileMenu: 'Відкрити меню',
+  favsRecipes: 'Додати в збережені',
 } as const;
 
 export const LINKS_TITLE = {

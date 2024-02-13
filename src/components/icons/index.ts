@@ -1,4 +1,5 @@
 export * from './ArrowIcon';
+export * from './BuyMeACoffeeIcon';
 export * from './CakeIcon';
 export * from './Checkmark';
 export * from './FacebookIcon';

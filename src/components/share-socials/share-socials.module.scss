@@ -1,19 +1,40 @@
 @use 'src/styles/mixins.scss';
 @use 'src/styles/variables.scss' as var;
 
+.shareSocialsBox {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
 .shareSocials {
   display: flex;
   align-items: center;
   gap: 10px;
 
-  margin: 16px 0;
+  @include mixins.mediaMobile {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
 
   p {
     margin-right: 4px;
 
+    font-weight: 600;
+    font-style: italic;
+
     @include mixins.mediaTablet {
       font-size: 14px;
     }
+  }
+
+  &__byMeACoffee {
   }
 
   &__icon {
@@ -38,7 +59,8 @@
       }
     }
 
-    &--Telegram {
+    &--Telegram,
+    &--BuyMeACoffee {
       svg path {
         fill: #fff;
       }

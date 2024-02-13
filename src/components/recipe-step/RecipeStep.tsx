@@ -23,13 +23,15 @@ export const RecipeStep = (props: IRecipeStep) => {
           <h2 className={styles.steps__title}>{step}</h2>
           <IngredientsList ingredients={ingredients[step]} />
           <ContentConstructor body={steps[step]} stepName={step} />
-          <Image
-            src={lastImage}
-            alt={IMAGE_ALT_TEXT.lastRecipeImage}
-            width={500}
-            height={500}
-            className={styles.steps__lastImage}
-          />
+          {lastImage && (
+            <Image
+              src={lastImage}
+              alt={IMAGE_ALT_TEXT.lastRecipeImage}
+              width={500}
+              height={500}
+              className={styles.steps__lastImage}
+            />
+          )}
         </div>
       ))}
     </div>

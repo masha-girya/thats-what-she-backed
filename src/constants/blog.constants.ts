@@ -1,4 +1,10 @@
-import { FacebookIcon, LinkedInIcon, TelegramIcon, TwitterIcon } from '@/components/icons';
+import {
+  FacebookIcon,
+  LinkedInIcon,
+  TelegramIcon,
+  TwitterIcon,
+} from '@/components/icons';
+import { BuyMeACoffeeIcon } from '@/components/icons/BuyMeACoffeeIcon';
 
 export const ARTICLES_LIMIT = 6;
 
@@ -24,3 +30,9 @@ export const SHARE_ICONS = [
     title: 'Facebook',
   },
 ];
+
+export const BUY_ME_A_COFFEE = {
+  icon: BuyMeACoffeeIcon,
+  link: 'https://www.buymeacoffee.com/thatswhatshebaked',
+  title: 'BuyMeACoffee',
+};

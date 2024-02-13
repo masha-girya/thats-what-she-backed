@@ -8,10 +8,12 @@ import {
   BackButton,
   LoadingPage,
   RecipesList,
+  ShareSocials,
 } from '@/components';
 import { getRecipe } from './recipe.fetch';
 import { ERROR_TEXT } from '@/constants';
 import styles from './recipe-page.module.scss';
+import { TitleBox } from '@/components/recipe-header/title-box';
 
 const RecipePage = async ({ params }: any) => {
   const { recipe } = await getRecipe(params.slug);
@@ -42,7 +44,10 @@ const RecipePage = async ({ params }: any) => {
     <Suspense fallback={<LoadingPage />}>
       <div className={styles.recipe}>
         <div className={styles.recipe__recipeBox}>
-          <BackButton />
+          <div className={styles.recipe__recipeBox__head}>
+            <BackButton />
+            <TitleBox slug={recipe.slug} totalFavs={recipe.totalFavs} />
+          </div>
 
           <RecipeHeader recipe={recipe} />
 
@@ -64,6 +69,13 @@ const RecipePage = async ({ params }: any) => {
             steps={steps}
             lastImage={lastImage}
           />
+          <RecipeSticker>
+            <p className={styles.recipe__shareText}>
+              А за кропітку роботу над рецептом ви завжди можете підримати мене
+              донатом або поділитись цим рецептом через соцмережі 🌚🌝
+            </p>
+            <ShareSocials />
+          </RecipeSticker>
         </div>
 
         <RecipesList isBlock isSlider />
