@@ -5,18 +5,27 @@ import { usePathname } from 'next/navigation';
 import { BUY_ME_A_COFFEE, SHARE_ICONS } from '@/constants';
 import styles from './share-socials.module.scss';
 
-export const ShareSocials = () => {
+interface IProps {
+  isInSticker?: boolean;
+}
+
+export const ShareSocials = ({ isInSticker }: IProps) => {
   const pathname = usePathname();
 
   return (
     <div className={styles.shareSocialsBox}>
-      <div className={styles.shareSocials}>
+      <div
+        className={classNames(styles.shareSocials, {
+          [styles.shareSocials_inSticker]: isInSticker,
+        })}
+      >
         <p>Поділитись:</p>
+
+      {/* CHANGE TO SOCIALS COMPONENT */}
         <ul className={styles.shareSocials__list}>
           {SHARE_ICONS.map((icon) => (
-            <li>
+            <li key={icon.title}>
               <a
-                key={icon.title}
                 href={`${icon.link}${process.env.NEXT_PUBLIC_API_ENDPOINT_CANONICAL}${pathname}`}
                 title={icon.title}
                 target="_blank"
@@ -33,9 +42,7 @@ export const ShareSocials = () => {
       </div>
 
       <div className={styles.shareSocials}>
-        <p className={styles.shareSocials__byMeACoffee}>
-          Підримати через Buy Me A Coffee:
-        </p>
+        <p>Підримати через Buy Me A Coffee:</p>
         <a
           href={BUY_ME_A_COFFEE.link}
           title={'Bye me '}

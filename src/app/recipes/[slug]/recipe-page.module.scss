@@ -21,11 +21,11 @@
     }
 
     @include mixins.mediaTablet {
-      padding: 120px 32px 50px;
+      padding: calc(var.$header-hight + 20px) 32px 50px;
     }
 
     @include mixins.mediaMobile {
-      padding: 110px 16px 50px;
+      padding: calc(var.$header-hight + 10px) 16px 50px;
     }
 
     &__head {
@@ -35,10 +35,10 @@
   }
 
   &__shareText {
-      max-width: var.$max-width-recipe-image;
-      margin-bottom: 20px;
+    max-width: var.$max-width-recipe-image;
+    margin-bottom: 20px;
 
-      font-size: 18px;
+    font-size: 18px;
   }
 
   &__stickerInfo {

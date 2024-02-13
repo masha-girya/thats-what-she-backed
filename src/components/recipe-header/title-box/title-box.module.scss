@@ -7,16 +7,9 @@
   align-items: flex-end;
 
   @include mixins.mediaTablet {
-    // flex-direction: row;
-    // align-items: center;
     max-width: 150px;
 
     margin-bottom: 16px;
-
-    button {
-      padding: 0;
-      margin-right: 7px;
-    }
   }
 
   &__button {

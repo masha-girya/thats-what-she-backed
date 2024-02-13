@@ -28,15 +28,16 @@
       font-style: italic;
       color: #000;
 
-      margin: 20px 0;
+      margin-bottom: 20px;
 
       @include mixins.mediaTablet {
         font-size: 40px;
-        line-height: 32px;
+        line-height: 40px;
       }
 
       @include mixins.mediaMobile {
         font-size: 32px;
+        line-height: 32px;
       }
     }
   }
