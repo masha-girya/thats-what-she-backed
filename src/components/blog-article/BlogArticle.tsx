@@ -1,10 +1,6 @@
-'use client';
-
-import { usePathname } from 'next/navigation';
-import classNames from 'classnames';
-import { ContentConstructor, ImageLoader } from '@/components';
+import { ContentConstructor, ImageLoader, ShareSocials } from '@/components';
 import { IArticle } from '@/types';
-import { IMAGE_ALT_TEXT, SHARE_ICONS } from '@/constants';
+import { IMAGE_ALT_TEXT } from '@/constants';
 import styles from './blog-article.module.scss';
 
 interface IProps {
@@ -13,29 +9,11 @@ interface IProps {
 
 export const BlogArticle = ({ article }: IProps) => {
   const { title, mainImage, body, date } = article;
-  const pathname = usePathname();
-
   return (
     <div className={styles.article}>
       <h1 className={styles.article__title}>{title}</h1>
 
-      <div className={styles.article__shareBlock}>
-        <p>Поділитись</p>
-        {SHARE_ICONS.map((icon) => (
-          <a
-            key={icon.title}
-            href={`${icon.link}${process.env.NEXT_PUBLIC_API_ENDPOINT_CANONICAL}${pathname}`}
-            title={icon.title}
-            target="_blank"
-            className={classNames(
-              styles.article__shareBlock__icon,
-              styles[`article__shareBlock__icon--${icon.title}`],
-            )}
-          >
-            <icon.icon />
-          </a>
-        ))}
-      </div>
+      <ShareSocials />
 
       <p className={styles.article__date}>{date}</p>
 

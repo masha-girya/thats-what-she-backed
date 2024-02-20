@@ -5,6 +5,7 @@ import {
   ServerErrorPlug,
   BackButton,
   LoadingPage,
+  ShareSocials,
 } from '@/components';
 import { ITips } from '@/types';
 import { ERROR_TEXT } from '@/constants';
@@ -26,6 +27,7 @@ const TipPage = async ({ params }: any) => {
         <BackButton />
         <div className={styles.tipPage__container}>
           <h1 className={styles.tipPage__title}>{res.title}</h1>
+          <ShareSocials />
           <img
             className={styles.tipPage__mainImage}
             src={mainImage}

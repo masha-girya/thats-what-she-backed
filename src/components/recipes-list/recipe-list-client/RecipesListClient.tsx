@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import classNames from 'classnames';
 import { Search, RecipeCard, RecipesSwiper } from '@/components';
@@ -24,7 +24,7 @@ export const RecipesListClient = (props: IProps) => {
 
   const { debouncedValue } = useDebounce(searchQuery, 500);
 
-  useEffect(() => {
+  const handleSubmit = useCallback(() => {
     const newRecipes = recipes.filter((recipe) =>
       recipe.title
         .toLocaleLowerCase()
@@ -33,6 +33,14 @@ export const RecipesListClient = (props: IProps) => {
 
     setRecipesOnShow(newRecipes);
   }, [debouncedValue, recipes]);
+
+  useEffect(() => {
+    if(debouncedValue.length === 0) {
+      setRecipesOnShow(recipes);
+    } else {
+      handleSubmit()
+    }
+  }, [debouncedValue, recipes])
 
   return (
     <>
@@ -45,6 +53,7 @@ export const RecipesListClient = (props: IProps) => {
           <Search
             searchQuery={searchQuery}
             setSearchQuery={setSearchQuery}
+            handleSubmit={handleSubmit}
             placeholder={PLACEHOLDERS_TEXT.searchRecipe}
           />
         </div>

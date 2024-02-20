@@ -24,6 +24,7 @@ export * from './recipe-tips';
 export * from './recipes-list';
 export * from './recipes-swiper';
 export * from './search';
+export * from './share-socials';
 export * from './server-error-plug';
 export * from './store-provider';
 export * from './socials';

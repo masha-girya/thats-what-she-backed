@@ -31,55 +31,6 @@
     }
   }
 
-  &__shareBlock {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-
-    margin: 16px 0;
-
-    p {
-      margin-right: 4px;
-
-      @include mixins.mediaTablet {
-        font-size: 14px;
-      }
-    }
-
-    &__icon {
-      height: 25px;
-      width: 25px;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      // &--LinkedIn {
-      //   width: 22px;
-      //   height: 22px;
-      // }
-
-      svg {
-        // height: inherit;
-        // width: inherit;
-
-        path {
-          fill: var.$main-color-tomato-opacity;
-
-          transition: fill 0.3s ease;
-        }
-
-        @include mixins.hover {
-          &:hover {
-            path {
-              fill: var.$main-color-tomato;
-            }
-          }
-        }
-      }
-    }
-  }
-
   &__date {
     color: var.$color-text-opacity;
     font-size: 14px;

@@ -4,7 +4,7 @@
 .recipeHeader {
   display: flex;
   justify-content: space-between;
-  gap: 50px;
+  gap: 100px;
 
   width: 100%;
 
@@ -15,12 +15,36 @@
 
   &__intro {
     width: 100%;
+    max-width: var.$max-width-recipe-image;
+
+    @include mixins.mediaNoteBook {
+      max-width: 100%;
+    }
+
+    &__title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 60px;
+      font-weight: 800;
+      font-style: italic;
+      color: #000;
+
+      margin-bottom: 20px;
+
+      @include mixins.mediaTablet {
+        font-size: 40px;
+        line-height: 40px;
+      }
+
+      @include mixins.mediaMobile {
+        font-size: 32px;
+        line-height: 32px;
+      }
+    }
   }
 
   &__mainImage {
     width: 100%;
     max-height: 600px;
-    max-width: var.$max-width-recipe-image;
 
     object-fit: cover;
     object-position: center;
@@ -50,12 +74,9 @@
 
   &__descFirst {
     margin: 20px 0 30px;
-    max-width: var.$max-width-recipe-image;
   }
 
   &__rightCol {
-    max-width: var.$max-width-recipe-image;
-
     p {
       margin-top: 20px;
     }

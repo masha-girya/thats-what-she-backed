@@ -3,6 +3,7 @@ import StoreProvider from '@/components/store-provider';
 import { Header, Footer, Container } from '@/components';
 import Favicon from '/public/favicon.ico';
 import '@/styles/globals.scss';
+import Template from './templates';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://thats-what-she-baked.vercel.app/'),
@@ -38,13 +39,16 @@ export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
+  params: any;
 }) {
   return (
     <html lang="uk">
       <body>
         <StoreProvider>
           <Header />
-          <Container>{children}</Container>
+          <Template>
+            <Container>{children}</Container>
+          </Template>
           <Footer />
         </StoreProvider>
       </body>

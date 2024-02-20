@@ -25,24 +25,23 @@
     font-weight: 400;
     font-style: italic;
 
-    color: var.$main-color-tomato;
+    margin-bottom: 20px;
 
-    margin-bottom: 30px;
+    color: var.$main-color-tomato;
 
     @include mixins.mediaTablet {
       line-height: 35px;
       font-weight: 600;
-      text-align: center;
     }
   }
 
   &__mainImage {
-    width: 500px;
-    height: 300px;
+    width: 700px;
+    height: 500px;
 
     object-fit: cover;
 
-    margin-bottom: 30px;
+    margin: 30px 0;
 
     @include mixins.mediaTablet {
       width: 100%;

@@ -52,10 +52,10 @@ $icon-diameter: 18px;
 
 .nextIcon {
   @include swipeIcons();
-  right: 44px;
+  right: 24px;
 }
 
 .prevIcon {
   @include swipeIcons();
-  left: (64px - $icon-diameter);
+  left: (44px - $icon-diameter);
 }

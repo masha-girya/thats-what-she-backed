@@ -1,42 +1,27 @@
-@use "src/styles/mixins.scss";
-@use "src/styles/variables.scss" as var;
+@use 'src/styles/mixins.scss';
+@use 'src/styles/variables.scss' as var;
 
-.titleBox {
+.favsBox {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-
-  @include mixins.mediaNoteBook {
-    justify-content: flex-start;
-  }
+  flex-direction: column;
+  align-items: flex-end;
 
   @include mixins.mediaTablet {
-    flex-direction: column;
-    align-items: flex-start;
+    max-width: 150px;
+
+    margin-bottom: 16px;
   }
 
-  &__title {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 40px;
-    font-weight: 800;
-    font-style: italic;
-
-    @include mixins.mediaTablet {
-      font-size: 32px;
-      line-height: 32px;
-    }
-  }
-
-  &__favs {
+  &__button {
     position: relative;
+
     cursor: pointer;
 
     svg {
       @include mixins.square(30px);
       transform: scale(1);
 
-      transition: transform .2s ease-in-out;
+      transition: transform 0.2s ease-in-out;
 
       &:active {
         transform: scale(0.9);
@@ -45,7 +30,13 @@
       path {
         fill: var.$main-color-tomato;
         opacity: 0.2;
-        transition: opacity .3s ease;
+        transition: opacity 0.3s ease;
+      }
+    }
+
+    @include mixins.hover {
+      &:hover svg path {
+        opacity: 1;
       }
     }
 
@@ -55,6 +46,20 @@
           opacity: 1;
         }
       }
+    }
+  }
+
+  &__info {
+    font-style: italic;
+    color: var.$color-text-opacity2;
+
+    @include mixins.mediaTablet {
+      font-size: 14px;
+      text-align: end;
+    }
+
+    @include mixins.mediaMobile {
+      display: none;
     }
   }
 }
