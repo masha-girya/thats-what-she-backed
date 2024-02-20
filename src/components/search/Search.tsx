@@ -1,3 +1,4 @@
+import { FormEvent } from 'react';
 import { SearchIcon } from '@/components';
 import styles from './search.module.scss';
 
@@ -5,13 +6,22 @@ interface IProps {
   searchQuery: string;
   setSearchQuery: (searchQuery: string) => void;
   placeholder: string;
+  handleSubmit?: () => void;
 }
 
 export const Search = (props: IProps) => {
-  const { searchQuery, setSearchQuery, placeholder } = props;
+  const { searchQuery, setSearchQuery, placeholder, handleSubmit } = props;
+
+  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if(handleSubmit) {
+      handleSubmit();
+    }
+  }
 
   return (
-    <div className={styles.search}>
+    <form onSubmit={onSubmit} className={styles.search}>
       <div className={styles.search__icon}>
         <SearchIcon />
       </div>
@@ -23,6 +33,6 @@ export const Search = (props: IProps) => {
         onChange={(e) => setSearchQuery(e.target.value)}
         placeholder={placeholder}
       />
-    </div>
+    </form>
   );
 };
