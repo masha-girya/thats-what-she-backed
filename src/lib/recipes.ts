@@ -48,7 +48,7 @@ export async function addRecipeToFavs(slug: string, totalFavs: number) {
   const link = `${endpoint}/${ROUTES.recipes}/${slug}`;
 
   try {
-    const data = await axios.post(link, { totalFavs });
+    const data = await axios.patch(link, { totalFavs });
 
     return data;
   } catch (error) {
