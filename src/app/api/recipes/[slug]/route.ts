@@ -1,10 +1,18 @@
 // import path from 'path';
 // import fs from 'fs/promises';
-import { DATA_KEYS } from '@/constants';
+import { DATA_KEYS, ERROR_TEXT } from '@/constants';
 import { getData } from '@/utils';
 // import recipes from '@/data/recipes.json';
-import { collection, doc, getDocs, query, updateDoc, where } from 'firebase/firestore';
+import {
+  collection,
+  doc,
+  getDocs,
+  query,
+  updateDoc,
+  where,
+} from 'firebase/firestore';
 import { db } from '@/firebase.config';
+import { NextResponse } from 'next/server';
 
 // export async function GET(req: Request, { params }: any) {
 //   const recipe = recipes.data.find((item) => item.slug === params.slug);
@@ -51,10 +59,10 @@ export async function PATCH(req: Request, { params }: any) {
       totalFavs: reqBody.totalFavs,
     });
 
-    return { success: true, message: 'Recipe totalFavs updated successfully' };
-  } catch(error) {
+    return new NextResponse('success', { status: 200 });
+  } catch (error) {
     console.error('Error updating recipe totalFavs:', error);
-    return { success: false, message: 'Error updating recipe totalFavs' };
+    return new NextResponse(ERROR_TEXT.notFound, { status: 404 });
   }
 }
 
