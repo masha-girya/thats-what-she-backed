@@ -10,21 +10,10 @@ interface IProps {
   isSlider?: boolean;
 }
 
-async function getRecipes() {
-  try {
-    const recipes = await getAllRecipes();
-
-    return { res: recipes };
-  } catch (error) {
-    console.error(error);
-    return { res: null };
-  }
-}
-
 export const RecipesList = async ({ isBlock, isSlider }: IProps) => {
-  const { res } = await getRecipes();
+  const { recipes } = await getAllRecipes();
 
-  if (!res) {
+  if (!recipes) {
     return <ServerErrorPlug text={ERROR_TEXT.recipeInner} />;
   }
 
@@ -36,8 +25,8 @@ export const RecipesList = async ({ isBlock, isSlider }: IProps) => {
       })}
     >
       {isSlider && <p className={styles.recipesList__text}>Інші рецепти:</p>}
-      {Array.isArray(res) && (
-        <RecipesListClient isSlider={isSlider} recipes={res} />
+      {Array.isArray(recipes) && (
+        <RecipesListClient isSlider={isSlider} recipes={recipes} />
       )}
     </div>
   );

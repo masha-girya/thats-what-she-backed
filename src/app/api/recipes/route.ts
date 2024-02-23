@@ -32,7 +32,7 @@ import {
 
 export async function GET(req: Request) {
   try {
-    const urlWithParams = new URL(req.url, 'http://localhost').searchParams.get(
+    const urlWithParams = new URL(req.url, process.env.URL_PARAMS).searchParams.get(
       'slugs',
     );
 

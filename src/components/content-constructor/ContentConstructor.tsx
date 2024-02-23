@@ -16,7 +16,7 @@ export const ContentConstructor = (props: IProps) => {
     (item: any, index: number, stepName?: string) => {
       switch (true) {
         case 'text' in item:
-          return item.text.map((text: string) => (
+          return (Array.isArray(item.text) ? item.text : [item.text]).map((text: string) => (
             <p key={text} className={styles.text}>
               {text}
             </p>

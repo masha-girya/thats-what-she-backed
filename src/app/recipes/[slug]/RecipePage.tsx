@@ -10,13 +10,13 @@ import {
   RecipesList,
   ShareSocials,
 } from '@/components';
-import { getRecipe } from './recipe.fetch';
 import { ERROR_TEXT } from '@/constants';
-import styles from './recipe-page.module.scss';
 import { TitleBox } from '@/components/recipe-header/title-box';
+import { getRecipeBySlug } from '@/lib';
+import styles from './recipe-page.module.scss';
 
 const RecipePage = async ({ params }: any) => {
-  const { recipe } = await getRecipe(params.slug);
+  const { recipe } = await getRecipeBySlug(params.slug);
 
   if (!recipe) {
     return <ServerErrorPlug text={ERROR_TEXT.recipeInner} />;
