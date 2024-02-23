@@ -3,6 +3,8 @@ import { getData } from '@/utils';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '@/firebase.config';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(req: any, { params }: any) {
   try {
     const dataCollection = collection(db, 'tips');

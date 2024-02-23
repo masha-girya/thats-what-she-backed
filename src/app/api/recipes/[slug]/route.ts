@@ -11,6 +11,8 @@ import {
 import { db } from '@/firebase.config';
 import { NextResponse } from 'next/server';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(req: Request, { params }: any) {
   try {
     const dataCollection = collection(db, DATA_KEYS.recipes);

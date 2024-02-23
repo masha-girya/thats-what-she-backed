@@ -30,6 +30,8 @@ import {
 //   return getData(recipesData, DATA_KEYS.recipes);
 // }
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(req: Request) {
   try {
     const urlWithParams = new URL(

@@ -3,6 +3,8 @@ import { ARTICLES_LIMIT, DATA_KEYS } from '@/constants';
 import { getData } from '@/utils';
 import { IArticle } from '@/types';
 
+export const dynamic = 'force-dynamic';
+
 const getBlogWithPage = (blogData: IArticle[], currentPage: number) => {
   const offsetPage = (currentPage - 1) * ARTICLES_LIMIT;
 
