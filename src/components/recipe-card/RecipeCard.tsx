@@ -13,7 +13,7 @@ export const RecipeCard = ({ recipe }: IProps) => {
   return (
     <LinkButton
       linkStyles={styles.recipeCard}
-      link={`/${ROUTES.recipes}/${slug}`}
+      link={`/${ROUTES.recipes}/${title === 'Клафуті' ? 'clafoutis' : slug}`}
       text={title}
     >
       <div className={styles.recipeCard__background}>
