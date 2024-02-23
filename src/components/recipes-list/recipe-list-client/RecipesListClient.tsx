@@ -35,12 +35,12 @@ export const RecipesListClient = (props: IProps) => {
   }, [debouncedValue, recipes]);
 
   useEffect(() => {
-    if(debouncedValue.length === 0) {
+    if (debouncedValue.length === 0) {
       setRecipesOnShow(recipes);
     } else {
-      handleSubmit()
+      handleSubmit();
     }
-  }, [debouncedValue, recipes])
+  }, [debouncedValue, recipes]);
 
   return (
     <>
@@ -64,15 +64,14 @@ export const RecipesListClient = (props: IProps) => {
           [styles.recipeListClient__box_slider]: isSlider,
         })}
       >
-        {!isSlider &&
-          recipesOnShow.map((recipe) => (
-            <RecipeCard key={recipe.slug} recipe={recipe} />
-          ))}
-
-        {isSlider && (
+        {isSlider ? (
           <RecipesSwiper
             recipes={recipes.filter((recipe) => recipe.slug !== slug)}
           />
+        ) : (
+          recipesOnShow.map((recipe) => (
+            <RecipeCard key={recipe.slug} recipe={recipe} />
+          ))
         )}
       </div>
     </>

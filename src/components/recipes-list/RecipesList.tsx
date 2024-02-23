@@ -13,10 +13,6 @@ interface IProps {
 export const RecipesList = async ({ isBlock, isSlider }: IProps) => {
   const { recipes } = await getAllRecipes();
 
-  if (!recipes) {
-    return <ServerErrorPlug text={ERROR_TEXT.recipeInner} />;
-  }
-
   return (
     <div
       id={ANCHORS.recipes}
@@ -25,8 +21,10 @@ export const RecipesList = async ({ isBlock, isSlider }: IProps) => {
       })}
     >
       {isSlider && <p className={styles.recipesList__text}>Інші рецепти:</p>}
-      {Array.isArray(recipes) && (
+      {recipes ? (
         <RecipesListClient isSlider={isSlider} recipes={recipes} />
+      ) : (
+        <ServerErrorPlug text={ERROR_TEXT.recipeInner} />
       )}
     </div>
   );
