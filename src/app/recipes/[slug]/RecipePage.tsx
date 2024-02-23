@@ -9,9 +9,9 @@ import {
   LoadingPage,
   RecipesList,
   ShareSocials,
+  TitleBox,
 } from '@/components';
 import { ERROR_TEXT } from '@/constants';
-import { TitleBox } from '@/components/recipe-header/title-box';
 import { getRecipeBySlug } from '@/lib';
 import styles from './recipe-page.module.scss';
 

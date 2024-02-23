@@ -5,11 +5,11 @@ import { DATA_KEYS } from '@/constants';
 import { db } from '@/firebase.config';
 import { getData } from '@/utils';
 import {
-  CollectionReference,
   DocumentData,
   Query,
   collection,
   getDocs,
+  orderBy,
   query,
   where,
 } from 'firebase/firestore';
@@ -32,18 +32,21 @@ import {
 
 export async function GET(req: Request) {
   try {
-    const urlWithParams = new URL(req.url, process.env.URL_PARAMS).searchParams.get(
-      'slugs',
-    );
+    const urlWithParams = new URL(
+      req.url,
+      process.env.URL_PARAMS,
+    ).searchParams.get('slugs');
 
-    const dataCollection = collection(db, 'recipes');
-    let dataQuery:
-      | Query<DocumentData>
-      | CollectionReference<DocumentData, DocumentData> = dataCollection;
+    const dataCollection = collection(db, DATA_KEYS.recipes);
+    let dataQuery: Query<DocumentData> = query(
+      dataCollection,
+      orderBy('timestamp', 'desc'),
+    );
 
     if (urlWithParams) {
       dataQuery = query(
         dataCollection,
+        orderBy('timestamp', 'desc'),
         where('slug', 'in', urlWithParams.split(',')),
       );
     }

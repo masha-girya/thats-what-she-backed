@@ -5,7 +5,7 @@ import { db } from '@/firebase.config';
 
 export async function GET() {
   try {
-    const dataCollection = collection(db, 'recipes');
+    const dataCollection = collection(db, DATA_KEYS.recipes);
     const q = query(dataCollection, orderBy('timestamp', 'desc'), limit(1));
     const dataSnapshot = await getDocs(q);
 
