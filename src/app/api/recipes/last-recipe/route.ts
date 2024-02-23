@@ -4,15 +4,20 @@ import { collection, getDocs, limit, orderBy, query } from 'firebase/firestore';
 import { db } from '@/firebase.config';
 
 export async function GET() {
-  const dataCollection = collection(db, 'recipes');
-  const q = query(dataCollection, orderBy('timestamp', 'desc'), limit(1));
-  const dataSnapshot = await getDocs(q);
+  try {
+    const dataCollection = collection(db, 'recipes');
+    const q = query(dataCollection, orderBy('timestamp', 'desc'), limit(1));
+    const dataSnapshot = await getDocs(q);
 
-  if (dataSnapshot.empty) {
-    return null;
+    if (dataSnapshot.empty) {
+      return getData(null, DATA_KEYS.recipes);
+    }
+
+    const lastRecipeData = dataSnapshot.docs[0].data();
+
+    return getData(lastRecipeData, DATA_KEYS.recipe);
+  } catch (err) {
+    console.error(err);
+    return getData(null, DATA_KEYS.recipe);
   }
-
-  const lastRecipeData = dataSnapshot.docs[0].data();
-
-  return getData(lastRecipeData, DATA_KEYS.recipe);
 }

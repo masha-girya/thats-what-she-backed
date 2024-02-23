@@ -31,27 +31,32 @@ import {
 // }
 
 export async function GET(req: Request) {
-  const urlWithParams = new URL(req.url, 'http://localhost').searchParams.get(
-    'slugs',
-  );
-
-  const dataCollection = collection(db, 'recipes');
-  let dataQuery:
-    | Query<DocumentData>
-    | CollectionReference<DocumentData, DocumentData> = dataCollection;
-
-  if (urlWithParams) {
-    dataQuery = query(
-      dataCollection,
-      where('slug', 'in', urlWithParams.split(',')),
+  try {
+    const urlWithParams = new URL(req.url, 'http://localhost').searchParams.get(
+      'slugs',
     );
+
+    const dataCollection = collection(db, 'recipes');
+    let dataQuery:
+      | Query<DocumentData>
+      | CollectionReference<DocumentData, DocumentData> = dataCollection;
+
+    if (urlWithParams) {
+      dataQuery = query(
+        dataCollection,
+        where('slug', 'in', urlWithParams.split(',')),
+      );
+    }
+
+    const dataSnapshot = await getDocs(dataQuery);
+
+    const data = dataSnapshot.docs.map((doc) => doc.data());
+
+    return getData(data, DATA_KEYS.recipes);
+  } catch (err) {
+    console.error(err);
+    return getData(null, DATA_KEYS.recipes);
   }
-
-  const dataSnapshot = await getDocs(dataQuery);
-
-  const data = dataSnapshot.docs.map((doc) => doc.data());
-
-  return getData(data, DATA_KEYS.recipes);
 }
 
 // export async function POST() {

@@ -21,19 +21,23 @@ import { NextResponse } from 'next/server';
 // }
 
 export async function GET(req: Request, { params }: any) {
-  const dataCollection = collection(db, 'recipes');
+  try {
+    const dataCollection = collection(db, 'recipes');
 
-  const q = query(dataCollection, where('slug', '==', params.slug));
-  const dataSnapshot = await getDocs(q);
-  console.log('HERE');
+    const q = query(dataCollection, where('slug', '==', params.slug));
+    const dataSnapshot = await getDocs(q);
 
-  if (dataSnapshot.empty) {
+    if (dataSnapshot.empty) {
+      return getData(null, DATA_KEYS.recipe);
+    }
+
+    const data = dataSnapshot.docs[0].data();
+
+    return getData(data, DATA_KEYS.recipe);
+  } catch (err) {
+    console.error(err);
     return getData(null, DATA_KEYS.recipe);
   }
-
-  const data = dataSnapshot.docs[0].data();
-
-  return getData(data, DATA_KEYS.recipe);
 }
 
 export async function PATCH(req: Request, { params }: any) {
