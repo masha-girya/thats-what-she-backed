@@ -54,7 +54,7 @@ export async function GET(req: Request) {
       DATA_KEYS.blog,
     );
   } catch (err) {
-    console.log(err);
+    console.error(err);
     return getData(
       {
         articles: null,

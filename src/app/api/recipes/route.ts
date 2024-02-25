@@ -1,5 +1,4 @@
-// import { DATA_KEYS } from '@/constants';
-// import { getData } from '@/utils';
+// import recipes from './recipes.new.json';
 
 import { DATA_KEYS } from '@/constants';
 import { db } from '@/firebase.config';
@@ -7,28 +6,13 @@ import { getData } from '@/utils';
 import {
   DocumentData,
   Query,
+  // addDoc,
   collection,
   getDocs,
   orderBy,
   query,
   where,
 } from 'firebase/firestore';
-
-// export async function GET(req: Request) {
-//   let recipesData = recipes.data;
-
-//   const urlWithParams = new URL(req.url, 'http://localhost').searchParams.get(
-//     'slugs',
-//   );
-
-//   if (urlWithParams) {
-//     recipesData = recipesData.filter((recipe) =>
-//       urlWithParams.split(',').includes(recipe.slug),
-//     );
-//   }
-
-//   return getData(recipesData, DATA_KEYS.recipes);
-// }
 
 export const dynamic = 'force-dynamic';
 

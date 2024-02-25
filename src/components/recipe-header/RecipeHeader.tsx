@@ -9,7 +9,7 @@ interface IProps {
 }
 
 export const RecipeHeader = ({ recipe }: IProps) => {
-  const { title, description, mainImage, ingredients } = recipe;
+  const { title, description, mainImage, totalIngredients } = recipe;
 
   return (
     <div className={styles.recipeHeader}>
@@ -42,7 +42,7 @@ export const RecipeHeader = ({ recipe }: IProps) => {
             {RECIPES_PAGE_TEXT.allIngredientsBox}
           </h2>
           <div>
-            <IngredientsList ingredients={Object.values(ingredients).flat()} />
+            <IngredientsList ingredients={totalIngredients} />
           </div>
         </RecipeSticker>
       </div>
