@@ -5,12 +5,12 @@ import {
   LoadingPage,
   ServerErrorPlug,
 } from '@/components';
-import { getArticle } from './blog.fetch';
+import { getArticleBySlug } from '@/lib';
 import { ERROR_TEXT } from '@/constants';
 import styles from './blog-inner.module.scss';
 
 const BlogInner = async ({ params }: any) => {
-  const { article } = await getArticle(params.slug);
+  const { article } = await getArticleBySlug(params.slug);
 
   if (!article) {
     return <ServerErrorPlug text={ERROR_TEXT.articleInner} />;

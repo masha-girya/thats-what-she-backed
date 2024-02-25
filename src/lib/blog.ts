@@ -1,6 +1,7 @@
 import { DATA_KEYS, ROUTES } from '@/constants';
+import { IArticle } from '@/types';
 import { endpoint } from '@/utils';
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 
 export const getArticles = async (page: number, searchQuery = '') => {
   let apiEndpoint = `${endpoint}/${ROUTES.blog}?page=${page}`;
@@ -21,7 +22,8 @@ export const getArticles = async (page: number, searchQuery = '') => {
 
 export const getArticleBySlug = async (slug: string) => {
   try {
-    const { data } = await axios.get(`${endpoint}/${ROUTES.blog}/${slug}`);
+    const { data }: AxiosResponse<{ [DATA_KEYS.article]: IArticle | null }> =
+      await axios.get(`${endpoint}/${ROUTES.blog}/${slug}`);
 
     return data ? data : { [DATA_KEYS.article]: null };
   } catch (error) {

@@ -35,7 +35,6 @@ export const BlogList = () => {
         console.error({ error });
       } finally {
         setIsOnLoad(false);
-        // window.scrollTo(0, 0);
       }
     },
     [],
