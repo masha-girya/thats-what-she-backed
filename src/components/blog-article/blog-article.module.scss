@@ -15,15 +15,17 @@
   }
 
   @include mixins.mediaMobile {
-    padding: 30px 16px;
+    padding: 30px 10px;
   }
 
   &__title {
-    font-size: 48px;
+    font-size: 46px;
     letter-spacing: 1px;
+    margin-bottom: 30px;
 
     @include mixins.mediaTablet {
       font-size: 38px;
+      margin-bottom: 20px;
     }
 
     @include mixins.mediaMobile {
