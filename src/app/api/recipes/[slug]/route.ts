@@ -12,6 +12,7 @@ import { db } from '@/firebase.config';
 import { NextResponse } from 'next/server';
 
 export const dynamic = 'force-dynamic';
+export const revalidate = 1;
 
 export async function GET(req: Request, { params }: any) {
   try {
