@@ -30,11 +30,7 @@ export async function getTipBySlug(slug: string) {
     const { data }: AxiosResponse<{ [DATA_KEYS.tip]: ITips | null }> =
       await axios.get(`${endpoint}/${ROUTES.tips}/${slug}`);
 
-    if (data && data[DATA_KEYS.tip]) {
-      return data;
-    }
-
-    return { [DATA_KEYS.tip]: null };
+    return data ? data : { [DATA_KEYS.tip]: null };
   } catch (error) {
     console.error(error);
     return { [DATA_KEYS.tip]: null };

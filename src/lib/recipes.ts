@@ -34,11 +34,7 @@ export async function getRecipeBySlug(slug: string) {
     const { data }: AxiosResponse<{ [DATA_KEYS.recipe]: IRecipe | null }> =
       await axios.get(`${endpoint}/${ROUTES.recipes}/${slug}`);
 
-    if (data && data[DATA_KEYS.recipe]) {
-      return data;
-    }
-
-    return { [DATA_KEYS.recipe]: null };
+    return data ? data : { [DATA_KEYS.recipe]: null };
   } catch (error) {
     console.error(error);
     return { [DATA_KEYS.recipe]: null };
@@ -54,7 +50,7 @@ export async function getLastRecipe() {
       return data;
     }
 
-    return { [DATA_KEYS.recipe]: null };
+    return data ? data : { [DATA_KEYS.recipe]: null };
   } catch (error) {
     console.error(error);
     return { [DATA_KEYS.recipe]: null };

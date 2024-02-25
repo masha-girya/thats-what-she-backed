@@ -24,6 +24,7 @@ export const BlogList = () => {
     async (searchParam: string, currentPage: number) => {
       try {
         const data = await getArticles(currentPage, searchParam);
+        console.log(data);
 
         if (data) {
           setBlogArticles(data.blog.articles);
@@ -34,7 +35,7 @@ export const BlogList = () => {
         console.error({ error });
       } finally {
         setIsOnLoad(false);
-        window.scrollTo(0, 0);
+        // window.scrollTo(0, 0);
       }
     },
     [],
@@ -53,6 +54,10 @@ export const BlogList = () => {
 
     loadArticlesByQuery(debouncedValue, currentPage);
   }, [debouncedValue, currentPage]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currentPage]);
 
   return (
     <section className={styles.blogList}>
