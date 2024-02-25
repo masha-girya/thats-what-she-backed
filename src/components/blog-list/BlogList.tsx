@@ -24,7 +24,6 @@ export const BlogList = () => {
     async (searchParam: string, currentPage: number) => {
       try {
         const data = await getArticles(currentPage, searchParam);
-        console.log(data);
 
         if (data) {
           setBlogArticles(data.blog.articles);
