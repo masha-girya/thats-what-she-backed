@@ -11,19 +11,34 @@ export interface IRecipe {
   bakingTime: string;
   formSize: string;
   amount: string;
-  ingredients: IIngredients;
-  steps: ISteps;
+  recipeSteps: IRecipeStep[];
+  totalIngredients: string[];
+  // ingredients: IIngredients;
+  // steps: ISteps;
   lastImage: string;
-  tips: ITipsRecipe;
+  tips: ITipsRecipe[];
   totalFavs: number;
+}
+
+export interface IRecipeStep {
+  title: string;
+  ingredients: string[];
+  steps: string[];
 }
 
 export interface IRecipeCard
   extends Pick<IRecipe, 'title' | 'slug' | 'mainImage'> {}
 
+// export interface ITipsRecipe {
+//   [key: string]: string;
+// }
+
 export interface ITipsRecipe {
-  [key: string]: string;
+  title: string;
+  text: string;
 }
+
+export interface IContent {}
 
 export interface ISteps {
   [key: keyof IIngredients]: any[];

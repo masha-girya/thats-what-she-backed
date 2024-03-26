@@ -21,6 +21,7 @@ export * from './recipe-header';
 export * from './recipe-step';
 export * from './recipe-sticker';
 export * from './recipe-tips';
+export * from './recipe-title-box';
 export * from './recipes-list';
 export * from './recipes-swiper';
 export * from './search';

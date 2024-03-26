@@ -14,13 +14,16 @@ export const ContentConstructor = (props: IProps) => {
 
   const getContent = useCallback(
     (item: any, index: number, stepName?: string) => {
+
       switch (true) {
         case 'text' in item:
-          return item.text.map((text: string) => (
-            <p key={text} className={styles.text}>
-              {text}
-            </p>
-          ));
+          return (Array.isArray(item.text) ? item.text : [item.text]).map(
+            (text: string) => (
+              <p key={text} className={styles.text}>
+                {text}
+              </p>
+            ),
+          );
 
         case 'image' in item:
           return (

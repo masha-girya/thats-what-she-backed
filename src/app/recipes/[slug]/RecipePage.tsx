@@ -9,21 +9,20 @@ import {
   LoadingPage,
   RecipesList,
   ShareSocials,
+  TitleBox,
 } from '@/components';
-import { getRecipe } from './recipe.fetch';
 import { ERROR_TEXT } from '@/constants';
+import { getRecipeBySlug } from '@/lib';
 import styles from './recipe-page.module.scss';
-import { TitleBox } from '@/components/recipe-header/title-box';
 
 const RecipePage = async ({ params }: any) => {
-  const { recipe } = await getRecipe(params.slug);
+  const { recipe } = await getRecipeBySlug(params.slug);
 
   if (!recipe) {
     return <ServerErrorPlug text={ERROR_TEXT.recipeInner} />;
   }
 
-  const { ingredients, steps, bakingTime, formSize, amount, tips, lastImage } =
-    recipe;
+  const { recipeSteps, bakingTime, formSize, amount, tips, lastImage } = recipe;
 
   const stickerInfo = [
     {
@@ -65,10 +64,10 @@ const RecipePage = async ({ params }: any) => {
           </RecipeSticker>
 
           <RecipeStep
-            ingredients={ingredients}
-            steps={steps}
+            recipeSteps={recipeSteps}
             lastImage={lastImage}
           />
+
           <RecipeSticker>
             <p className={styles.recipe__shareText}>
               А за кропітку роботу над рецептом ви завжди можете підримати мене

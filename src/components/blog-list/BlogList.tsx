@@ -34,7 +34,6 @@ export const BlogList = () => {
         console.error({ error });
       } finally {
         setIsOnLoad(false);
-        window.scrollTo(0, 0);
       }
     },
     [],
@@ -53,6 +52,10 @@ export const BlogList = () => {
 
     loadArticlesByQuery(debouncedValue, currentPage);
   }, [debouncedValue, currentPage]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currentPage]);
 
   return (
     <section className={styles.blogList}>

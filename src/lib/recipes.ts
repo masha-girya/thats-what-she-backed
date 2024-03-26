@@ -1,5 +1,5 @@
-import axios from 'axios';
-import { ROUTES } from '@/constants';
+import axios, { AxiosResponse } from 'axios';
+import { DATA_KEYS, ROUTES } from '@/constants';
 import { IRecipe } from '@/types';
 import { endpoint } from '@/utils';
 
@@ -9,38 +9,51 @@ export async function getAllRecipes(slugs?: string[]) {
     : `${endpoint}/${ROUTES.recipes}`;
 
   try {
-    const data = await fetch(endpointFormat);
-    const parsedData: { recipes: IRecipe[] } = await data.json();
+    const { data }: AxiosResponse<{ [DATA_KEYS.recipes]: IRecipe[] | null }> =
+      await axios.get(endpointFormat);
 
-    return parsedData.recipes.map((item) => ({
-      mainImage: item.mainImage,
-      title: item.title,
-      slug: item.slug,
-    }));
+    if (data && data.recipes) {
+      return {
+        [DATA_KEYS.recipes]: data.recipes.map((item: IRecipe) => ({
+          mainImage: item.mainImage,
+          title: item.title,
+          slug: item.slug,
+        })),
+      };
+    }
+
+    return { [DATA_KEYS.recipes]: null };
   } catch (error) {
     console.error(error);
+    return { [DATA_KEYS.recipes]: null };
   }
 }
 
 export async function getRecipeBySlug(slug: string) {
   try {
-    const data = await fetch(`${endpoint}/${ROUTES.recipes}/${slug}`);
+    const { data }: AxiosResponse<{ [DATA_KEYS.recipe]: IRecipe | null }> =
+      await axios.get(`${endpoint}/${ROUTES.recipes}/${slug}`);
 
-    return data.json();
+    return data ? data : { [DATA_KEYS.recipe]: null };
   } catch (error) {
     console.error(error);
+    return { [DATA_KEYS.recipe]: null };
   }
 }
 
 export async function getLastRecipe() {
   try {
-    const data = await fetch(
-      `${endpoint}/${ROUTES.recipes}/${ROUTES.lastRecipe}`,
-    );
+    const { data }: AxiosResponse<{ [DATA_KEYS.recipe]: IRecipe | null }> =
+      await axios(`${endpoint}/${ROUTES.recipes}/${ROUTES.lastRecipe}`);
 
-    return data.json();
+    if (data && data.recipe) {
+      return data;
+    }
+
+    return data ? data : { [DATA_KEYS.recipe]: null };
   } catch (error) {
     console.error(error);
+    return { [DATA_KEYS.recipe]: null };
   }
 }
 
@@ -48,7 +61,7 @@ export async function addRecipeToFavs(slug: string, totalFavs: number) {
   const link = `${endpoint}/${ROUTES.recipes}/${slug}`;
 
   try {
-    const data = await axios.post(link, { totalFavs });
+    const data = await axios.patch(link, { totalFavs });
 
     return data;
   } catch (error) {

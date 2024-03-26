@@ -5,7 +5,7 @@ import { RECIPES_PAGE_TEXT } from '@/constants';
 import styles from './recipe-tips.module.scss';
 
 interface IProps {
-  tips: ITipsRecipe;
+  tips: ITipsRecipe[];
 }
 
 export const RecipeTips = (props: IProps) => {
@@ -16,10 +16,10 @@ export const RecipeTips = (props: IProps) => {
       <RecipeSticker>
         <h2 className={styles.recipeTips__title}>{RECIPES_PAGE_TEXT.tips}</h2>
 
-        {Object.keys(tips).map((tip, i) => (
+        {tips.map((tip: ITipsRecipe, i) => (
           <div key={i} className={styles.recipeTips__info}>
-            <h3 className={styles.recipeTips__info__title}>{tip}</h3>
-            {linkCutter(tips[tip], [styles.recipeTips__info__text], true)}
+            <h3 className={styles.recipeTips__info__title}>{tip.title}</h3>
+            {linkCutter(tip.text, [styles.recipeTips__info__text], true)}
           </div>
         ))}
       </RecipeSticker>

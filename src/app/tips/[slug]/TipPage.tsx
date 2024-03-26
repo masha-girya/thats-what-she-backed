@@ -7,26 +7,25 @@ import {
   LoadingPage,
   ShareSocials,
 } from '@/components';
-import { ITips } from '@/types';
 import { ERROR_TEXT } from '@/constants';
-import { getTip } from './tip.fetch';
+import { getTipBySlug } from '@/lib';
 import styles from './tip-page.module.scss';
 
 const TipPage = async ({ params }: any) => {
-  const { res } = await getTip(params.slug);
+  const { tip } = await getTipBySlug(params.slug);
 
-  if (!res) {
+  if (!tip) {
     return <ServerErrorPlug text={ERROR_TEXT.tipInner} />;
   }
 
-  const { title, mainImage, tips, conclusion } = res as ITips;
+  const { title, mainImage, tips, conclusion } = tip;
 
   return (
     <Suspense fallback={<LoadingPage />}>
       <div className={styles.tipPage}>
         <BackButton />
         <div className={styles.tipPage__container}>
-          <h1 className={styles.tipPage__title}>{res.title}</h1>
+          <h1 className={styles.tipPage__title}>{title}</h1>
           <ShareSocials />
           <img
             className={styles.tipPage__mainImage}

@@ -4,6 +4,7 @@
 .blogList {
   width: 100%;
   max-width: calc(var.$card-width * 3 + var.$card-gap * 2 + 128px);
+  min-height: 640px;
 
   padding: 0 64px 100px;
   margin: 0 auto;

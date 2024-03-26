@@ -21,6 +21,7 @@
     "cors": "^2.8.5",
     "eslint": "8.45.0",
     "eslint-config-next": "13.4.10",
+    "firebase": "^10.8.0",
     "fs": "^0.0.1-security",
     "next": "^14.1.0",
     "next-connect": "^1.0.0",

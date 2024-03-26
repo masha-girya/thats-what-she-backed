@@ -4,24 +4,14 @@ import { getLastRecipe } from '@/lib';
 import { ROUTES } from '@/constants';
 import styles from './banner-recipe.module.scss';
 
-async function getRecipe() {
-  try {
-    const recipe = await getLastRecipe();
-    return { res: recipe.recipe };
-  } catch (error) {
-    console.error(error);
-    return { res: null };
-  }
-}
-
 export const BannerRecipe = async () => {
-  const { res } = await getRecipe();
+  const { recipe } = await getLastRecipe();
 
-  if (!res) {
+  if (!recipe) {
     return <></>;
   }
 
-  const { title, mainImage, slug } = res;
+  const { title, mainImage, slug } = recipe;
 
   return (
     <Link href={`/${ROUTES.recipes}/${slug}`} className={styles.bannerRecipe}>

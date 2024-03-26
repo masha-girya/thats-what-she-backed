@@ -1,46 +1,79 @@
-import blog from '@/data/blog.json';
 import { ARTICLES_LIMIT, DATA_KEYS } from '@/constants';
 import { getData } from '@/utils';
-import { IArticle } from '@/types';
+import { db } from '@/firebase.config';
+import {
+  CollectionReference,
+  DocumentData,
+  Query,
+  // addDoc,
+  collection,
+  getDocs,
+  orderBy,
+  query,
+  where,
+} from 'firebase/firestore';
 
-const getBlogWithPage = (blogData: IArticle[], currentPage: number) => {
-  const offsetPage = (currentPage - 1) * ARTICLES_LIMIT;
+export const dynamic = 'force-dynamic';
+
+const getBlogWithPage = (blogData: DocumentData[], currentPage: string) => {
+  const offsetPage = (Number(currentPage) - 1) * ARTICLES_LIMIT;
 
   return blogData.slice(offsetPage, offsetPage + ARTICLES_LIMIT);
 };
 
-const getBlogWithQuery = (blogData: IArticle[], query: string) => {
-  const lowerQuery = query.toLocaleLowerCase();
-
-  return blogData.filter(
-    (blog) =>
-      blog.title.toLocaleLowerCase().includes(lowerQuery) ||
-      blog.capture.toLocaleLowerCase().includes(lowerQuery),
-  );
-};
-
 export async function GET(req: Request) {
-  let blogData: IArticle[] | any[] = blog.data;
-  const initialLength = blogData.length;
+  try {
+    const URL_DATA = new URL(req.url, process.env.URL_PARAMS);
+    const searchQuery = URL_DATA.searchParams.get('search');
+    const currentPage = URL_DATA.searchParams.get('page') || '1';
 
-  if (blogData.length === 0) {
-    return getData([], DATA_KEYS.blog);
+    const dataCollection = collection(db, DATA_KEYS.blog);
+
+    let queryData:
+      | CollectionReference<DocumentData, DocumentData>
+      | Query<DocumentData, DocumentData> = dataCollection;
+
+    if (searchQuery) {
+      queryData = query(
+        dataCollection,
+        where('title', '>=', searchQuery),
+        orderBy('title', 'desc'),
+      );
+    }
+
+    const orderedData = query(queryData, orderBy('timestamp', 'desc'));
+    const dataSnapshot = await getDocs(orderedData);
+    const totalCountSnapshot = dataSnapshot.size;
+
+    const data = dataSnapshot.docs.map((doc) => doc.data());
+
+    const pageDataSnapshot = getBlogWithPage(data, currentPage);
+
+    return getData(
+      { articles: pageDataSnapshot, articlesAmount: totalCountSnapshot },
+      DATA_KEYS.blog,
+    );
+  } catch (err) {
+    console.error(err);
+    return getData(
+      {
+        articles: null,
+        articlesAmount: 0,
+      },
+      DATA_KEYS.blog,
+    );
   }
-
-  const URL_DATA = new URL(req.url, 'http://localhost');
-  const searchQuery = URL_DATA.searchParams.get('search');
-  const currentPage = URL_DATA.searchParams.get('page');
-
-  if (currentPage && !searchQuery) {
-    blogData = getBlogWithPage(blogData, Number(currentPage));
-  }
-
-  if (searchQuery) {
-    blogData = getBlogWithQuery(blogData, searchQuery);
-  }
-
-  return getData(
-    { articles: blogData, articlesAmount: initialLength },
-    DATA_KEYS.blog,
-  );
 }
+
+// export async function POST() {
+//   const newData = blog.data[0];
+//   const recipesCollection = collection(db, 'blog');
+
+//   addDoc(recipesCollection, { ...newData })
+//     .then((docRef) => {
+//       console.log('Document written with ID: ', docRef.id);
+//     })
+//     .catch((error) => {
+//       console.error('Error adding document: ', error);
+//     });
+// }

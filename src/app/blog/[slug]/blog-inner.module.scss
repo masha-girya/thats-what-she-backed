@@ -10,7 +10,7 @@
   }
 
   @include mixins.mediaMobile {
-    padding: calc(var.$header-hight + 30px) 16px 80px;
+    padding: calc(var.$header-hight + 30px) 8px 80px;
   }
 
   &__backBtn {

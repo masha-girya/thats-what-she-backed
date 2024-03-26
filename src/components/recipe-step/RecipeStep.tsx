@@ -1,28 +1,24 @@
 import Image from 'next/image';
-import { useMemo } from 'react';
 import { ContentConstructor, IngredientsList } from '@/components';
-import { IIngredients, ISteps } from '@/types';
+import { IRecipeStep } from '@/types';
 import { IMAGE_ALT_TEXT } from '@/constants';
 import styles from './recipe-step.module.scss';
 
-interface IRecipeStep {
-  steps: ISteps;
-  ingredients: IIngredients;
+interface IProps {
+  recipeSteps: IRecipeStep[];
   lastImage: string;
 }
 
-export const RecipeStep = (props: IRecipeStep) => {
-  const { steps, ingredients, lastImage } = props;
-
-  const stepsKeysArr = useMemo(() => Object.keys(steps), [steps]);
+export const RecipeStep = (props: IProps) => {
+  const { recipeSteps, lastImage } = props;
 
   return (
     <div className={styles.steps}>
-      {stepsKeysArr.map((step) => (
-        <div key={step} id={step} className={styles.steps__step}>
-          <h2 className={styles.steps__title}>{step}</h2>
-          <IngredientsList ingredients={ingredients[step]} />
-          <ContentConstructor body={steps[step]} stepName={step} />
+      {recipeSteps.map((step) => (
+        <div key={step.title} id={step.title} className={styles.steps__step}>
+          <h2 className={styles.steps__title}>{step.title}</h2>
+          <IngredientsList ingredients={step.ingredients} />
+          <ContentConstructor body={step.steps} stepName={step.title} />
         </div>
       ))}
       {lastImage && (
