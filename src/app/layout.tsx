@@ -1,51 +1,9 @@
-import type { Metadata } from 'next';
 import StoreProvider from '@/components/store-provider';
 import { Header, Footer, Container } from '@/components';
-import { headers } from 'next/headers';
-// import Favicon from '/public/favicon.ico';
 import '@/styles/globals.scss';
 import Template from './templates';
 
-import { ResolvingMetadata } from 'next';
-import { endpoint } from '@/utils';
-import { ROUTES } from '@/constants';
 import Head from 'next/head';
-
-type Props = {
-  params: { id: string };
-  searchParams: { [key: string]: string | string[] | undefined };
-};
-
-export async function generateMetadata(
-  { params }: Props,
-  parent: ResolvingMetadata,
-): Promise<Metadata> {
-  // read route params
-  const headersList = headers();
-  const pathname = headersList.get('Access-Control-Allow-Credentials');
-
-  console.log(1122, pathname);
-
-  const id = params.id;
-
-  const product = await fetch(`${endpoint}/${ROUTES.recipes}/${id}`).then(
-    (res) => {
-      // console.log(res);
-      return res.json();
-    },
-  );
-  console.log(product);
-
-  // optionally access and extend (rather than replace) parent metadata
-  const previousImages = (await parent).openGraph?.images || [];
-
-  return {
-    title: product.title,
-    openGraph: {
-      images: ['/some-specific-page-image.jpg', ...previousImages],
-    },
-  };
-}
 
 // export const metadata: Metadata = {
 //   metadataBase: new URL('https://thats-what-she-baked.vercel.app/'),
