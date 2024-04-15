@@ -69,8 +69,15 @@ export const linkCutter = (
   return result;
 };
 
-export const getLastImages = (stepArr: any[]) =>
-  stepArr
-    .map((ar) => Object.keys(ar))
-    .flat()
-    .lastIndexOf('image');
+export const getReplacement = (referer: string) => {
+  switch (true) {
+    case referer.includes('recipes'):
+      return 'recipes';
+    case referer.includes('blog'):
+      return 'blog';
+    case referer.includes('tips'):
+      return 'tips';
+    default:
+      return '';
+  }
+};
