@@ -172,7 +172,7 @@ Props): Promise<Metadata> {
 
   const replacement = getReplacement(referer);
 
-  const link = referer.replace(`/${replacement}`, `/api/${replacement}`);
+  const link = referer.replace(`/${replacement}`, `/api/${replacement}/`);
 
   const data = await fetch(link).then((res) => {
     return res.json();
