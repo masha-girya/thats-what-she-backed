@@ -39,6 +39,7 @@ import { getReplacement } from '@/utils';
 //       'https://res.cloudinary.com/dqkoxlze0/image/upload/v1690967129/bakery/cheesecake%20Friends/photo_2023-07-01_20-33-56_t1oko7.jpg',
 //   },
 // };
+export const dynamic = 'force-dynamic';
 
 type Props = {
   params: { slug: string };
@@ -184,6 +185,13 @@ Props): Promise<Metadata> {
     keywords: data[replacement.replace('s', '')].category,
     openGraph: {
       images: [data[replacement.replace('s', '')].mainImage],
+      title: data[replacement.replace('s', '')].title,
+      description: data[replacement.replace('s', '')].description[0],
+    },
+    twitter: {
+      images: [data[replacement.replace('s', '')].mainImage],
+      title: data[replacement.replace('s', '')].title,
+      description: data[replacement.replace('s', '')].description[0],
     },
   };
 }
