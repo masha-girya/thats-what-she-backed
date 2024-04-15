@@ -5,3 +5,4 @@ export * from './errors.constants';
 export * from './nav.constants';
 export * from './text.constants';
 export * from './socials.constants';
+export * from './seo.constants';
