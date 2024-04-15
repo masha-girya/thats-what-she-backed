@@ -1,8 +1,9 @@
-import { NextResponse } from 'next/server';
+import { NextResponse, type NextRequest } from 'next/server';
 
-export function middleware() {
+export function middleware(request: NextRequest) {
   const res = NextResponse.next();
 
+  res.headers.set('pathname', request.nextUrl.pathname); // Using set() instead of append() to overwrite any existing value
   res.headers.append('Access-Control-Allow-Credentials', 'true');
   res.headers.append('Access-Control-Allow-Origin', '*');
   res.headers.append(
