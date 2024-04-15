@@ -20,13 +20,13 @@ export async function generateMetadata(): Promise<Metadata> {
       description: SEO.tips.desc,
       title: 'Thats What She Baked | Ось, що вона спекла',
       images:
-        'https://res.cloudinary.com/dqkoxlze0/image/upload/v1690967129/bakery/cheesecake%20Friends/photo_2023-07-01_20-33-56_t1oko7.jpg',
+        'https://res.cloudinary.com/dqkoxlze0/image/upload/v1691335156/bakery/blueberry%20muffins/photo_2023-08-06_18-17-25_meuqfl.jpg',
     },
     openGraph: {
       description: SEO.tips.desc,
       title: 'Thats What She Baked | Ось, що вона спекла',
       images:
-        'https://res.cloudinary.com/dqkoxlze0/image/upload/v1690967129/bakery/cheesecake%20Friends/photo_2023-07-01_20-33-56_t1oko7.jpg',
+        'https://res.cloudinary.com/dqkoxlze0/image/upload/v1691335156/bakery/blueberry%20muffins/photo_2023-08-06_18-17-25_meuqfl.jpg',
     },
   };
 }

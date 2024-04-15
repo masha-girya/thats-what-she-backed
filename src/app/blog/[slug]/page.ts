@@ -13,24 +13,23 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const referer = `${endpoint}/blog/${params.slug}`;
-  console.log({referer})
 
   const { data } = await axios.get(referer);
 
   return {
     metadataBase: new URL(referer),
-    title: data.title,
-    description: data.capture,
-    keywords: data.capture,
+    title: data.article.title,
+    description: data.article.capture,
+    keywords: data.article.capture,
     openGraph: {
-      images: [data.mainImage],
-      title: data.title,
-      description: data.capture,
+      images: [data.article.mainImage],
+      title: data.article.title,
+      description: data.article.capture,
     },
     twitter: {
-      images: [data.mainImage],
-      title: data.title,
-      description: data.capture,
+      images: [data.article.mainImage],
+      title: data.article.title,
+      description: data.article.capture,
     },
   };
 }
