@@ -7,9 +7,11 @@ import {
   Query,
   // addDoc,
   collection,
+  // doc,
   getDocs,
   orderBy,
   query,
+  // updateDoc,
   where,
 } from 'firebase/firestore';
 
@@ -66,7 +68,7 @@ export async function GET(req: Request) {
 }
 
 // export async function POST() {
-//   const newData = blog.data[0];
+//   const newData = blog;
 //   const recipesCollection = collection(db, 'blog');
 
 //   addDoc(recipesCollection, { ...newData })
@@ -76,4 +78,16 @@ export async function GET(req: Request) {
 //     .catch((error) => {
 //       console.error('Error adding document: ', error);
 //     });
+// }
+
+// export async function PATCH() {
+//   try {
+//     const recipesRef = doc(db, 'blog', "bTsXI4794RjgF6xIENBf");
+
+//     await updateDoc(recipesRef, blog);
+
+//     console.log('Document updated successfully');
+//   } catch (error) {
+//     console.error('Error updating document:', error);
+//   }
 // }
