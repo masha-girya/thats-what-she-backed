@@ -3,6 +3,7 @@ export { default } from './RecipePage';
 import { Metadata } from 'next';
 import axios from 'axios';
 import { endpoint } from '@/utils';
+import { META_GLOBAL } from '@/constants';
 
 export const dynamic = 'force-dynamic';
 
@@ -17,6 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { data } = await axios.get(referer);
 
   return {
+    ...META_GLOBAL,
     metadataBase: new URL(referer),
     title: data.recipe.title,
     description: data.recipe.description[0],

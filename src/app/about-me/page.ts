@@ -1,7 +1,7 @@
 export { default } from './AboutMe';
 
 import { Metadata } from 'next';
-import { SEO } from '@/constants';
+import { SEO, META_GLOBAL } from '@/constants';
 import Favicon from '../../../public/favicon.ico';
 import seoImage from './assets/IMG_5264.jpg';
 
@@ -9,6 +9,7 @@ export const dynamic = 'force-dynamic';
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
+    ...META_GLOBAL,
     metadataBase: new URL('https://thats-what-she-baked.vercel.app/'),
     alternates: {
       canonical: 'https://thats-what-she-baked.vercel.app/',
