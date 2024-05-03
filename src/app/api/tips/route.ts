@@ -17,16 +17,3 @@ export async function GET() {
     return getData(null, DATA_KEYS.tips);
   }
 }
-
-// export async function POST() {
-//   const newData = tips.data[0];
-//   const recipesCollection = collection(db, 'tips');
-
-//   addDoc(recipesCollection, { ...newData })
-//     .then((docRef) => {
-//       console.log('Document written with ID: ', docRef.id);
-//     })
-//     .catch((error) => {
-//       console.error('Error adding document: ', error);
-//     });
-// }
