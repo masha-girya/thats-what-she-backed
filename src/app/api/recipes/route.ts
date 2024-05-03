@@ -4,7 +4,6 @@ import { getData } from '@/utils';
 import {
   DocumentData,
   Query,
-  // addDoc,
   collection,
   getDocs,
   orderBy,
@@ -46,30 +45,3 @@ export async function GET(req: Request) {
     return getData(null, DATA_KEYS.recipes);
   }
 }
-
-// export async function POST() {
-//   const newData = recipes.data[0];
-
-//   const recipesCollection = collection(db, 'recipes');
-
-//   addDoc(recipesCollection, { ...newData })
-//     .then((docRef) => {
-//       console.log('Document written with ID: ', docRef.id);
-//     })
-//     .catch((error) => {
-//       console.error('Error adding document: ', error);
-//     });
-// }
-
-// export async function PATCH() {
-//   try {
-//     const recipe = recipes.data.find(rec => rec.category.includes('cheescake'));
-//     const recipesRef = doc(db, 'recipes', 'RECIPE_ID);
-
-//     await updateDoc(recipesRef, recipe);
-
-//     console.log('Document updated successfully');
-//   } catch (error) {
-//     console.error('Error updating document:', error);
-//   }
-// }
