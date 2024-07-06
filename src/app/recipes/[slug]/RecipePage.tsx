@@ -7,7 +7,7 @@ import {
   ServerErrorPlug,
   BackButton,
   LoadingPage,
-  RecipesList,
+  // RecipesList,
   ShareSocials,
   TitleBox,
   InstagramPost,
@@ -85,7 +85,7 @@ const RecipePage = async ({ params }: any) => {
           </RecipeSticker>
         </div>
 
-        <RecipesList isBlock isSlider />
+        {/* <RecipesList isBlock isSlider /> */}
       </div>
     </Suspense>
   );
