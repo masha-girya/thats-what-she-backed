@@ -14,7 +14,7 @@
 
     margin: 0 auto;
 
-    padding: calc(var.$header-hight + 50px) 7% 0;
+    padding: calc(var.$header-hight + 50px) 7% 60px;
 
     @include mixins.mediaNoteBook {
       padding: calc(var.$header-hight + 30px) 64px 80px;

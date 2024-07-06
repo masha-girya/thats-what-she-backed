@@ -10,8 +10,8 @@ export default function Home() {
           <h1 className={styles.home__title}>{BANNER_TEXT.title}</h1>
           <h2 className={styles.home__subtitle}>
             {BANNER_TEXT.userGoal}
-            <br />
-            {BANNER_TEXT.myGoal}
+            {/* <br />
+            {BANNER_TEXT.myGoal} */}
           </h2>
           <LinkButton
             linkStyles={styles.home__linkButtonWrapper}

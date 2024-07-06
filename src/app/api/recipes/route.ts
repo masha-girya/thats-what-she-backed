@@ -25,6 +25,7 @@ export async function GET(req: Request) {
     let dataQuery: Query<DocumentData> = query(
       dataCollection,
       orderBy('timestamp', 'desc'),
+      where('slug', '==', 'blueberry-muffins'),
     );
 
     if (urlWithParams) {
